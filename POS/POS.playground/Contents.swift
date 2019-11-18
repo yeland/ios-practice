@@ -82,10 +82,9 @@ func loadPromotions() -> [Promotion] {
 }
     
 func getReceipt() -> String {
-  let purchasrdBarcodesAndNumbers = getItemQuantity()
-  let purchasedItems = getPurchasedItems(purchasrdBarcodesAndNumbers)
+  let purchasedItems = getPurchasedItems()
   let itemsString = getItemReceipt(purchasedItems)
-  let footer = getTotal(purchasedItems)
+  let footer = getTotalPrice(purchasedItems)
   return """
   ***<没钱赚商店>收据***
   \(itemsString)
@@ -96,12 +95,20 @@ func getReceipt() -> String {
 }
 
 func getItemReceipt(_ purchasedItems: [PurchasedItem]) -> String {
-  return purchasedItems.sorted(by: {
-    if $0.item.barcode > $1.item.barcode {
-      return false
-    }
-    return true
-    }).map{ $0.getSingleReceipt() }.joined(separator: "\n")
+  return purchasedItems.sorted(by: { $0.item.barcode < $1.item.barcode })
+    .map{ $0.getSingleReceipt() }
+    .joined(separator: "\n")
+}
+
+func getPurchasedItems() -> [PurchasedItem] {
+  let items = loadAllItems()
+  let barcodesAndNumbers = getItemQuantity()
+  var purchasedItems = [PurchasedItem]()
+  for (barcode, quantity) in barcodesAndNumbers {
+    guard let item = items.filter({ $0.barcode == barcode }).first else { return purchasedItems }
+    purchasedItems.append(PurchasedItem(item: item, quantity: quantity))
+  }
+  return purchasedItems
 }
 
 func getItemQuantity() -> [String: Int] {
@@ -118,17 +125,7 @@ func getItemQuantity() -> [String: Int] {
   return purchasedBarcodesAndNumbers
 }
 
-func getPurchasedItems(_ barcodesAndNumbers: [String: Int]) -> [PurchasedItem] {
-  let items = loadAllItems()
-  var purchasedItems = [PurchasedItem]()
-  for (barcode, quantity) in barcodesAndNumbers {
-    let item = items.filter({ $0.barcode == barcode }).first ?? items[0]
-    purchasedItems.append(PurchasedItem(item: item, quantity: quantity))
-  }
-  return purchasedItems
-}
-
-func getTotal(_ purchasedItems: [PurchasedItem]) -> String {
+func getTotalPrice(_ purchasedItems: [PurchasedItem]) -> String {
   let total = purchasedItems.reduce(0, { $0 + $1.getPrice() })
   let savedPrice = purchasedItems.reduce(0, { $0 + Float($1.quantity) * $1.item.price }) - total
   return """
