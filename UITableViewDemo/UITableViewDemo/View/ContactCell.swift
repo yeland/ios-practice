@@ -16,4 +16,9 @@ class ContactCell: UITableViewCell {
     nameLabel.text = contact.name
     phoneLabel.text = contact.phone
   }
+  
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    self.contentView.backgroundColor = .white
+  }
 }

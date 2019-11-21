@@ -22,6 +22,7 @@ class DevicesViewController: UIViewController {
     super.viewDidLoad()
     tableView.dataSource = self
     tableView.delegate = self
+//    tableView.tableHeaderView = 
   }
 }
 
