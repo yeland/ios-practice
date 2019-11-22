@@ -31,15 +31,7 @@ class NumberNameSpellerSpec: QuickSpec {
         it("four digits for whole thousand") {
           expect(NumberNameSpeller.numberName(of: 1000)) == "one thousand"
         }
-        
-//        it("four digits") {
-//          expect(NumberNameSpeller.numberName(of: 1501)) == "one thousand, five hundred and one"
-//        }
-//
-//        it("five digits") {
-//          expect(NumberNameSpeller.numberName(of: 12609)) == "twelve thousand, six hundred and nine"
-//        }
-//
+
         it("six digits") {
           expect(NumberNameSpeller.numberName(of: 512607)) == "five hundred and twelve thousand, six hundred and seven"
         }
