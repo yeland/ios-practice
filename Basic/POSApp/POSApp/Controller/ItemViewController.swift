@@ -12,13 +12,14 @@ class ItemViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
-  let itemService = ItemService()
+  let netWorkService = NetWorkService()
+  let getPurchasedItemsService = GetPurchasedItemsService()
   var items: [Item] = []
 
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    itemService.getResults() { [weak self] results, errorMessage in
+    netWorkService.getResults() { [weak self] results, errorMessage in
       if let results = results {
         self?.items = results
         self?.tableView.reloadData()
@@ -29,8 +30,18 @@ class ItemViewController: UIViewController {
       }
     }
     tableView.dataSource = self
+    setupTableHeader()
+  }
+  
+  private func setupTableHeader() {
     let itemHeader = Bundle.main.loadNibNamed("ItemHeader", owner: nil, options: nil)?.first as! ItemHeader
+    itemHeader.configure {
+      let shoppingListViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ShoppingListViewController") as ShoppingListViewController
+      shoppingListViewController.configure(with: self.getPurchasedItemsService)
+      self.show(shoppingListViewController, sender: self)
+    }
     tableView.tableHeaderView = itemHeader
+    
     itemHeader.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
       itemHeader.widthAnchor.constraint(equalTo: tableView.widthAnchor),
@@ -48,12 +59,12 @@ extension ItemViewController: UITableViewDataSource {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as? ItemCell else {
       return UITableViewCell()
     }
-    cell.configure(with: self.items[indexPath.row])
+    cell.configure(with: self.items[indexPath.row]) {
+      self.getPurchasedItemsService.addPurchasedItems(item: self.items[indexPath.row])
+    }
     
     return cell
   }
-  
-  
 }
 
 

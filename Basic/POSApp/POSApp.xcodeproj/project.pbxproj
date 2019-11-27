@@ -13,12 +13,15 @@
 		F8A2EC84238BBBBF00D5E5CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8A2EC82238BBBBF00D5E5CF /* Main.storyboard */; };
 		F8A2EC86238BBBC100D5E5CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8A2EC85238BBBC100D5E5CF /* Assets.xcassets */; };
 		F8A2EC89238BBBC100D5E5CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8A2EC87238BBBC100D5E5CF /* LaunchScreen.storyboard */; };
-		F8A2EC92238BC80800D5E5CF /* ItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A2EC91238BC80800D5E5CF /* ItemService.swift */; };
+		F8A2EC92238BC80800D5E5CF /* NetWorkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A2EC91238BC80800D5E5CF /* NetWorkService.swift */; };
 		F8A2EC95238BCDE700D5E5CF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A2EC94238BCDE700D5E5CF /* Item.swift */; };
 		F8E803AC238BD50500526993 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803AB238BD50500526993 /* ItemCell.swift */; };
 		F8E803B8238CE40200526993 /* ItemHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803B7238CE40200526993 /* ItemHeader.swift */; };
 		F8E803BA238CE41800526993 /* ItemHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8E803B9238CE41800526993 /* ItemHeader.xib */; };
 		F8E803BC238CF14800526993 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803BB238CF14800526993 /* ShoppingListViewController.swift */; };
+		F8E803C1238D02DB00526993 /* GetPurchasedItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803C0238D02DB00526993 /* GetPurchasedItemsService.swift */; };
+		F8E803C3238D041F00526993 /* PurchasedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803C2238D041F00526993 /* PurchasedItem.swift */; };
+		F8E803C5238D168900526993 /* PurchasedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803C4238D168900526993 /* PurchasedItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,12 +33,15 @@
 		F8A2EC85238BBBC100D5E5CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8A2EC88238BBBC100D5E5CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8A2EC8A238BBBC100D5E5CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8A2EC91238BC80800D5E5CF /* ItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemService.swift; sourceTree = "<group>"; };
+		F8A2EC91238BC80800D5E5CF /* NetWorkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkService.swift; sourceTree = "<group>"; };
 		F8A2EC94238BCDE700D5E5CF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F8E803AB238BD50500526993 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		F8E803B7238CE40200526993 /* ItemHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemHeader.swift; path = ../../../../../../../.Trash/ItemHeader.swift; sourceTree = "<group>"; };
 		F8E803B9238CE41800526993 /* ItemHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ItemHeader.xib; path = ../../../../../../../.Trash/ItemHeader.xib; sourceTree = "<group>"; };
 		F8E803BB238CF14800526993 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
+		F8E803C0238D02DB00526993 /* GetPurchasedItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPurchasedItemsService.swift; sourceTree = "<group>"; };
+		F8E803C2238D041F00526993 /* PurchasedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedItem.swift; sourceTree = "<group>"; };
+		F8E803C4238D168900526993 /* PurchasedItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,33 +74,34 @@
 		F8A2EC7B238BBBBF00D5E5CF /* POSApp */ = {
 			isa = PBXGroup;
 			children = (
+				F8E803BF238D00E600526993 /* Controller */,
 				F8E803AA238BD4E400526993 /* View */,
 				F8A2EC93238BCDCE00D5E5CF /* Model */,
-				F8A2EC90238BC7B000D5E5CF /* NetWorking */,
+				F8A2EC90238BC7B000D5E5CF /* Service */,
 				F8A2EC7C238BBBBF00D5E5CF /* AppDelegate.swift */,
 				F8A2EC7E238BBBBF00D5E5CF /* SceneDelegate.swift */,
-				F8A2EC80238BBBBF00D5E5CF /* ItemViewController.swift */,
 				F8A2EC82238BBBBF00D5E5CF /* Main.storyboard */,
 				F8A2EC85238BBBC100D5E5CF /* Assets.xcassets */,
 				F8A2EC87238BBBC100D5E5CF /* LaunchScreen.storyboard */,
 				F8A2EC8A238BBBC100D5E5CF /* Info.plist */,
-				F8E803BB238CF14800526993 /* ShoppingListViewController.swift */,
 			);
 			path = POSApp;
 			sourceTree = "<group>";
 		};
-		F8A2EC90238BC7B000D5E5CF /* NetWorking */ = {
+		F8A2EC90238BC7B000D5E5CF /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				F8A2EC91238BC80800D5E5CF /* ItemService.swift */,
+				F8A2EC91238BC80800D5E5CF /* NetWorkService.swift */,
+				F8E803C0238D02DB00526993 /* GetPurchasedItemsService.swift */,
 			);
-			path = NetWorking;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		F8A2EC93238BCDCE00D5E5CF /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				F8A2EC94238BCDE700D5E5CF /* Item.swift */,
+				F8E803C2238D041F00526993 /* PurchasedItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -105,8 +112,18 @@
 				F8E803AB238BD50500526993 /* ItemCell.swift */,
 				F8E803B7238CE40200526993 /* ItemHeader.swift */,
 				F8E803B9238CE41800526993 /* ItemHeader.xib */,
+				F8E803C4238D168900526993 /* PurchasedItemCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F8E803BF238D00E600526993 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F8A2EC80238BBBBF00D5E5CF /* ItemViewController.swift */,
+				F8E803BB238CF14800526993 /* ShoppingListViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,12 +199,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8A2EC95238BCDE700D5E5CF /* Item.swift in Sources */,
-				F8A2EC92238BC80800D5E5CF /* ItemService.swift in Sources */,
+				F8A2EC92238BC80800D5E5CF /* NetWorkService.swift in Sources */,
+				F8E803C5238D168900526993 /* PurchasedItemCell.swift in Sources */,
 				F8E803AC238BD50500526993 /* ItemCell.swift in Sources */,
 				F8E803B8238CE40200526993 /* ItemHeader.swift in Sources */,
+				F8E803C3238D041F00526993 /* PurchasedItem.swift in Sources */,
 				F8E803BC238CF14800526993 /* ShoppingListViewController.swift in Sources */,
 				F8A2EC81238BBBBF00D5E5CF /* ItemViewController.swift in Sources */,
 				F8A2EC7D238BBBBF00D5E5CF /* AppDelegate.swift in Sources */,
+				F8E803C1238D02DB00526993 /* GetPurchasedItemsService.swift in Sources */,
 				F8A2EC7F238BBBBF00D5E5CF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

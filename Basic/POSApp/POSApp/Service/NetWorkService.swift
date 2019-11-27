@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ItemService {
+class NetWorkService {
   var defaultSession = URLSession(configuration: .default)
   var dataTask: URLSessionDataTask?
   var errorMessage = ""
@@ -33,7 +33,6 @@ class ItemService {
         } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
           do {
             self?.items = try JSONDecoder().decode([Item].self, from: data)
-            print(self?.items[0].name ?? "")
           } catch let error {
             self?.errorMessage = error.localizedDescription
           }
