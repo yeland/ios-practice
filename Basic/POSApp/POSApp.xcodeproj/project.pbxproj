@@ -25,6 +25,7 @@
 		F8E803C7238E125300526993 /* ItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803C6238E125300526993 /* ItemsService.swift */; };
 		F8E803C9238E3EE100526993 /* ShoppingListFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8E803C8238E3EE100526993 /* ShoppingListFooter.xib */; };
 		F8E803CB238E401500526993 /* ShoppingListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803CA238E401500526993 /* ShoppingListFooter.swift */; };
+		F8E803CD238E44E300526993 /* ReceiptViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803CC238E44E300526993 /* ReceiptViewcontroller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		F8E803C6238E125300526993 /* ItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsService.swift; sourceTree = "<group>"; };
 		F8E803C8238E3EE100526993 /* ShoppingListFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingListFooter.xib; sourceTree = "<group>"; };
 		F8E803CA238E401500526993 /* ShoppingListFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListFooter.swift; sourceTree = "<group>"; };
+		F8E803CC238E44E300526993 /* ReceiptViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewcontroller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 			children = (
 				F8A2EC80238BBBBF00D5E5CF /* ItemViewController.swift */,
 				F8E803BB238CF14800526993 /* ShoppingListViewController.swift */,
+				F8E803CC238E44E300526993 /* ReceiptViewcontroller.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8E803C7238E125300526993 /* ItemsService.swift in Sources */,
+				F8E803CD238E44E300526993 /* ReceiptViewcontroller.swift in Sources */,
 				F8A2EC95238BCDE700D5E5CF /* Item.swift in Sources */,
 				F8A2EC92238BC80800D5E5CF /* NetWorkService.swift in Sources */,
 				F8E803C5238D168900526993 /* PurchasedItemCell.swift in Sources */,

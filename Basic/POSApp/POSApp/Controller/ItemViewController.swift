@@ -17,6 +17,7 @@ class ItemViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.title = "商品列表"
     
     itemsService.getItems() { [weak self] items, promotionBarcodes in
       self?.tableView.reloadData()
@@ -38,7 +39,7 @@ class ItemViewController: UIViewController {
     itemHeader.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
       itemHeader.widthAnchor.constraint(equalTo: tableView.widthAnchor),
-      itemHeader.heightAnchor.constraint(equalToConstant: 80)
+      itemHeader.heightAnchor.constraint(equalToConstant: 70)
     ])
   }
 }

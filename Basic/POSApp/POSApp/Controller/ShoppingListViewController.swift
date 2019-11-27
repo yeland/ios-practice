@@ -24,6 +24,12 @@ class ShoppingListViewController: UIViewController {
   func setupFooter() {
     let shoppingListFooter = Bundle.main.loadNibNamed("ShoppingListFooter", owner: nil, options: nil)?.first as! ShoppingListFooter
     
+    shoppingListFooter.configure {
+      let receiptViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ReceiptViewController") as ReceiptViewController
+      receiptViewController.configure(with: self.purchasedItemsService)
+      self.show(receiptViewController, sender: self)
+    }
+    
     tableView.tableFooterView = shoppingListFooter
     
     NSLayoutConstraint.activate([

@@ -11,5 +11,13 @@ import UIKit
 class ShoppingListFooter: UIView {
   @IBOutlet weak var checkButton: UIButton!
   
+  var checkButtonAction: (() -> Void)?
   
+  func configure(checkButtonAction: (() -> Void)?) {
+    self.checkButtonAction = checkButtonAction
+  }
+  
+  @IBAction func clickCheckButton(_ sender: UIButton) {
+    self.checkButtonAction?()
+  }
 }
