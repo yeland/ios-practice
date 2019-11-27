@@ -30,9 +30,9 @@ class ItemViewController: UIViewController {
   private func setupTableHeader() {
     let itemHeader = Bundle.main.loadNibNamed("ItemHeader", owner: nil, options: nil)?.first as! ItemHeader
     itemHeader.configure {
-      let shoppingListViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ShoppingListViewController") as ShoppingListViewController
-      shoppingListViewController.configure(with: self.purchasedItemsService)
-      self.show(shoppingListViewController, sender: self)
+      let shoppingCartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ShoppingCartViewController") as ShoppingCartViewController
+      shoppingCartViewController.configure(with: self.purchasedItemsService)
+      self.show(shoppingCartViewController, sender: self)
     }
     tableView.tableHeaderView = itemHeader
     

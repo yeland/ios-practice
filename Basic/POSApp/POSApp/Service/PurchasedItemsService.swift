@@ -1,5 +1,5 @@
 //
-//  ShoppingListService.swift
+//  PurchasedItemsService.swift
 //  POSApp
 //
 //  Created by Linxiao Wei on 2019/11/26.

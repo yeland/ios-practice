@@ -88,10 +88,10 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="133.92857142857142"/>
         </scene>
-        <!--Shopping List View Controller-->
+        <!--Shopping Cart View Controller-->
         <scene sceneID="cDN-aC-wCi">
             <objects>
-                <viewController storyboardIdentifier="ShoppingListViewController" id="pDG-Zi-w42" customClass="ShoppingListViewController" customModule="POSApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShoppingCartViewController" id="pDG-Zi-w42" customClass="ShoppingCartViewController" customModule="POSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cma-Tg-WFV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

@@ -1,5 +1,5 @@
 //
-//  ShoppingListFooter.swift
+//  ShoppingCartFooter.swift
 //  POSApp
 //
 //  Created by Linxiao Wei on 2019/11/27.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShoppingListFooter: UIView {
+class ShoppingCartFooter: UIView {
   @IBOutlet weak var checkButton: UIButton!
   
   var checkButtonAction: (() -> Void)?

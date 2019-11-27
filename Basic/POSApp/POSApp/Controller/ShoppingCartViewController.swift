@@ -1,5 +1,5 @@
 //
-//  ShoppingListViewController.swift
+//  ShoppingCartViewController.swift
 //  POSApp
 //
 //  Created by Linxiao Wei on 2019/11/26.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShoppingListViewController: UIViewController {
+class ShoppingCartViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
@@ -26,18 +26,18 @@ class ShoppingListViewController: UIViewController {
   }
   
   func setupFooter() {
-    let shoppingListFooter = Bundle.main.loadNibNamed("ShoppingListFooter", owner: nil, options: nil)?.first as! ShoppingListFooter
+    let shoppingCartFooter = Bundle.main.loadNibNamed("ShoppingCartFooter", owner: nil, options: nil)?.first as! ShoppingCartFooter
     
-    shoppingListFooter.configure {
+    shoppingCartFooter.configure {
       let receiptViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ReceiptViewController") as ReceiptViewController
       receiptViewController.configure(with: self.purchasedItemsService)
       self.show(receiptViewController, sender: self)
     }
     
-    tableView.tableFooterView = shoppingListFooter
+    tableView.tableFooterView = shoppingCartFooter
     
     NSLayoutConstraint.activate([
-      shoppingListFooter.widthAnchor.constraint(equalTo: tableView.widthAnchor),
+      shoppingCartFooter.widthAnchor.constraint(equalTo: tableView.widthAnchor),
     ])
   }
   
@@ -46,7 +46,7 @@ class ShoppingListViewController: UIViewController {
   }
 }
 
-extension ShoppingListViewController: UITableViewDataSource {
+extension ShoppingCartViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return purchasedItemsService.purchasedItems.count
   }
