@@ -13,7 +13,7 @@ class PurchasedItemsService {
   
   func addPurchasedItems(item: Item) {
     if let purchasedItem = purchasedItems.filter({ $0.item.barcode == item.barcode }).first {
-      purchasedItem.setQuantity(quantity: purchasedItem.quantity + 1)
+      purchasedItem.quantity = purchasedItem.quantity + 1
     } else {
       self.purchasedItems.append(PurchasedItem(item: item, quantity: 1))
     }

@@ -17,10 +17,6 @@ class PurchasedItem {
     self.quantity = quantity
   }
   
-  func setQuantity(quantity: Int) {
-    self.quantity = quantity
-  }
-  
   func getPrice() -> Float {
     if item.isPromotional ?? false {
       return Float(quantity / 3 * 2 + quantity % 3) * item.price
