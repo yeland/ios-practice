@@ -23,6 +23,8 @@
 		F8E803C3238D041F00526993 /* PurchasedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803C2238D041F00526993 /* PurchasedItem.swift */; };
 		F8E803C5238D168900526993 /* PurchasedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803C4238D168900526993 /* PurchasedItemCell.swift */; };
 		F8E803C7238E125300526993 /* ItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803C6238E125300526993 /* ItemsService.swift */; };
+		F8E803C9238E3EE100526993 /* ShoppingListFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8E803C8238E3EE100526993 /* ShoppingListFooter.xib */; };
+		F8E803CB238E401500526993 /* ShoppingListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803CA238E401500526993 /* ShoppingListFooter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		F8E803C2238D041F00526993 /* PurchasedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedItem.swift; sourceTree = "<group>"; };
 		F8E803C4238D168900526993 /* PurchasedItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedItemCell.swift; sourceTree = "<group>"; };
 		F8E803C6238E125300526993 /* ItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsService.swift; sourceTree = "<group>"; };
+		F8E803C8238E3EE100526993 /* ShoppingListFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingListFooter.xib; sourceTree = "<group>"; };
+		F8E803CA238E401500526993 /* ShoppingListFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListFooter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,8 @@
 				F8E803B7238CE40200526993 /* ItemHeader.swift */,
 				F8E803B9238CE41800526993 /* ItemHeader.xib */,
 				F8E803C4238D168900526993 /* PurchasedItemCell.swift */,
+				F8E803C8238E3EE100526993 /* ShoppingListFooter.xib */,
+				F8E803CA238E401500526993 /* ShoppingListFooter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -190,6 +196,7 @@
 				F8A2EC89238BBBC100D5E5CF /* LaunchScreen.storyboard in Resources */,
 				F8A2EC86238BBBC100D5E5CF /* Assets.xcassets in Resources */,
 				F8A2EC84238BBBBF00D5E5CF /* Main.storyboard in Resources */,
+				F8E803C9238E3EE100526993 /* ShoppingListFooter.xib in Resources */,
 				F8E803BA238CE41800526993 /* ItemHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +218,7 @@
 				F8E803BC238CF14800526993 /* ShoppingListViewController.swift in Sources */,
 				F8A2EC81238BBBBF00D5E5CF /* ItemViewController.swift in Sources */,
 				F8A2EC7D238BBBBF00D5E5CF /* AppDelegate.swift in Sources */,
+				F8E803CB238E401500526993 /* ShoppingListFooter.swift in Sources */,
 				F8E803C1238D02DB00526993 /* PurchasedItemsService.swift in Sources */,
 				F8A2EC7F238BBBBF00D5E5CF /* SceneDelegate.swift in Sources */,
 			);

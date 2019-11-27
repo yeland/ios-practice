@@ -38,7 +38,7 @@ class ItemViewController: UIViewController {
     itemHeader.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
       itemHeader.widthAnchor.constraint(equalTo: tableView.widthAnchor),
-      itemHeader.heightAnchor.constraint(equalToConstant: 50)
+      itemHeader.heightAnchor.constraint(equalToConstant: 80)
     ])
   }
 }

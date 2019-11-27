@@ -21,16 +21,15 @@ class PurchasedItem {
     self.quantity = quantity
   }
   
-  func getPrice(_ promotionItems: [String]) -> Float {
-//    let promotionItems = loadPromotions()[0].barcodes
-    if promotionItems.contains(item.barcode) {
+  func getPrice() -> Float {
+    if item.isPromotional ?? false {
       return Float(quantity / 3 * 2 + quantity % 3) * item.price
     }
     return Float(quantity) * item.price
   }
   
-  func getSingleReceipt(promotionItems: [String]) -> String {
+  func getSingleReceipt() -> String {
     let formattedPrice = String(format: "%.2f", item.price)
-    return "名称：\(item.name)，数量：\(quantity)\(item.unit)，单价：\(formattedPrice)(元)，小计：\(getPrice(promotionItems))(元)"
+    return "名称：\(item.name)，数量：\(quantity)\(item.unit)，单价：\(formattedPrice)(元)，小计：\(getPrice())(元)"
   }
 }

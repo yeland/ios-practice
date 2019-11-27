@@ -18,6 +18,17 @@ class ShoppingListViewController: UIViewController {
     super.viewDidLoad()
     self.title = "购物车"
     tableView.dataSource = self
+    setupFooter()
+  }
+  
+  func setupFooter() {
+    let shoppingListFooter = Bundle.main.loadNibNamed("ShoppingListFooter", owner: nil, options: nil)?.first as! ShoppingListFooter
+    
+    tableView.tableFooterView = shoppingListFooter
+    
+    NSLayoutConstraint.activate([
+      shoppingListFooter.widthAnchor.constraint(equalTo: tableView.widthAnchor),
+    ])
   }
   
   func configure(with purchasedItemsService: PurchasedItemsService) {
