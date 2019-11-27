@@ -12,7 +12,7 @@ class ShoppingListViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
-  var getPurchasedItemsService = GetPurchasedItemsService()
+  var purchasedItemsService = PurchasedItemsService()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -20,21 +20,21 @@ class ShoppingListViewController: UIViewController {
     tableView.dataSource = self
   }
   
-  func configure(with getPurchasedItemsService: GetPurchasedItemsService) {
-    self.getPurchasedItemsService = getPurchasedItemsService
+  func configure(with purchasedItemsService: PurchasedItemsService) {
+    self.purchasedItemsService = purchasedItemsService
   }
 }
 
 extension ShoppingListViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return getPurchasedItemsService.purchasedItems.count
+    return purchasedItemsService.purchasedItems.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "PurchasedItemCell", for: indexPath) as? PurchasedItemCell else {
       return UITableViewCell()
     }
-    cell.configure(with: getPurchasedItemsService.purchasedItems[indexPath.row])
+    cell.configure(with: purchasedItemsService.purchasedItems[indexPath.row])
     
     return cell
   }

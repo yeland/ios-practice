@@ -19,9 +19,10 @@
 		F8E803B8238CE40200526993 /* ItemHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803B7238CE40200526993 /* ItemHeader.swift */; };
 		F8E803BA238CE41800526993 /* ItemHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8E803B9238CE41800526993 /* ItemHeader.xib */; };
 		F8E803BC238CF14800526993 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803BB238CF14800526993 /* ShoppingListViewController.swift */; };
-		F8E803C1238D02DB00526993 /* GetPurchasedItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803C0238D02DB00526993 /* GetPurchasedItemsService.swift */; };
+		F8E803C1238D02DB00526993 /* PurchasedItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803C0238D02DB00526993 /* PurchasedItemsService.swift */; };
 		F8E803C3238D041F00526993 /* PurchasedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803C2238D041F00526993 /* PurchasedItem.swift */; };
 		F8E803C5238D168900526993 /* PurchasedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803C4238D168900526993 /* PurchasedItemCell.swift */; };
+		F8E803C7238E125300526993 /* ItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803C6238E125300526993 /* ItemsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,9 +40,10 @@
 		F8E803B7238CE40200526993 /* ItemHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemHeader.swift; path = ../../../../../../../.Trash/ItemHeader.swift; sourceTree = "<group>"; };
 		F8E803B9238CE41800526993 /* ItemHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ItemHeader.xib; path = ../../../../../../../.Trash/ItemHeader.xib; sourceTree = "<group>"; };
 		F8E803BB238CF14800526993 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
-		F8E803C0238D02DB00526993 /* GetPurchasedItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPurchasedItemsService.swift; sourceTree = "<group>"; };
+		F8E803C0238D02DB00526993 /* PurchasedItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedItemsService.swift; sourceTree = "<group>"; };
 		F8E803C2238D041F00526993 /* PurchasedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedItem.swift; sourceTree = "<group>"; };
 		F8E803C4238D168900526993 /* PurchasedItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedItemCell.swift; sourceTree = "<group>"; };
+		F8E803C6238E125300526993 /* ItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				F8A2EC91238BC80800D5E5CF /* NetWorkService.swift */,
-				F8E803C0238D02DB00526993 /* GetPurchasedItemsService.swift */,
+				F8E803C0238D02DB00526993 /* PurchasedItemsService.swift */,
+				F8E803C6238E125300526993 /* ItemsService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8E803C7238E125300526993 /* ItemsService.swift in Sources */,
 				F8A2EC95238BCDE700D5E5CF /* Item.swift in Sources */,
 				F8A2EC92238BC80800D5E5CF /* NetWorkService.swift in Sources */,
 				F8E803C5238D168900526993 /* PurchasedItemCell.swift in Sources */,
@@ -207,7 +211,7 @@
 				F8E803BC238CF14800526993 /* ShoppingListViewController.swift in Sources */,
 				F8A2EC81238BBBBF00D5E5CF /* ItemViewController.swift in Sources */,
 				F8A2EC7D238BBBBF00D5E5CF /* AppDelegate.swift in Sources */,
-				F8E803C1238D02DB00526993 /* GetPurchasedItemsService.swift in Sources */,
+				F8E803C1238D02DB00526993 /* PurchasedItemsService.swift in Sources */,
 				F8A2EC7F238BBBBF00D5E5CF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

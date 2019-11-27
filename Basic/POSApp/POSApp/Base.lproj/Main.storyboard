@@ -44,21 +44,34 @@
                                                 <action selector="clickAddItem:" destination="6zr-eY-bMt" eventType="touchUpInside" id="GjG-fx-YfP"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8d4-Ap-17a">
+                                            <rect key="frame" x="92" y="61" width="38" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="18" id="twH-fL-Tmy"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="8d4-Ap-17a" firstAttribute="centerY" secondItem="m4b-EL-xoN" secondAttribute="centerY" id="0Ca-Hg-Tdg"/>
                                         <constraint firstItem="xA4-1j-EeY" firstAttribute="leading" relation="lessThanOrEqual" secondItem="m4b-EL-xoN" secondAttribute="trailing" constant="243" id="2Nm-40-ksV"/>
                                         <constraint firstItem="xBw-h8-vnw" firstAttribute="top" secondItem="Zhm-9l-r6y" secondAttribute="topMargin" constant="15" id="Hlv-Ut-s11"/>
                                         <constraint firstItem="m4b-EL-xoN" firstAttribute="top" secondItem="xBw-h8-vnw" secondAttribute="bottom" constant="11" id="Mkh-Pp-X0G"/>
                                         <constraint firstItem="xA4-1j-EeY" firstAttribute="leading" relation="lessThanOrEqual" secondItem="xBw-h8-vnw" secondAttribute="trailing" constant="233" id="Wul-ae-BE3"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="m4b-EL-xoN" secondAttribute="bottom" constant="25" id="XUG-zJ-0yw"/>
+                                        <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="8d4-Ap-17a" secondAttribute="trailing" constant="264" id="aa1-J9-XT4"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="xA4-1j-EeY" secondAttribute="trailing" constant="30" id="l6y-KI-5DE"/>
                                         <constraint firstItem="xBw-h8-vnw" firstAttribute="leading" secondItem="Zhm-9l-r6y" secondAttribute="leadingMargin" constant="20" id="oXp-w4-rL5"/>
                                         <constraint firstItem="xA4-1j-EeY" firstAttribute="top" secondItem="Zhm-9l-r6y" secondAttribute="topMargin" constant="10" id="paL-Rq-YbT"/>
+                                        <constraint firstItem="8d4-Ap-17a" firstAttribute="leading" secondItem="Zhm-9l-r6y" secondAttribute="leadingMargin" constant="72" id="u9a-ss-1d0"/>
                                         <constraint firstItem="m4b-EL-xoN" firstAttribute="leading" secondItem="Zhm-9l-r6y" secondAttribute="leadingMargin" constant="20" id="uc9-Q2-qTO"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="addButton" destination="xA4-1j-EeY" id="Hho-gD-ICD"/>
+                                    <outlet property="isPromotionalLabel" destination="8d4-Ap-17a" id="chY-5P-2Um"/>
                                     <outlet property="nameLabel" destination="xBw-h8-vnw" id="AzM-mi-a2H"/>
                                     <outlet property="priceLabel" destination="m4b-EL-xoN" id="D7x-Q6-gPp"/>
                                 </connections>

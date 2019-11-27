@@ -8,9 +8,10 @@
 
 import Foundation
 
-struct Item: Codable {
+class Item: Codable {
   var barcode: String
   var name: String
   var unit: String
   var price: Float
+  var isPromotional: Bool?
 }

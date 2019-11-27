@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GetPurchasedItemsService {
+class PurchasedItemsService {
   public var purchasedItems = [PurchasedItem]()
   
   public func addPurchasedItems(item: Item) {
