@@ -21,6 +21,10 @@ class ShoppingListViewController: UIViewController {
     setupFooter()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    tableView.reloadData()
+  }
+  
   func setupFooter() {
     let shoppingListFooter = Bundle.main.loadNibNamed("ShoppingListFooter", owner: nil, options: nil)?.first as! ShoppingListFooter
     

@@ -17,9 +17,9 @@ class ReceiptViewController: UIViewController {
     receiptText.text = purchasedItemsService.getReceipt()
   }
   
-//  override func viewDidAppear(_ animated: Bool) {
-//    purchasedItemsService.purchasedItems = []
-//  }
+  override func viewDidAppear(_ animated: Bool) {
+    purchasedItemsService.purchasedItems = []
+  }
   
   func configure(with purchasedItemsService: PurchasedItemsService) {
     self.purchasedItemsService = purchasedItemsService
