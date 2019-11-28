@@ -18,7 +18,7 @@ class PurchasedItem {
   }
   
   func getPrice() -> Float {
-    if item.isPromotional ?? false {
+    if item.isPromotional! {
       return Float(quantity / 3 * 2 + quantity % 3) * item.price
     }
     return Float(quantity) * item.price
@@ -26,6 +26,7 @@ class PurchasedItem {
   
   func getSingleReceipt() -> String {
     let formattedPrice = String(format: "%.2f", item.price)
-    return "名称：\(item.name)，数量：\(quantity)\(item.unit)，单价：\(formattedPrice)(元)，小计：\(getPrice())(元)"
+    let subtotal = String(format: "%.2f", getPrice())
+    return "名称：\(item.name)，数量：\(quantity)\(item.unit)，单价：\(formattedPrice)(元)，小计：\(subtotal)(元)"
   }
 }

@@ -15,15 +15,7 @@ class ItemsService {
   
   func getItems(completion: @escaping ([Item]?, [String]) -> Void) {
     fetchData() { [weak self] items, promotions in
-      for item in items ?? [] {
-        if promotions.contains(item.barcode) {
-          item.isPromotional = true
-        }
-        else {
-          item.isPromotional = false
-        }
-      }
-      self?.items = items ?? []
+      self?.items = items?.map({ Item(barcode: $0.barcode, name: $0.name, unit: $0.unit, price: $0.price, isPromotional: promotions.contains($0.barcode)) }) ?? []
       
       DispatchQueue.main.async {
         completion(self?.items, self?.promotionBarcodes ?? [""])

@@ -19,7 +19,7 @@ class ItemCell: UITableViewCell {
   func configure(with item: Item, addItemAction: (() -> Void)?) {
     nameLabel.text = "\(item.name)(单位：\(item.unit))"
     priceLabel.text = "￥\(item.price)"
-    if item.isPromotional ?? false {
+    if item.isPromotional! {
       isPromotionalLabel.text = "买二送一"
       isPromotionalLabel.backgroundColor = .yellow
     }

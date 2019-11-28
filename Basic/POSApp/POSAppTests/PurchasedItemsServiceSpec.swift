@@ -18,7 +18,7 @@ class PurchasedItemsServiceSpec: QuickSpec {
         it("add new item") {
           let purchasedItemsService = PurchasedItemsService()
 //          let item1 = Item()
-          let item = Item("ITEM000000", "可口可乐", "瓶", 3.00)
+          let item = Item(barcode: "ITEM000000", name: "可口可乐", unit: "瓶", price: 3.00)
           purchasedItemsService.addPurchasedItems(item: item)
           expect(purchasedItemsService.purchasedItems.count) == 1
           expect(purchasedItemsService.purchasedItems[0].quantity) == 1
@@ -26,7 +26,7 @@ class PurchasedItemsServiceSpec: QuickSpec {
         
         it("add existing item") {
           let purchasedItemsService = PurchasedItemsService()
-          let item = Item("ITEM000000", "可口可乐", "瓶", 3.00)
+          let item = Item(barcode: "ITEM000000", name: "可口可乐", unit: "瓶", price: 3.00)
           purchasedItemsService.addPurchasedItems(item: item)
           purchasedItemsService.addPurchasedItems(item: item)
           expect(purchasedItemsService.purchasedItems.count) == 1
@@ -35,9 +35,9 @@ class PurchasedItemsServiceSpec: QuickSpec {
         
         it("add two new items") {
           let purchasedItemsService = PurchasedItemsService()
-          let item = Item("ITEM000000", "可口可乐", "瓶", 3.00)
+          let item = Item(barcode: "ITEM000000", name: "可口可乐", unit: "瓶", price: 3.00)
           purchasedItemsService.addPurchasedItems(item: item)
-          let anotherItem = Item("ITEM000001", "雪碧", "瓶", 3.00)
+          let anotherItem = Item(barcode: "ITEM000001", name: "雪碧", unit: "瓶", price: 3.00)
           purchasedItemsService.addPurchasedItems(item: anotherItem)
           expect(purchasedItemsService.purchasedItems.count) == 2
           expect(purchasedItemsService.purchasedItems[0].quantity) == 1
