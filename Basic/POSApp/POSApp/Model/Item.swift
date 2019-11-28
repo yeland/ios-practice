@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Item: Codable {
+struct Item: Codable, Equatable {
   var barcode: String
   var name: String
   var unit: String

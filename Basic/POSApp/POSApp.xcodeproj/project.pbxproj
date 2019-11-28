@@ -31,6 +31,8 @@
 		F8E803D7238E5C9700526993 /* POSAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803D6238E5C9700526993 /* POSAppTests.swift */; };
 		F8E803DF238E612D00526993 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F8E803DE238E612D00526993 /* Podfile */; };
 		F8E803E1238E647B00526993 /* PurchasedItemsServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803E0238E647B00526993 /* PurchasedItemsServiceSpec.swift */; };
+		F8E803E3238F6DB300526993 /* ItemsServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803E2238F6DB300526993 /* ItemsServiceSpec.swift */; };
+		F8E803E5238F72B700526993 /* PurchasedItemSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803E4238F72B700526993 /* PurchasedItemSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		F8E803D8238E5C9700526993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8E803DE238E612D00526993 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		F8E803E0238E647B00526993 /* PurchasedItemsServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedItemsServiceSpec.swift; sourceTree = "<group>"; };
+		F8E803E2238F6DB300526993 /* ItemsServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsServiceSpec.swift; sourceTree = "<group>"; };
+		F8E803E4238F72B700526993 /* PurchasedItemSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedItemSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +208,8 @@
 				F8E803D6238E5C9700526993 /* POSAppTests.swift */,
 				F8E803D8238E5C9700526993 /* Info.plist */,
 				F8E803E0238E647B00526993 /* PurchasedItemsServiceSpec.swift */,
+				F8E803E2238F6DB300526993 /* ItemsServiceSpec.swift */,
+				F8E803E4238F72B700526993 /* PurchasedItemSpec.swift */,
 			);
 			path = POSAppTests;
 			sourceTree = "<group>";
@@ -402,6 +408,8 @@
 			files = (
 				F8E803E1238E647B00526993 /* PurchasedItemsServiceSpec.swift in Sources */,
 				F8E803D7238E5C9700526993 /* POSAppTests.swift in Sources */,
+				F8E803E3238F6DB300526993 /* ItemsServiceSpec.swift in Sources */,
+				F8E803E5238F72B700526993 /* PurchasedItemSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

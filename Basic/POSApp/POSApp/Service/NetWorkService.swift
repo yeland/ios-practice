@@ -19,6 +19,34 @@ class NetWorkService {
   var promotionBarcodes: [String] = []
   typealias PromotionsResult = ([String], String) -> Void
   
+  func fetchData(completion: @escaping ([Item]?, [String]) -> Void) {
+    getItems() { [weak self] results, errorMessage in
+      if let results = results {
+        self?.items = results
+      }
+      
+      if !errorMessage.isEmpty {
+        print("Search error: " + errorMessage)
+      }
+      
+      self?.getPromotions() { [weak self] results, errorMessage in
+        self?.promotionBarcodes = results
+        
+        if !errorMessage.isEmpty {
+          print("Search error: " + errorMessage)
+        }
+        
+        DispatchQueue.main.async {
+          completion(self?.items, self?.promotionBarcodes ?? [""])
+        }
+      }
+      
+      DispatchQueue.main.async {
+        completion(self?.items, self?.promotionBarcodes ?? [""])
+      }
+    }
+  }
+  
   func getItems(completion: @escaping ItemsResult) {
     
     dataTask?.cancel()
