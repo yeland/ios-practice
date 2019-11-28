@@ -18,7 +18,7 @@ This is a repo for storing ios exercises.
 | [M06: UITableView](./Basic/UITableViewDemo) | How to implement a long list in iOS | 2019-11-20 |
 | [M07: Networking](./Basic/NetworkingDemo) | Basic knowledge of sending a request to server | 2019-11-21 |
 | [M08: Unit Testing](./Basic/demo_M08) | Basic knowledge testing and how to write a unit test in iOS | 2019-11-22 |
-| M09: Releasing | How we release the iOS App | - |
+| M09: Releasing | How we release the iOS App | 2019-11-25 |
 | [M10: Workshop](./Basic/POSApp) | POS App | 2019-11-26 |
 
 ### ![#f4d26c][#f4d26c] Advanced
