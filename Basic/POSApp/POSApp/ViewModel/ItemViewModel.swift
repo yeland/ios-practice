@@ -10,8 +10,8 @@ import Foundation
 
 class ItemViewModel {
   private let item: Item
+  let isPromotional: Bool
   var quantity: Int = 0
-  var isPromotional: Bool
   
   
   init(item: Item, isPromotional: Bool) {
@@ -31,27 +31,23 @@ class ItemViewModel {
     return item.unit
   }
   
-  var price: String {
-    return "￥\(item.price)"
-  }
-  
-  var nameWithUnit: String {
-    return "\(item.name)(单位：\(item.unit))"
+  var price: Float {
+    return item.price
   }
   
   var subtotal: Float {
     if isPromotional {
-      return Float(quantity / 3 * 2 + quantity % 3) * item.price
+      return Float(quantity / 3 * 2 + quantity % 3) * price
     }
-    return Float(quantity) * item.price
+    return Float(quantity) * price
   }
   
   var savedPrice: Float {
-    return Float(quantity) * item.price - subtotal
+    return Float(quantity) * price - subtotal
   }
   
   var receipt: String {
-    let formattedPrice = String(format: "%.2f", item.price)
+    let formattedPrice = String(format: "%.2f", price)
     let formattedSubtotal = String(format: "%.2f", subtotal)
     return "名称：\(name)，数量：\(quantity)\(unit)，单价：\(formattedPrice)(元)，小计：\(formattedSubtotal)(元)"
   }
