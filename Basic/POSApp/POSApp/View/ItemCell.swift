@@ -16,10 +16,10 @@ class ItemCell: UITableViewCell {
   
   var addItemAction: (() -> Void)?
   
-  func configure(with item: Item, addItemAction: (() -> Void)?) {
-    nameLabel.text = "\(item.name)(单位：\(item.unit))"
-    priceLabel.text = "￥\(item.price)"
-    if item.isPromotional! {
+  func configure(with itemViewModel: ItemViewModel, addItemAction: (() -> Void)?) {
+    nameLabel.text = itemViewModel.nameWithUnit
+    priceLabel.text = itemViewModel.price
+    if itemViewModel.isPromotional {
       isPromotionalLabel.text = "买二送一"
       isPromotionalLabel.backgroundColor = .yellow
     }

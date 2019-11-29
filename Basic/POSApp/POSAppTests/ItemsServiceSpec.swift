@@ -16,7 +16,7 @@ class ItemsServiceSpec: QuickSpec {
     describe("getItems") {
       context("should return items") {
         it("return items with promotion message") {
-          let itemsService = ItemsService()
+          let itemsService = ItemsViewModel()
           itemsService.netWorkService = MockNetWorkService()
           let expectedItems = [Item(
             barcode: "ITEM000000",

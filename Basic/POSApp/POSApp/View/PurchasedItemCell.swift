@@ -14,11 +14,11 @@ class PurchasedItemCell: UITableViewCell {
   @IBOutlet weak var unitLabel: UILabel!
   @IBOutlet weak var quantityLabel: UILabel!
   
-  func configure(with purchesedItem: PurchasedItem) {
-    nameLabel.text = purchesedItem.item.name
-    priceLabel.text = "￥\(purchesedItem.item.price)"
-    unitLabel.text = "单位：\(purchesedItem.item.unit)"
-    quantityLabel.text = "\(purchesedItem.quantity)"
+  func configure(with itemViewModel: ItemViewModel) {
+    nameLabel.text = itemViewModel.name
+    priceLabel.text = "￥\(itemViewModel.price)"
+    unitLabel.text = "单位：\(itemViewModel.unit)"
+    quantityLabel.text = "\(itemViewModel.quantity)"
   }
   
   

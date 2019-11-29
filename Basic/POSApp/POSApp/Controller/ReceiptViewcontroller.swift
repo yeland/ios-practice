@@ -10,18 +10,19 @@ import UIKit
 
 class ReceiptViewController: UIViewController {
   @IBOutlet weak var receiptText: UITextView!
-  var purchasedItemsService = PurchasedItemsService()
+  
+  var itemsViewModel = ItemsViewModel()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    receiptText.text = purchasedItemsService.getReceipt()
+    receiptText.text = itemsViewModel.receipt
   }
   
   override func viewDidAppear(_ animated: Bool) {
-    purchasedItemsService.purchasedItems = []
+    itemsViewModel.clear()
   }
   
-  func configure(with purchasedItemsService: PurchasedItemsService) {
-    self.purchasedItemsService = purchasedItemsService
+  func configure(with itemsService: ItemsViewModel) {
+    self.itemsViewModel = itemsService
   }
 }

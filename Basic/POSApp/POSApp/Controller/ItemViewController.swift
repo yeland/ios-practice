@@ -12,14 +12,13 @@ class ItemViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
-  let itemsService = ItemsService()
-  let purchasedItemsService = PurchasedItemsService()
+  let itemsViewModel = ItemsViewModel()
 
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "商品列表"
     
-    itemsService.getItems() { [weak self] items, promotionBarcodes in
+    itemsViewModel.getItems() { [weak self] items, promotionBarcodes in
       self?.tableView.reloadData()
     }
     
@@ -31,7 +30,7 @@ class ItemViewController: UIViewController {
     let itemHeader = Bundle.main.loadNibNamed("ItemHeader", owner: nil, options: nil)?.first as! ItemHeader
     itemHeader.configure {
       let shoppingCartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ShoppingCartViewController") as ShoppingCartViewController
-      shoppingCartViewController.configure(with: self.purchasedItemsService)
+      shoppingCartViewController.configure(with: self.itemsViewModel)
       self.show(shoppingCartViewController, sender: self)
     }
     tableView.tableHeaderView = itemHeader
@@ -46,15 +45,15 @@ class ItemViewController: UIViewController {
 
 extension ItemViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return itemsService.items.count
+    return itemsViewModel.itemViewModels.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as? ItemCell else {
       return UITableViewCell()
     }
-    cell.configure(with: self.itemsService.items[indexPath.row]) {
-      self.purchasedItemsService.addPurchasedItems(item: self.itemsService.items[indexPath.row])
+    cell.configure(with: self.itemsViewModel.itemViewModels[indexPath.row]) {
+      self.itemsViewModel.addPurchasedItems(row: indexPath.row)
     }
 
     return cell

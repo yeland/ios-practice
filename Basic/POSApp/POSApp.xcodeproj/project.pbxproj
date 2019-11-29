@@ -21,10 +21,8 @@
 		F8E803B8238CE40200526993 /* ItemHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803B7238CE40200526993 /* ItemHeader.swift */; };
 		F8E803BA238CE41800526993 /* ItemHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8E803B9238CE41800526993 /* ItemHeader.xib */; };
 		F8E803BC238CF14800526993 /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803BB238CF14800526993 /* ShoppingCartViewController.swift */; };
-		F8E803C1238D02DB00526993 /* PurchasedItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803C0238D02DB00526993 /* PurchasedItemsService.swift */; };
-		F8E803C3238D041F00526993 /* PurchasedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803C2238D041F00526993 /* PurchasedItem.swift */; };
 		F8E803C5238D168900526993 /* PurchasedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803C4238D168900526993 /* PurchasedItemCell.swift */; };
-		F8E803C7238E125300526993 /* ItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803C6238E125300526993 /* ItemsService.swift */; };
+		F8E803C7238E125300526993 /* ItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803C6238E125300526993 /* ItemsViewModel.swift */; };
 		F8E803C9238E3EE100526993 /* ShoppingCartFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8E803C8238E3EE100526993 /* ShoppingCartFooter.xib */; };
 		F8E803CB238E401500526993 /* ShoppingCartFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803CA238E401500526993 /* ShoppingCartFooter.swift */; };
 		F8E803CD238E44E300526993 /* ReceiptViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803CC238E44E300526993 /* ReceiptViewcontroller.swift */; };
@@ -33,6 +31,7 @@
 		F8E803E1238E647B00526993 /* PurchasedItemsServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803E0238E647B00526993 /* PurchasedItemsServiceSpec.swift */; };
 		F8E803E3238F6DB300526993 /* ItemsServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803E2238F6DB300526993 /* ItemsServiceSpec.swift */; };
 		F8E803E5238F72B700526993 /* PurchasedItemSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803E4238F72B700526993 /* PurchasedItemSpec.swift */; };
+		F8E803E82390B57D00526993 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803E72390B57D00526993 /* ItemViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,10 +65,8 @@
 		F8E803B7238CE40200526993 /* ItemHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemHeader.swift; path = ../../../../../../../.Trash/ItemHeader.swift; sourceTree = "<group>"; };
 		F8E803B9238CE41800526993 /* ItemHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ItemHeader.xib; path = ../../../../../../../.Trash/ItemHeader.xib; sourceTree = "<group>"; };
 		F8E803BB238CF14800526993 /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
-		F8E803C0238D02DB00526993 /* PurchasedItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedItemsService.swift; sourceTree = "<group>"; };
-		F8E803C2238D041F00526993 /* PurchasedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedItem.swift; sourceTree = "<group>"; };
 		F8E803C4238D168900526993 /* PurchasedItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedItemCell.swift; sourceTree = "<group>"; };
-		F8E803C6238E125300526993 /* ItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsService.swift; sourceTree = "<group>"; };
+		F8E803C6238E125300526993 /* ItemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewModel.swift; sourceTree = "<group>"; };
 		F8E803C8238E3EE100526993 /* ShoppingCartFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingCartFooter.xib; sourceTree = "<group>"; };
 		F8E803CA238E401500526993 /* ShoppingCartFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartFooter.swift; sourceTree = "<group>"; };
 		F8E803CC238E44E300526993 /* ReceiptViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewcontroller.swift; sourceTree = "<group>"; };
@@ -80,6 +77,7 @@
 		F8E803E0238E647B00526993 /* PurchasedItemsServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedItemsServiceSpec.swift; sourceTree = "<group>"; };
 		F8E803E2238F6DB300526993 /* ItemsServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsServiceSpec.swift; sourceTree = "<group>"; };
 		F8E803E4238F72B700526993 /* PurchasedItemSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedItemSpec.swift; sourceTree = "<group>"; };
+		F8E803E72390B57D00526993 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,10 +144,10 @@
 		F8A2EC7B238BBBBF00D5E5CF /* POSApp */ = {
 			isa = PBXGroup;
 			children = (
+				F8E803E62390B53300526993 /* ViewModel */,
 				F8E803BF238D00E600526993 /* Controller */,
 				F8E803AA238BD4E400526993 /* View */,
 				F8A2EC93238BCDCE00D5E5CF /* Model */,
-				F8A2EC90238BC7B000D5E5CF /* Service */,
 				F8A2EC7C238BBBBF00D5E5CF /* AppDelegate.swift */,
 				F8A2EC7E238BBBBF00D5E5CF /* SceneDelegate.swift */,
 				F8A2EC82238BBBBF00D5E5CF /* Main.storyboard */,
@@ -160,21 +158,10 @@
 			path = POSApp;
 			sourceTree = "<group>";
 		};
-		F8A2EC90238BC7B000D5E5CF /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				F8A2EC91238BC80800D5E5CF /* NetWorkService.swift */,
-				F8E803C0238D02DB00526993 /* PurchasedItemsService.swift */,
-				F8E803C6238E125300526993 /* ItemsService.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
 		F8A2EC93238BCDCE00D5E5CF /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				F8A2EC94238BCDE700D5E5CF /* Item.swift */,
-				F8E803C2238D041F00526993 /* PurchasedItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -212,6 +199,16 @@
 				F8E803E4238F72B700526993 /* PurchasedItemSpec.swift */,
 			);
 			path = POSAppTests;
+			sourceTree = "<group>";
+		};
+		F8E803E62390B53300526993 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F8E803E72390B57D00526993 /* ItemViewModel.swift */,
+				F8E803C6238E125300526993 /* ItemsViewModel.swift */,
+				F8A2EC91238BC80800D5E5CF /* NetWorkService.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,19 +382,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8E803C7238E125300526993 /* ItemsService.swift in Sources */,
+				F8E803C7238E125300526993 /* ItemsViewModel.swift in Sources */,
 				F8E803CD238E44E300526993 /* ReceiptViewcontroller.swift in Sources */,
+				F8E803E82390B57D00526993 /* ItemViewModel.swift in Sources */,
 				F8A2EC95238BCDE700D5E5CF /* Item.swift in Sources */,
 				F8A2EC92238BC80800D5E5CF /* NetWorkService.swift in Sources */,
 				F8E803C5238D168900526993 /* PurchasedItemCell.swift in Sources */,
 				F8E803AC238BD50500526993 /* ItemCell.swift in Sources */,
 				F8E803B8238CE40200526993 /* ItemHeader.swift in Sources */,
-				F8E803C3238D041F00526993 /* PurchasedItem.swift in Sources */,
 				F8E803BC238CF14800526993 /* ShoppingCartViewController.swift in Sources */,
 				F8A2EC81238BBBBF00D5E5CF /* ItemViewController.swift in Sources */,
 				F8A2EC7D238BBBBF00D5E5CF /* AppDelegate.swift in Sources */,
 				F8E803CB238E401500526993 /* ShoppingCartFooter.swift in Sources */,
-				F8E803C1238D02DB00526993 /* PurchasedItemsService.swift in Sources */,
 				F8A2EC7F238BBBBF00D5E5CF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

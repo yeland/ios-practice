@@ -12,7 +12,7 @@ class ShoppingCartViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
-  var purchasedItemsService = PurchasedItemsService()
+  var itemsViewModel = ItemsViewModel()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -30,7 +30,7 @@ class ShoppingCartViewController: UIViewController {
     
     shoppingCartFooter.configure {
       let receiptViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ReceiptViewController") as ReceiptViewController
-      receiptViewController.configure(with: self.purchasedItemsService)
+      receiptViewController.configure(with: self.itemsViewModel)
       self.show(receiptViewController, sender: self)
     }
     
@@ -41,21 +41,21 @@ class ShoppingCartViewController: UIViewController {
     ])
   }
   
-  func configure(with purchasedItemsService: PurchasedItemsService) {
-    self.purchasedItemsService = purchasedItemsService
+  func configure(with itemsService: ItemsViewModel) {
+    self.itemsViewModel = itemsService
   }
 }
 
 extension ShoppingCartViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return purchasedItemsService.purchasedItems.count
+    return itemsViewModel.purchasedItems.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "PurchasedItemCell", for: indexPath) as? PurchasedItemCell else {
       return UITableViewCell()
     }
-    cell.configure(with: purchasedItemsService.purchasedItems[indexPath.row])
+    cell.configure(with: itemsViewModel.purchasedItems[indexPath.row])
     
     return cell
   }

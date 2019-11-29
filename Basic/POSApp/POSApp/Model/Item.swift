@@ -13,12 +13,4 @@ struct Item: Codable, Equatable {
   var name: String
   var unit: String
   var price: Float
-  var isPromotional: Bool?
-  
-//  init(_ barcode: String, _ name: String, _ unit: String, _ price: Float) {
-//    self.barcode = barcode
-//    self.name = name
-//    self.unit = unit
-//    self.price = price
-//  }
 }
