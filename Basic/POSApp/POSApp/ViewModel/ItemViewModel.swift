@@ -40,20 +40,20 @@ class ItemViewModel {
     return "\(item.name)(单位：\(item.unit))"
   }
   
-  var savedPrice: Float {
-    return Float(quantity) * item.price - getSubtotal()
-  }
-  
-  var receipt: String {
-    let formattedPrice = String(format: "%.2f", item.price)
-    let subtotal = String(format: "%.2f", getSubtotal())
-    return "名称：\(item.name)，数量：\(quantity)\(item.unit)，单价：\(formattedPrice)(元)，小计：\(subtotal)(元)"
-  }
-  
-  func getSubtotal() -> Float {
+  var subtotal: Float {
     if isPromotional {
       return Float(quantity / 3 * 2 + quantity % 3) * item.price
     }
     return Float(quantity) * item.price
+  }
+  
+  var savedPrice: Float {
+    return Float(quantity) * item.price - subtotal
+  }
+  
+  var receipt: String {
+    let formattedPrice = String(format: "%.2f", price)
+    let formattedSubtotal = String(format: "%.2f", subtotal)
+    return "名称：\(name)，数量：\(quantity)\(unit)，单价：\(formattedPrice)(元)，小计：\(formattedSubtotal)(元)"
   }
 }

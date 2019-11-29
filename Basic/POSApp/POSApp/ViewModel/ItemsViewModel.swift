@@ -54,7 +54,7 @@ class ItemsViewModel {
   }
 
   private func getTotalPrice() -> String {
-    let total = purchasedItems.reduce(0, { $0 + $1.getSubtotal() })
+    let total = purchasedItems.reduce(0, { $0 + $1.subtotal })
     let savedPrice = purchasedItems.reduce(0, { $0 + $1.savedPrice })
     return """
     总计：\(String(format: "%.2f", total))(元)

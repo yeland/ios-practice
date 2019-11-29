@@ -16,7 +16,7 @@ class PurchasedItemCell: UITableViewCell {
   
   func configure(with itemViewModel: ItemViewModel) {
     nameLabel.text = itemViewModel.name
-    priceLabel.text = "￥\(itemViewModel.price)"
+    priceLabel.text = itemViewModel.price
     unitLabel.text = "单位：\(itemViewModel.unit)"
     quantityLabel.text = "\(itemViewModel.quantity)"
   }

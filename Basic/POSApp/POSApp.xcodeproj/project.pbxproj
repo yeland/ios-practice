@@ -144,10 +144,10 @@
 		F8A2EC7B238BBBBF00D5E5CF /* POSApp */ = {
 			isa = PBXGroup;
 			children = (
+				F8A2EC93238BCDCE00D5E5CF /* Model */,
 				F8E803E62390B53300526993 /* ViewModel */,
 				F8E803BF238D00E600526993 /* Controller */,
 				F8E803AA238BD4E400526993 /* View */,
-				F8A2EC93238BCDCE00D5E5CF /* Model */,
 				F8A2EC7C238BBBBF00D5E5CF /* AppDelegate.swift */,
 				F8A2EC7E238BBBBF00D5E5CF /* SceneDelegate.swift */,
 				F8A2EC82238BBBBF00D5E5CF /* Main.storyboard */,

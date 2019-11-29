@@ -11,13 +11,9 @@ import Foundation
 class NetWorkService {
   var defaultSession = URLSession(configuration: .default)
   var dataTask: URLSessionDataTask?
-  var errorMessage = ""
-  var items: [Item] = []
-  typealias ItemsResult = ([Item]?, String) -> Void
   
-  var promotionErrorMessage = ""
+  var items: [Item] = []
   var promotionBarcodes: [String] = []
-  typealias PromotionsResult = ([String], String) -> Void
   
   func fetchData(completion: @escaping ([Item]?, [String]) -> Void) {
     getItems() { [weak self] results, errorMessage in
@@ -47,7 +43,7 @@ class NetWorkService {
     }
   }
   
-  func getItems(completion: @escaping ItemsResult) {
+  func getItems(completion: @escaping ([Item]?, String) -> Void) {
     
     dataTask?.cancel()
     
@@ -59,21 +55,20 @@ class NetWorkService {
       
       request.setValue("5bCP5YCf5YCf", forHTTPHeaderField: "identifier")
       
-      dataTask = defaultSession.dataTask(with: request) { [weak self] data, response, error in
+      dataTask = defaultSession.dataTask(with: request) { data, response, error in
         if let error = error {
-          self?.errorMessage = error.localizedDescription
+          completion(nil, error.localizedDescription)
         } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
           do {
-            self?.items = try JSONDecoder().decode([Item].self, from: data)
+            let items = try JSONDecoder().decode([Item].self, from: data)
+            DispatchQueue.main.async {
+              completion(items, "")
+            }
           } catch let error {
-            self?.errorMessage = error.localizedDescription
+            completion(nil, error.localizedDescription)
           }
         } else {
-          self?.errorMessage = "Unknown error"
-        }
-      
-        DispatchQueue.main.async {
-          completion(self?.items, self?.errorMessage ?? "")
+          completion(nil, "Unknown error")
         }
       }
       
@@ -81,7 +76,7 @@ class NetWorkService {
     }
   }
   
-  func getPromotions(completion: @escaping PromotionsResult) {
+  func getPromotions(completion: @escaping ([String], String) -> Void) {
     
     dataTask?.cancel()
     
@@ -93,21 +88,20 @@ class NetWorkService {
       
       request.setValue("5bCP5YCf5YCf", forHTTPHeaderField: "identifier")
       
-      dataTask = defaultSession.dataTask(with: request) { [weak self] data, response, error in
+      dataTask = defaultSession.dataTask(with: request) { data, response, error in
         if let error = error {
-          self?.promotionErrorMessage = error.localizedDescription
+          completion([], error.localizedDescription)
         } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
           do {
-            self?.promotionBarcodes = try JSONDecoder().decode([String].self, from: data)
+            let promotionBarcodes = try JSONDecoder().decode([String].self, from: data)
+            DispatchQueue.main.async {
+              completion(promotionBarcodes, "")
+            }
           } catch let error {
-            self?.promotionErrorMessage = error.localizedDescription
+            completion([], error.localizedDescription)
           }
         } else {
-          self?.promotionErrorMessage = "Unknown error"
-        }
-      
-        DispatchQueue.main.async {
-          completion(self?.promotionBarcodes ?? [""], self?.promotionErrorMessage ?? "")
+          completion([], "Unknown error")
         }
       }
       
