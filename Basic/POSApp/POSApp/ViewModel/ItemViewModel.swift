@@ -10,13 +10,12 @@ import Foundation
 
 class ItemViewModel {
   private let item: Item
-  var quantity: Int
+  var quantity: Int = 0
   var isPromotional: Bool
   
   
-  init(item: Item, quantity: Int, isPromotional: Bool) {
+  init(item: Item, isPromotional: Bool) {
     self.item = item
-    self.quantity = quantity
     self.isPromotional = isPromotional
   }
   
@@ -52,7 +51,7 @@ class ItemViewModel {
   }
   
   var receipt: String {
-    let formattedPrice = String(format: "%.2f", price)
+    let formattedPrice = String(format: "%.2f", item.price)
     let formattedSubtotal = String(format: "%.2f", subtotal)
     return "名称：\(name)，数量：\(quantity)\(unit)，单价：\(formattedPrice)(元)，小计：\(formattedSubtotal)(元)"
   }

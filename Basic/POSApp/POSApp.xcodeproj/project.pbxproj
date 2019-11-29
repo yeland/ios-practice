@@ -28,9 +28,8 @@
 		F8E803CD238E44E300526993 /* ReceiptViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803CC238E44E300526993 /* ReceiptViewcontroller.swift */; };
 		F8E803D7238E5C9700526993 /* POSAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803D6238E5C9700526993 /* POSAppTests.swift */; };
 		F8E803DF238E612D00526993 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F8E803DE238E612D00526993 /* Podfile */; };
-		F8E803E1238E647B00526993 /* PurchasedItemsServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803E0238E647B00526993 /* PurchasedItemsServiceSpec.swift */; };
-		F8E803E3238F6DB300526993 /* ItemsServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803E2238F6DB300526993 /* ItemsServiceSpec.swift */; };
-		F8E803E5238F72B700526993 /* PurchasedItemSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803E4238F72B700526993 /* PurchasedItemSpec.swift */; };
+		F8E803E3238F6DB300526993 /* ItemsViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803E2238F6DB300526993 /* ItemsViewModelSpec.swift */; };
+		F8E803E5238F72B700526993 /* ItemViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803E4238F72B700526993 /* ItemViewModelSpec.swift */; };
 		F8E803E82390B57D00526993 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803E72390B57D00526993 /* ItemViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,9 +73,8 @@
 		F8E803D6238E5C9700526993 /* POSAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POSAppTests.swift; sourceTree = "<group>"; };
 		F8E803D8238E5C9700526993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8E803DE238E612D00526993 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
-		F8E803E0238E647B00526993 /* PurchasedItemsServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedItemsServiceSpec.swift; sourceTree = "<group>"; };
-		F8E803E2238F6DB300526993 /* ItemsServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsServiceSpec.swift; sourceTree = "<group>"; };
-		F8E803E4238F72B700526993 /* PurchasedItemSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedItemSpec.swift; sourceTree = "<group>"; };
+		F8E803E2238F6DB300526993 /* ItemsViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewModelSpec.swift; sourceTree = "<group>"; };
+		F8E803E4238F72B700526993 /* ItemViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModelSpec.swift; sourceTree = "<group>"; };
 		F8E803E72390B57D00526993 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,9 +192,8 @@
 			children = (
 				F8E803D6238E5C9700526993 /* POSAppTests.swift */,
 				F8E803D8238E5C9700526993 /* Info.plist */,
-				F8E803E0238E647B00526993 /* PurchasedItemsServiceSpec.swift */,
-				F8E803E2238F6DB300526993 /* ItemsServiceSpec.swift */,
-				F8E803E4238F72B700526993 /* PurchasedItemSpec.swift */,
+				F8E803E2238F6DB300526993 /* ItemsViewModelSpec.swift */,
+				F8E803E4238F72B700526993 /* ItemViewModelSpec.swift */,
 			);
 			path = POSAppTests;
 			sourceTree = "<group>";
@@ -402,10 +399,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8E803E1238E647B00526993 /* PurchasedItemsServiceSpec.swift in Sources */,
 				F8E803D7238E5C9700526993 /* POSAppTests.swift in Sources */,
-				F8E803E3238F6DB300526993 /* ItemsServiceSpec.swift in Sources */,
-				F8E803E5238F72B700526993 /* PurchasedItemSpec.swift in Sources */,
+				F8E803E3238F6DB300526993 /* ItemsViewModelSpec.swift in Sources */,
+				F8E803E5238F72B700526993 /* ItemViewModelSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

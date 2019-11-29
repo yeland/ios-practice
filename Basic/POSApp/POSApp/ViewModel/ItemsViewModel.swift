@@ -14,7 +14,7 @@ class ItemsViewModel {
   
   func getItems(completion: @escaping ([ItemViewModel]?, [String]) -> Void) {
     netWorkService.fetchData() { [weak self] items, promotions in
-      self?.itemViewModels = items?.map({ ItemViewModel(item: $0, quantity: 0, isPromotional: promotions.contains($0.barcode)) }) ?? []
+      self?.itemViewModels = items?.map({ ItemViewModel(item: $0, isPromotional: promotions.contains($0.barcode)) }) ?? []
       
       DispatchQueue.main.async {
         completion(self?.itemViewModels, promotions)
