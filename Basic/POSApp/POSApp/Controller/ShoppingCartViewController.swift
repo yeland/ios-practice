@@ -27,8 +27,8 @@ class ShoppingCartViewController: UIViewController {
   
   func setupFooter() {
     let shoppingCartFooter = Bundle.main.loadNibNamed("ShoppingCartFooter", owner: nil, options: nil)?.first as! ShoppingCartFooter
-    
-    shoppingCartFooter.configure {
+    shoppingCartFooter.configure { [weak self] in
+      guard let self = self else { return }
       let receiptViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ReceiptViewController") as ReceiptViewController
       receiptViewController.configure(with: self.itemsViewModel)
       self.show(receiptViewController, sender: self)
@@ -41,8 +41,8 @@ class ShoppingCartViewController: UIViewController {
     ])
   }
   
-  func configure(with itemsService: ItemsViewModel) {
-    self.itemsViewModel = itemsService
+  func configure(with itemsViewModel: ItemsViewModel) {
+    self.itemsViewModel = itemsViewModel
   }
 }
 

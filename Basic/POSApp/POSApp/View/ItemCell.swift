@@ -29,5 +29,4 @@ class ItemCell: UITableViewCell {
   @IBAction func clickAddItem(_ sender: UIButton) {
     self.addItemAction?()
   }
-  
 }

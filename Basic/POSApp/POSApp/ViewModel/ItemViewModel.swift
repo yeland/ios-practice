@@ -13,7 +13,6 @@ class ItemViewModel {
   let isPromotional: Bool
   var quantity: Int = 0
   
-  
   init(item: Item, isPromotional: Bool) {
     self.item = item
     self.isPromotional = isPromotional
@@ -31,19 +30,19 @@ class ItemViewModel {
     return item.unit
   }
   
-  var price: Float {
+  var price: Double {
     return item.price
   }
   
-  var subtotal: Float {
+  var subtotal: Double {
     if isPromotional {
-      return Float(quantity / 3 * 2 + quantity % 3) * price
+      return Double(quantity / 3 * 2 + quantity % 3) * price
     }
-    return Float(quantity) * price
+    return Double(quantity) * price
   }
   
-  var savedPrice: Float {
-    return Float(quantity) * price - subtotal
+  var savedPrice: Double {
+    return Double(quantity) * price - subtotal
   }
   
   var receipt: String {

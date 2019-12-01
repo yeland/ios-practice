@@ -20,6 +20,4 @@ class PurchasedItemCell: UITableViewCell {
     unitLabel.text = "单位：\(itemViewModel.unit)"
     quantityLabel.text = "\(itemViewModel.quantity)"
   }
-  
-  
 }

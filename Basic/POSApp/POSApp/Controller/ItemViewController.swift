@@ -18,17 +18,18 @@ class ItemViewController: UIViewController {
     super.viewDidLoad()
     self.title = "商品列表"
     
-    itemsViewModel.getItems() { [weak self] items, promotionBarcodes in
-      self?.tableView.reloadData()
-    }
-    
     tableView.dataSource = self
     setupTableHeader()
+    
+    itemsViewModel.getItems() { [weak self] _, _ in
+      self?.tableView.reloadData()
+    }
   }
   
   private func setupTableHeader() {
     let itemHeader = Bundle.main.loadNibNamed("ItemHeader", owner: nil, options: nil)?.first as! ItemHeader
-    itemHeader.configure {
+    itemHeader.configure { [weak self] in
+      guard let self = self else { return }
       let shoppingCartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ShoppingCartViewController") as ShoppingCartViewController
       shoppingCartViewController.configure(with: self.itemsViewModel)
       self.show(shoppingCartViewController, sender: self)
@@ -52,14 +53,11 @@ extension ItemViewController: UITableViewDataSource {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as? ItemCell else {
       return UITableViewCell()
     }
-    cell.configure(with: self.itemsViewModel.itemViewModels[indexPath.row]) {
+    cell.configure(with: self.itemsViewModel.itemViewModels[indexPath.row]) { [weak self] in
+      guard let self = self else { return }
       self.itemsViewModel.addPurchasedItems(row: indexPath.row)
     }
 
     return cell
   }
 }
-
-
-
-

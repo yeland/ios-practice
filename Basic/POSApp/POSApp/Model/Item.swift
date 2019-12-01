@@ -12,5 +12,5 @@ struct Item: Codable, Equatable {
   var barcode: String
   var name: String
   var unit: String
-  var price: Float
+  var price: Double
 }

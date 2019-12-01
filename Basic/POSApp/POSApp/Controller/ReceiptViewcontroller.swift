@@ -15,6 +15,7 @@ class ReceiptViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.title = "收据"
     receiptText.text = itemsViewModel.receipt
   }
   
@@ -22,7 +23,7 @@ class ReceiptViewController: UIViewController {
     itemsViewModel.clear()
   }
   
-  func configure(with itemsService: ItemsViewModel) {
-    self.itemsViewModel = itemsService
+  func configure(with itemsViewModel: ItemsViewModel) {
+    self.itemsViewModel = itemsViewModel
   }
 }
