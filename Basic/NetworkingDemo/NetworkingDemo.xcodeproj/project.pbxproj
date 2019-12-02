@@ -66,7 +66,7 @@
 			children = (
 				F8E0C4402386728200773046 /* View */,
 				F8E0C43723865B0C00773046 /* Model */,
-				F8E0C4332386537C00773046 /* Networking */,
+				F8E0C4332386537C00773046 /* NetWorking */,
 				F8E0C41F238652D800773046 /* AppDelegate.swift */,
 				F8E0C421238652D800773046 /* SceneDelegate.swift */,
 				F8E0C423238652D800773046 /* ViewController.swift */,
@@ -78,12 +78,12 @@
 			path = NetworkingDemo;
 			sourceTree = "<group>";
 		};
-		F8E0C4332386537C00773046 /* Networking */ = {
+		F8E0C4332386537C00773046 /* NetWorking */ = {
 			isa = PBXGroup;
 			children = (
 				F8E0C4342386559400773046 /* ContentService.swift */,
 			);
-			path = Networking;
+			path = NetWorking;
 			sourceTree = "<group>";
 		};
 		F8E0C43723865B0C00773046 /* Model */ = {
