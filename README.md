@@ -23,11 +23,11 @@ This is a repo for storing ios exercises.
 
 ### ![#f4d26c][#f4d26c] Advanced
 
-| Topic | Comments |
-| :--- | :--- |
-| M01: App Architecture | MVC, MVVM, VIPER, Clean Swift |
-| M02: Functional Swift | Functional Programming in Swift |
-| M03: UICollectionView | ImagePicker |
+| Topic | Comments | Date |
+| :--- | :--- | :--- | 
+| M01: App Architecture| MVC, MVVM, VIPER, Clean Swift | 2019-11-28 |
+| M02: Functional Swift  | Functional Programming in Swift | - |
+| M03: [UICollectionView](./Advanced/UICollectionViewDemo)  | ImagePicker | 2019-12-02 |
 | M04: Dynamic Content List | Long List with self sizing list item |
 | M05: Database | Sqlite, CoreData, Realm |
 | M06: Continuous Integration | BuddyBuild, Jenkins |
