@@ -9,26 +9,26 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PhotoOfCell" customModule="dynamic_content_demo" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PhotoView" customModule="dynamic_content_demo" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HS8-wL-bPr">
-                    <rect key="frame" x="27" y="16" width="80" height="80"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HS8-wL-bPr">
+                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="4DO-JU-v5u"/>
                         <constraint firstAttribute="width" constant="80" id="UKl-sA-qde"/>
                     </constraints>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p72-xW-MOu">
-                    <rect key="frame" x="307" y="16" width="80" height="80"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p72-xW-MOu">
+                    <rect key="frame" x="180" y="0.0" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="Y7e-5t-5EQ"/>
                         <constraint firstAttribute="height" constant="80" id="vbs-jY-8gq"/>
                     </constraints>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LPn-L1-C2v">
-                    <rect key="frame" x="167" y="16" width="80" height="80"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LPn-L1-C2v">
+                    <rect key="frame" x="90" y="0.0" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="DCI-Da-IiM"/>
                         <constraint firstAttribute="height" constant="80" id="PCI-LG-nyF"/>
@@ -37,12 +37,12 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="LPn-L1-C2v" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="HJQ-6A-xRR"/>
-                <constraint firstItem="LPn-L1-C2v" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="P2Z-RU-PdH"/>
-                <constraint firstItem="p72-xW-MOu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="c1e-0y-tEs"/>
-                <constraint firstItem="LPn-L1-C2v" firstAttribute="leading" secondItem="HS8-wL-bPr" secondAttribute="trailing" constant="60" id="cCf-Ic-hun"/>
-                <constraint firstItem="p72-xW-MOu" firstAttribute="leading" secondItem="LPn-L1-C2v" secondAttribute="trailing" constant="60" id="d2n-cg-PBo"/>
-                <constraint firstItem="HS8-wL-bPr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="few-vh-bGj"/>
+                <constraint firstItem="HS8-wL-bPr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="AcK-Xz-CoR"/>
+                <constraint firstItem="LPn-L1-C2v" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="P2Z-RU-PdH"/>
+                <constraint firstItem="p72-xW-MOu" firstAttribute="leading" secondItem="LPn-L1-C2v" secondAttribute="trailing" constant="10" id="VO7-HO-Jc0"/>
+                <constraint firstItem="p72-xW-MOu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="c1e-0y-tEs"/>
+                <constraint firstItem="HS8-wL-bPr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="few-vh-bGj"/>
+                <constraint firstItem="LPn-L1-C2v" firstAttribute="leading" secondItem="HS8-wL-bPr" secondAttribute="trailing" constant="10" id="fgO-dh-gU4"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
