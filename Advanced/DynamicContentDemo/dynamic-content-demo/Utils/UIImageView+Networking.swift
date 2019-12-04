@@ -13,4 +13,8 @@ extension UIImageView {
   func setImage(withURL url: URL) {
     self.af_setImage(withURL: url)
   }
+  
+  func cancellOperation() {
+    self.af_cancelImageRequest()
+  }
 }

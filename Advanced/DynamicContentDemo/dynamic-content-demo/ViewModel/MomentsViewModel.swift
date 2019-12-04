@@ -33,10 +33,13 @@ class MomentsViewModel {
   
   var showMoments: [Moment] {
     return moments.filter({
-      if $0.sender != nil {
-        return true
+      if $0.sender == nil {
+        return false
       }
-      return false
+      if $0.images == nil && $0.content == nil {
+        return false
+      }
+      return true
     })
   }
 }

@@ -35,24 +35,39 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="KZc-aM-dFR">
+                    <rect key="frame" x="80" y="94.5" width="320" height="139.5"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yFH-3Y-DY9">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="KZc-aM-dFR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="80" id="4sC-Vp-1ma"/>
+                <constraint firstAttribute="bottom" secondItem="KZc-aM-dFR" secondAttribute="bottom" constant="20" id="BNt-D2-2sM"/>
                 <constraint firstItem="bq7-8U-JSN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="G2N-YB-I7d"/>
                 <constraint firstItem="bq7-8U-JSN" firstAttribute="leading" secondItem="M03-Ug-eae" secondAttribute="trailing" constant="10" id="KLH-0M-sDP"/>
                 <constraint firstItem="yhm-7m-diC" firstAttribute="top" secondItem="bq7-8U-JSN" secondAttribute="bottom" constant="10" id="M1h-jP-6us"/>
                 <constraint firstItem="M03-Ug-eae" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="MIH-2W-uOX"/>
                 <constraint firstAttribute="trailing" secondItem="bq7-8U-JSN" secondAttribute="trailing" constant="16" id="MaT-RV-T6J"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KZc-aM-dFR" secondAttribute="trailing" constant="14" id="VpQ-ge-157"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="yhm-7m-diC" secondAttribute="bottom" constant="16" id="ZIE-L7-NM1"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="M03-Ug-eae" secondAttribute="bottom" constant="16" id="lxU-z7-yeR"/>
                 <constraint firstItem="M03-Ug-eae" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="ptf-GO-LhC"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yhm-7m-diC" secondAttribute="trailing" constant="16" id="qmY-T9-H1I"/>
                 <constraint firstItem="yhm-7m-diC" firstAttribute="leading" secondItem="M03-Ug-eae" secondAttribute="trailing" constant="10" id="wf4-Ns-2N1"/>
+                <constraint firstItem="KZc-aM-dFR" firstAttribute="top" secondItem="yhm-7m-diC" secondAttribute="bottom" constant="20" id="yjj-QH-oBM"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="avatar" destination="M03-Ug-eae" id="Rvj-JP-ECA"/>
+                <outlet property="collectionView" destination="KZc-aM-dFR" id="rsr-Er-M1F"/>
                 <outlet property="content" destination="yhm-7m-diC" id="kX5-3o-BAY"/>
                 <outlet property="name" destination="bq7-8U-JSN" id="Vu2-9f-Nz2"/>
             </connections>
