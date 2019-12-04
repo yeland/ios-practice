@@ -19,14 +19,15 @@
 		7C9A974E239573640044EEE0 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9A974D239573640044EEE0 /* NetworkClient.swift */; };
 		7C9A9750239573820044EEE0 /* UIImageView+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9A974F239573820044EEE0 /* UIImageView+Networking.swift */; };
 		F8E804312396256500526993 /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E804302396256500526993 /* Moment.swift */; };
-		F8E80433239626CF00526993 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E80432239626CF00526993 /* Image.swift */; };
-		F8E804352396270300526993 /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E804342396270300526993 /* Sender.swift */; };
-		F8E804372396274D00526993 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E804362396274D00526993 /* Comment.swift */; };
 		F8E804392396297900526993 /* MomentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E804382396297900526993 /* MomentsViewModel.swift */; };
 		F8E8043D23962BBA00526993 /* MomentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E8043C23962BBA00526993 /* MomentCell.swift */; };
 		F8E8043F23962BD900526993 /* MomentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8E8043E23962BD900526993 /* MomentCell.xib */; };
 		F8E804452397470000526993 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8E804442397470000526993 /* PhotoCell.xib */; };
 		F8E804472397471400526993 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E804462397471400526993 /* PhotoCell.swift */; };
+		F8E8044923979BC500526993 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8E8044823979BC500526993 /* CommentCell.xib */; };
+		F8E8044B23979C5D00526993 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E8044A23979C5D00526993 /* CommentCell.swift */; };
+		F8E8044D23979E8B00526993 /* MomentCellForComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E8044C23979E8B00526993 /* MomentCellForComments.swift */; };
+		F8E8044F2397A4C200526993 /* MomentCellForPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E8044E2397A4C200526993 /* MomentCellForPhotos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,14 +47,15 @@
 		7C9A974F239573820044EEE0 /* UIImageView+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Networking.swift"; sourceTree = "<group>"; };
 		8516F6165F9EC326B39B07D9 /* Pods_dynamic_content_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dynamic_content_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E804302396256500526993 /* Moment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
-		F8E80432239626CF00526993 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
-		F8E804342396270300526993 /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
-		F8E804362396274D00526993 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		F8E804382396297900526993 /* MomentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentsViewModel.swift; sourceTree = "<group>"; };
 		F8E8043C23962BBA00526993 /* MomentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentCell.swift; sourceTree = "<group>"; };
 		F8E8043E23962BD900526993 /* MomentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MomentCell.xib; sourceTree = "<group>"; };
 		F8E804442397470000526993 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 		F8E804462397471400526993 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		F8E8044823979BC500526993 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
+		F8E8044A23979C5D00526993 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		F8E8044C23979E8B00526993 /* MomentCellForComments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentCellForComments.swift; sourceTree = "<group>"; };
+		F8E8044E2397A4C200526993 /* MomentCellForPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentCellForPhotos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,9 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				F8E804302396256500526993 /* Moment.swift */,
-				F8E80432239626CF00526993 /* Image.swift */,
-				F8E804342396270300526993 /* Sender.swift */,
-				F8E804362396274D00526993 /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -163,9 +162,13 @@
 			isa = PBXGroup;
 			children = (
 				F8E8043C23962BBA00526993 /* MomentCell.swift */,
+				F8E8044E2397A4C200526993 /* MomentCellForPhotos.swift */,
+				F8E8044C23979E8B00526993 /* MomentCellForComments.swift */,
 				F8E8043E23962BD900526993 /* MomentCell.xib */,
 				F8E804442397470000526993 /* PhotoCell.xib */,
 				F8E804462397471400526993 /* PhotoCell.swift */,
+				F8E8044823979BC500526993 /* CommentCell.xib */,
+				F8E8044A23979C5D00526993 /* CommentCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				F8E8043F23962BD900526993 /* MomentCell.xib in Resources */,
 				7C9A973F239572230044EEE0 /* Main.storyboard in Resources */,
 				F8E804452397470000526993 /* PhotoCell.xib in Resources */,
+				F8E8044923979BC500526993 /* CommentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,17 +294,17 @@
 			files = (
 				F8E804472397471400526993 /* PhotoCell.swift in Sources */,
 				7C9A973C239572230044EEE0 /* ViewController.swift in Sources */,
-				F8E80433239626CF00526993 /* Image.swift in Sources */,
+				F8E8044D23979E8B00526993 /* MomentCellForComments.swift in Sources */,
 				7C4406462395853B00EDFD7F /* SingleLabelCell.swift in Sources */,
 				F8E804392396297900526993 /* MomentsViewModel.swift in Sources */,
 				F8E804312396256500526993 /* Moment.swift in Sources */,
-				F8E804352396270300526993 /* Sender.swift in Sources */,
-				F8E804372396274D00526993 /* Comment.swift in Sources */,
+				F8E8044F2397A4C200526993 /* MomentCellForPhotos.swift in Sources */,
 				F8E8043D23962BBA00526993 /* MomentCell.swift in Sources */,
 				7C9A9750239573820044EEE0 /* UIImageView+Networking.swift in Sources */,
 				7C9A9738239572230044EEE0 /* AppDelegate.swift in Sources */,
 				7C9A973A239572230044EEE0 /* SceneDelegate.swift in Sources */,
 				7C9A974E239573640044EEE0 /* NetworkClient.swift in Sources */,
+				F8E8044B23979C5D00526993 /* CommentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,89 +13,83 @@ class MomentCell: UITableViewCell {
   @IBOutlet var name: UILabel!
   @IBOutlet var content: UILabel!
   @IBOutlet var collectionView: UICollectionView!
+  @IBOutlet var commentsTable: UITableView!
   
-  private var photos: [Image] = []
-  private var collectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16.0)
-  private let space: CGFloat = 10.0
-  private var rowPhotosNumber: CGFloat = 3
-  private lazy var hightConstraint = collectionView.heightAnchor.constraint(equalToConstant: 0)
+  private var collectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+  private lazy var collectionHightConstraint = collectionView.heightAnchor.constraint(equalToConstant: 0)
+  private lazy var tableHightContraint = commentsTable.heightAnchor.constraint(equalToConstant: 100)
+  
+  var photos: [Image] = []
+  var comments: [Comment] = []
+  let space: CGFloat = 10.0
+  var rowPhotosNumber: CGFloat = 3
   
   override func awakeFromNib() {
     super.awakeFromNib()
     collectionView.register(UINib(nibName: "PhotoCell", bundle: nil), forCellWithReuseIdentifier: "PhotoCell")
+    commentsTable.register(UINib(nibName: "CommentCell", bundle: nil), forCellReuseIdentifier: "CommentCell")
     collectionView.dataSource = self
     collectionView.delegate = self
-  
+    commentsTable.dataSource = self
     collectionView.contentInset = collectionInset
+    
+    setupLayout()
+  }
+  
+  private func setupLayout() {
     collectionView.translatesAutoresizingMaskIntoConstraints = false
-    hightConstraint.isActive = true
+    commentsTable.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      collectionHightConstraint,
+      collectionView.topAnchor.constraint(equalTo: content.bottomAnchor, constant: 20),
+      collectionView.leadingAnchor.constraint(equalTo: content.leadingAnchor),
+      collectionView.trailingAnchor.constraint(equalTo: content.trailingAnchor),
+      tableHightContraint,
+      commentsTable.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 20),
+      commentsTable.leadingAnchor.constraint(equalTo:  collectionView.leadingAnchor),
+      commentsTable.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
+      commentsTable.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
+    ])
   }
   
   func configure(with moment: Moment) {
+    photos = moment.images ?? []
+    comments = moment.comments ?? []
     collectionView.reloadData()
-    self.photos = moment.images ?? []
+    commentsTable.reloadData()
+//    commentsTable.backgroundColor = .opaqueSeparator
     
     guard let sender = moment.sender else { return }
     guard let url = URL(string: sender.avatar) else { return }
     avatar.setImage(withURL: url)
     name.text = sender.nick
-    if let content = moment.content {
-      self.content.text = content
+    if let momentContent = moment.content {
+      content.text = momentContent
     } else {
-      self.content.text = ""
+      content.text = ""
     }
     
     setContentRight()
-    hightConstraint.constant = getCollectionHeight()
+    collectionHightConstraint.constant = getCollectionHeight()
+    tableHightContraint.constant = CGFloat(self.comments.count * 40)
   }
   
-  func setContentRight() {
+  private func setContentRight() {
     if photos.count == 1 {
       collectionView.contentInset.right = 180
     } else if photos.count == 4 {
       collectionView.contentInset.right = 80
     } else {
-      collectionView.contentInset.right = 16
+      collectionView.contentInset.right = 0
     }
   }
   
-  func getCollectionHeight() -> CGFloat {
+  private func getCollectionHeight() -> CGFloat {
     let itemSize = getItemSize()
     let rowsNumber = CGFloat(ceil(Double(photos.count) / 3.0))
     let itemsHight = rowsNumber * itemSize.height
     let spaceHight = rowsNumber * space
     return itemsHight + spaceHight
-  }
-  
-  override func prepareForReuse() {
-    super.prepareForReuse()
-    avatar.image = nil
-    name.text = nil
-    content.text = nil
-    avatar.cancellOperation()
-    rowPhotosNumber = 3
-  }
-}
-
-extension MomentCell: UICollectionViewDataSource {
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return photos.count
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotoCell else {
-      fatalError("Can not create cell")
-    }
-    cell.configure(with: photos[indexPath.row])
-    
-    return cell
-  }
-}
-
-extension MomentCell: UICollectionViewDelegateFlowLayout {
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    
-    return getItemSize()
   }
   
   func getItemSize() -> CGSize {
@@ -113,5 +107,14 @@ extension MomentCell: UICollectionViewDelegateFlowLayout {
     let widthPerItem = availableWidth / rowPhotosNumber
     
     return CGSize(width: widthPerItem, height: widthPerItem)
+  }
+  
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    avatar.image = nil
+    name.text = nil
+    content.text = nil
+    avatar.cancellOperation()
+    rowPhotosNumber = 3
   }
 }

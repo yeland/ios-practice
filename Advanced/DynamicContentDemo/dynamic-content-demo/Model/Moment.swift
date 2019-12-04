@@ -14,3 +14,18 @@ struct Moment: Codable {
   var sender: Sender?
   var comments: [Comment]?
 }
+
+struct Image: Codable {
+  var url: String
+}
+
+struct Sender: Codable {
+  var username: String
+  var nick: String
+  var avatar: String
+}
+
+struct Comment: Codable {
+  var content: String
+  var sender: Sender
+}
