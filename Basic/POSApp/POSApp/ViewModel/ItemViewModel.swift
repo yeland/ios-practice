@@ -9,7 +9,7 @@
 import Foundation
 
 class ItemViewModel {
-  private let item: Item
+  var item: Item
   let isPromotional: Bool
   var quantity: Int = 0
   

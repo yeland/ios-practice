@@ -40,43 +40,16 @@ extension ItemViewController: UITableViewDataSource {
       guard let self = self else { return }
       self.itemsViewModel.addPurchasedItems(row: indexPath.row)
     }
-
     return cell
-  }
-}
-
-extension ItemViewController: UITableViewDelegate {
-  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    return setupHeader()
-  }
-  
-  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return 70
   }
   
   func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     return true
   }
-  
-  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-    let editBUtton = UIContextualAction(style: .normal, title: "编辑") {
-      (contextualAction, view, boolValue) in
-      self.itemsViewModel.deleteItem(row: indexPath.row)
-      tableView.reloadData()
-    }
-    
-    let deleteButton = UIContextualAction(style: .destructive, title: "删除") {
-      (contextualAction, view, boolValue) in
-          //Code I want to do here
-    }
-    
-    let swipeActions = UISwipeActionsConfiguration(actions: [deleteButton, editBUtton])
+}
 
-    return swipeActions
-  }
-  
-  
-  private func setupHeader() -> UIView {
+extension ItemViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     let itemHeader = Bundle.main.loadNibNamed("ItemHeader", owner: nil, options: nil)?.first as! ItemHeader
     itemHeader.configure(shoppingCartAction: shoppingCartAction, createItemAction: createItemAction)
     return itemHeader
@@ -93,5 +66,52 @@ extension ItemViewController: UITableViewDelegate {
     let action = UIAlertAction(title: "ok", style: .default, handler: nil)
     alert.addAction(action)
     present(alert, animated: true)
+  }
+  
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 70
+  }
+  
+  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    let editBUtton = UIContextualAction(style: .normal, title: "编辑") {
+      (contextualAction, view, boolValue) in
+      self.editButtonAction(row: indexPath.row)
+      boolValue(true)
+    }
+    let deleteButton = UIContextualAction(style: .destructive, title: "删除") {
+      (contextualAction, view, boolValue) in
+      self.deleteButtonAction(row: indexPath.row)
+      boolValue(true)
+    }
+    let swipeActions = UISwipeActionsConfiguration(actions: [deleteButton, editBUtton])
+    return swipeActions
+  }
+  
+  private func editButtonAction(row: Int) {
+    let alert = UIAlertController(title: "编辑商品", message: "请输入\(self.itemsViewModel.itemViewModels[row].name)的新价格", preferredStyle: .alert)
+    let saveAction = UIAlertAction(title: "保存", style: .default) { [weak self] action in
+      guard let textField = alert.textFields?.first, let priceToSave = textField.text else {
+        return
+      }
+      self?.itemsViewModel.editPrice(row: row, price: Double(priceToSave) ?? 0.0)
+      self?.tableView.reloadData()
+    }
+    let cancelAction = UIAlertAction(title: "取消", style: .cancel)
+    alert.addTextField()
+    alert.addAction(saveAction)
+    alert.addAction(cancelAction)
+    self.present(alert, animated: true)
+  }
+  
+  private func deleteButtonAction(row: Int) {
+    let alert = UIAlertController(title: "删除商品", message: "确定要删除\(self.itemsViewModel.itemViewModels[row].name)吗？", preferredStyle: .alert)
+    let deleteAction = UIAlertAction(title: "删除", style: .destructive) { [weak self] action in
+      self?.itemsViewModel.deleteItem(row: row)
+      self?.tableView.reloadData()
+    }
+    let cancelAction = UIAlertAction(title: "取消", style: .cancel)
+    alert.addAction(deleteAction)
+    alert.addAction(cancelAction)
+    self.present(alert, animated: true)
   }
 }

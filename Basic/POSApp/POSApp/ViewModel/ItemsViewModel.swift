@@ -46,6 +46,14 @@ class ItemsViewModel {
     }
   }
   
+  func editPrice(row: Int, price: Double) {
+    let itemViewModel = itemViewModels[row]
+    itemViewModel.item.price = price
+    try! self.realm.write {
+      realm.add(ItemEntity(itemViewModel: itemViewModel), update: .modified)
+    }
+  }
+  
   func deleteItem(row: Int) {
     let itemEntitys = realm.objects(ItemEntity.self)
     let itemEntity = itemEntitys.filter({ $0.barcode == self.itemViewModels[row].barcode })
