@@ -18,6 +18,12 @@ class ItemViewModel {
     self.isPromotional = isPromotional
   }
   
+  init(itemEntity: ItemEntity) {
+    item = Item(barcode: itemEntity.barcode, name: itemEntity.name, unit: itemEntity.unit, price: itemEntity.price)
+    isPromotional = itemEntity.isPromotional
+    quantity = itemEntity.quantity
+  }
+  
   var barcode: String {
     return item.barcode
   }

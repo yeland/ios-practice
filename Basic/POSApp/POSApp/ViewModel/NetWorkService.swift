@@ -36,10 +36,6 @@ class NetWorkService {
           completion(self?.items, self?.promotionBarcodes ?? [""])
         }
       }
-      
-      DispatchQueue.main.async {
-        completion(self?.items, self?.promotionBarcodes ?? [""])
-      }
     }
   }
   

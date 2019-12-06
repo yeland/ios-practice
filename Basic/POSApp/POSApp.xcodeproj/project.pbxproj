@@ -31,6 +31,7 @@
 		F8E803E3238F6DB300526993 /* ItemsViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803E2238F6DB300526993 /* ItemsViewModelSpec.swift */; };
 		F8E803E5238F72B700526993 /* ItemViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803E4238F72B700526993 /* ItemViewModelSpec.swift */; };
 		F8E803E82390B57D00526993 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803E72390B57D00526993 /* ItemViewModel.swift */; };
+		F8E804512398B25600526993 /* ItemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E804502398B25600526993 /* ItemEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,10 +73,11 @@
 		F8E803D4238E5C9600526993 /* POSAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = POSAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E803D6238E5C9700526993 /* POSAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POSAppTests.swift; sourceTree = "<group>"; };
 		F8E803D8238E5C9700526993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8E803DE238E612D00526993 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		F8E803DE238E612D00526993 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F8E803E2238F6DB300526993 /* ItemsViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewModelSpec.swift; sourceTree = "<group>"; };
 		F8E803E4238F72B700526993 /* ItemViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModelSpec.swift; sourceTree = "<group>"; };
 		F8E803E72390B57D00526993 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
+		F8E804502398B25600526993 /* ItemEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				F8A2EC94238BCDE700D5E5CF /* Item.swift */,
+				F8E804502398B25600526993 /* ItemEntity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				F8A2EC75238BBBBF00D5E5CF /* Sources */,
 				F8A2EC76238BBBBF00D5E5CF /* Frameworks */,
 				F8A2EC77238BBBBF00D5E5CF /* Resources */,
+				385B6B17E2A0213E9AE8475A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -333,6 +337,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		385B6B17E2A0213E9AE8475A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-POSApp/Pods-POSApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-POSApp/Pods-POSApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-POSApp/Pods-POSApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8BB4324E17343428E5F9FE51 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -380,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8E803C7238E125300526993 /* ItemsViewModel.swift in Sources */,
+				F8E804512398B25600526993 /* ItemEntity.swift in Sources */,
 				F8E803CD238E44E300526993 /* ReceiptViewcontroller.swift in Sources */,
 				F8E803E82390B57D00526993 /* ItemViewModel.swift in Sources */,
 				F8A2EC95238BCDE700D5E5CF /* Item.swift in Sources */,

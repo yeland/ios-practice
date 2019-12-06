@@ -7,18 +7,30 @@
 //
 
 import Foundation
+import RealmSwift
 
 class ItemsViewModel {
   var netWorkService = NetWorkService()
   var itemViewModels: [ItemViewModel] = []
+  let realm = try! Realm()
   
   func getItems(completion: @escaping ([ItemViewModel]?, [String]) -> Void) {
-    netWorkService.fetchData() { [weak self] items, promotions in
-      self?.itemViewModels = items?.map({ ItemViewModel(item: $0, isPromotional: promotions.contains($0.barcode)) }) ?? []
-      
-      DispatchQueue.main.async {
-        completion(self?.itemViewModels, promotions)
+    let itemEntitys = realm.objects(ItemEntity.self)
+//    print(realm.configuration.fileURL)
+    if itemEntitys.count == 0 {
+      netWorkService.fetchData() { [weak self] items, promotions in
+        self?.itemViewModels = items?.map({ ItemViewModel(item: $0, isPromotional: promotions.contains($0.barcode)) }) ?? []
+        let originItemEntitys = self?.itemViewModels.map({ ItemEntity(itemViewModel: $0) })
+        try! self?.realm.write {
+          self?.realm.add(originItemEntitys ?? [])
+        }
+        DispatchQueue.main.async {
+          completion(self?.itemViewModels, promotions)
+        }
       }
+    } else {
+      self.itemViewModels = itemEntitys.map({ ItemViewModel(itemEntity: $0) })
+      completion(self.itemViewModels, [])
     }
   }
   
@@ -29,6 +41,18 @@ class ItemsViewModel {
   func addPurchasedItems(row: Int) {
     let purchasedItem = itemViewModels[row]
     purchasedItem.quantity = purchasedItem.quantity + 1
+    try! self.realm.write {
+      realm.add(ItemEntity(itemViewModel: purchasedItem), update: .modified)
+    }
+  }
+  
+  func deleteItem(row: Int) {
+    let itemEntitys = realm.objects(ItemEntity.self)
+    let itemEntity = itemEntitys.filter({ $0.barcode == self.itemViewModels[row].barcode })
+    try! self.realm.write {
+      realm.delete(itemEntity)
+    }
+    itemViewModels.remove(at: row)
   }
   
   var receipt: String {
@@ -45,6 +69,11 @@ class ItemsViewModel {
   
   func clear() {
     itemViewModels.forEach({ $0.quantity = 0 })
+    try! realm.write {
+      for item in realm.objects(ItemEntity.self) {
+        item.quantity = 0
+      }
+    }
   }
 
   private func getItemReceipt() -> String {

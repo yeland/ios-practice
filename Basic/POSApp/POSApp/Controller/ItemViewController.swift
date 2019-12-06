@@ -19,28 +19,11 @@ class ItemViewController: UIViewController {
     self.title = "商品列表"
     
     tableView.dataSource = self
-    setupTableHeader()
+    tableView.delegate = self
     
     itemsViewModel.getItems() { [weak self] _, _ in
       self?.tableView.reloadData()
     }
-  }
-  
-  private func setupTableHeader() {
-    let itemHeader = Bundle.main.loadNibNamed("ItemHeader", owner: nil, options: nil)?.first as! ItemHeader
-    itemHeader.configure { [weak self] in
-      guard let self = self else { return }
-      let shoppingCartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ShoppingCartViewController") as ShoppingCartViewController
-      shoppingCartViewController.configure(with: self.itemsViewModel)
-      self.show(shoppingCartViewController, sender: self)
-    }
-    tableView.tableHeaderView = itemHeader
-    
-    itemHeader.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      itemHeader.widthAnchor.constraint(equalTo: tableView.widthAnchor),
-      itemHeader.heightAnchor.constraint(equalToConstant: 70)
-    ])
   }
 }
 
@@ -59,5 +42,56 @@ extension ItemViewController: UITableViewDataSource {
     }
 
     return cell
+  }
+}
+
+extension ItemViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    return setupHeader()
+  }
+  
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 70
+  }
+  
+  func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    return true
+  }
+  
+  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    let editBUtton = UIContextualAction(style: .normal, title: "编辑") {
+      (contextualAction, view, boolValue) in
+      self.itemsViewModel.deleteItem(row: indexPath.row)
+      tableView.reloadData()
+    }
+    
+    let deleteButton = UIContextualAction(style: .destructive, title: "删除") {
+      (contextualAction, view, boolValue) in
+          //Code I want to do here
+    }
+    
+    let swipeActions = UISwipeActionsConfiguration(actions: [deleteButton, editBUtton])
+
+    return swipeActions
+  }
+  
+  
+  private func setupHeader() -> UIView {
+    let itemHeader = Bundle.main.loadNibNamed("ItemHeader", owner: nil, options: nil)?.first as! ItemHeader
+    itemHeader.configure(shoppingCartAction: shoppingCartAction, createItemAction: createItemAction)
+    return itemHeader
+  }
+  
+  private func shoppingCartAction() {
+    let shoppingCartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ShoppingCartViewController") as ShoppingCartViewController
+    shoppingCartViewController.configure(with: self.itemsViewModel)
+    self.show(shoppingCartViewController, sender: self)
+  }
+  
+  private func createItemAction() {
+    let alert = UIAlertController(title: "New Item", message: "Add a new item", preferredStyle: .alert)
+    let action = UIAlertAction(title: "ok", style: .default, handler: nil)
+    alert.addAction(action)
+    present(alert, animated: true)
   }
 }
