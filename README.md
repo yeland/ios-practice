@@ -28,8 +28,8 @@ This is a repo for storing ios exercises.
 | M01: [App Architecture](./Basic/POSApp)| MVC, MVVM, VIPER, Clean Swift | 2019-11-28 |
 | M02: Functional Swift  | Functional Programming in Swift | - |
 | M03: [UICollectionView](./Advanced/UICollectionViewDemo)  | ImagePicker | 2019-12-02 |
-| M04: [Dynamic Content List](./Advanced/DynamicContentDemo) | Long List with self sizing list item |
-| M05: [Database](./Basic/POSApp) | Sqlite, CoreData, Realm |
+| M04: [Dynamic Content List](./Advanced/DynamicContentDemo) | Long List with self sizing list item | 2019-12-03 |
+| M05: [Database](./Basic/POSApp) | Sqlite, CoreData, Realm | 2019-12-05 |
 | M06: Continuous Integration | BuddyBuild, Jenkins |
 | M07: Data Tracking | What, Why, When, How |
 | M08: UI Testing | Native Testing |
