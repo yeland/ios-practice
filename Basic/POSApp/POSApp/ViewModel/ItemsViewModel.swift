@@ -11,11 +11,12 @@ import RealmSwift
 
 class ItemsViewModel {
   var netWorkService = NetWorkService()
-  var itemViewModels: [ItemViewModel] = []
   let realm = try! Realm()
+  var itemEntitys: Results<ItemEntity>!
+  var itemViewModels: [ItemViewModel] = []
   
   func getItems(completion: @escaping ([ItemViewModel]?, [String]) -> Void) {
-    let itemEntitys = realm.objects(ItemEntity.self)
+    itemEntitys = realm.objects(ItemEntity.self)
 //    print(realm.configuration.fileURL)
     if itemEntitys.count == 0 {
       netWorkService.fetchData() { [weak self] items, promotions in
@@ -43,6 +44,21 @@ class ItemsViewModel {
     purchasedItem.quantity = purchasedItem.quantity + 1
     try! self.realm.write {
       realm.add(ItemEntity(itemViewModel: purchasedItem), update: .modified)
+    }
+  }
+  
+  func createItem(name: String, unit: String, price: Double, isPromotional: Bool) {
+    let barcode = itemViewModels.map({ (itemViewModel: ItemViewModel) -> Int in
+      itemViewModel.item.barcode.removeFirst(4)
+      return Int(itemViewModel.item.barcode) ?? 0
+    }).reduce(0, { $0 < $1 ? $1 : $0 }) + 1
+    
+    let item = Item(barcode: "ITEM\(String(format: "%06d", barcode))", name: name, unit: unit, price: price)
+    let itemViewModel = ItemViewModel(item: item, isPromotional: isPromotional)
+    
+    itemViewModels.append(itemViewModel)
+    try! self.realm.write {
+      realm.add(ItemEntity(itemViewModel: itemViewModel))
     }
   }
   

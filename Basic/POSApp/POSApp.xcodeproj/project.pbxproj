@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		00C9902CD754768315303A1F /* Pods_POSAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC31DF81C957F3F29E0AA69E /* Pods_POSAppTests.framework */; };
 		B49464DEB1D2DDE8D4C1D8A0 /* Pods_POSApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D20678A6876E0B57BC8700 /* Pods_POSApp.framework */; };
+		F8496308239A2320002B85BF /* CreateItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8496307239A2320002B85BF /* CreateItemViewController.swift */; };
 		F8A2EC7D238BBBBF00D5E5CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A2EC7C238BBBBF00D5E5CF /* AppDelegate.swift */; };
 		F8A2EC7F238BBBBF00D5E5CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A2EC7E238BBBBF00D5E5CF /* SceneDelegate.swift */; };
 		F8A2EC81238BBBBF00D5E5CF /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A2EC80238BBBBF00D5E5CF /* ItemViewController.swift */; };
@@ -51,6 +52,7 @@
 		99D20678A6876E0B57BC8700 /* Pods_POSApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_POSApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC31DF81C957F3F29E0AA69E /* Pods_POSAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_POSAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F08108EE162A45D11B40882D /* Pods-POSApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POSApp.release.xcconfig"; path = "Target Support Files/Pods-POSApp/Pods-POSApp.release.xcconfig"; sourceTree = "<group>"; };
+		F8496307239A2320002B85BF /* CreateItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateItemViewController.swift; sourceTree = "<group>"; };
 		F8A2EC79238BBBBF00D5E5CF /* POSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = POSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8A2EC7C238BBBBF00D5E5CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8A2EC7E238BBBBF00D5E5CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				F8A2EC80238BBBBF00D5E5CF /* ItemViewController.swift */,
 				F8E803BB238CF14800526993 /* ShoppingCartViewController.swift */,
 				F8E803CC238E44E300526993 /* ReceiptViewcontroller.swift */,
+				F8496307239A2320002B85BF /* CreateItemViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				F8E803AC238BD50500526993 /* ItemCell.swift in Sources */,
 				F8E803B8238CE40200526993 /* ItemHeader.swift in Sources */,
 				F8E803BC238CF14800526993 /* ShoppingCartViewController.swift in Sources */,
+				F8496308239A2320002B85BF /* CreateItemViewController.swift in Sources */,
 				F8A2EC81238BBBBF00D5E5CF /* ItemViewController.swift in Sources */,
 				F8A2EC7D238BBBBF00D5E5CF /* AppDelegate.swift in Sources */,
 				F8E803CB238E401500526993 /* ShoppingCartFooter.swift in Sources */,

@@ -12,7 +12,7 @@ class ItemViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
-  let itemsViewModel = ItemsViewModel()
+  var itemsViewModel = ItemsViewModel()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -24,6 +24,14 @@ class ItemViewController: UIViewController {
     itemsViewModel.getItems() { [weak self] _, _ in
       self?.tableView.reloadData()
     }
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    self.tableView.reloadData()
+  }
+  
+  func configure(with itemsViewModel: ItemsViewModel) {
+    self.itemsViewModel = itemsViewModel
   }
 }
 
@@ -58,14 +66,13 @@ extension ItemViewController: UITableViewDelegate {
   private func shoppingCartAction() {
     let shoppingCartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ShoppingCartViewController") as ShoppingCartViewController
     shoppingCartViewController.configure(with: self.itemsViewModel)
-    self.show(shoppingCartViewController, sender: self)
+    show(shoppingCartViewController, sender: self)
   }
   
   private func createItemAction() {
-    let alert = UIAlertController(title: "New Item", message: "Add a new item", preferredStyle: .alert)
-    let action = UIAlertAction(title: "ok", style: .default, handler: nil)
-    alert.addAction(action)
-    present(alert, animated: true)
+    let createItemViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "CreateItemViewController") as CreateItemViewController
+    createItemViewController.configure(with: self.itemsViewModel)
+    show(createItemViewController, sender: self)
   }
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
