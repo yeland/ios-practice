@@ -13,70 +13,64 @@ class ItemsViewModel {
   var netWorkService = NetWorkService()
   let realm = try! Realm()
   var itemEntitys: Results<ItemEntity>!
-  var itemViewModels: [ItemViewModel] = []
   
-  func getItems(completion: @escaping ([ItemViewModel]?, [String]) -> Void) {
+  func getItems(completion: @escaping () -> Void) {
     itemEntitys = realm.objects(ItemEntity.self)
 //    print(realm.configuration.fileURL)
     if itemEntitys.count == 0 {
       netWorkService.fetchData() { [weak self] items, promotions in
-        self?.itemViewModels = items?.map({ ItemViewModel(item: $0, isPromotional: promotions.contains($0.barcode)) }) ?? []
-        let originItemEntitys = self?.itemViewModels.map({ ItemEntity(itemViewModel: $0) })
+        let originItemEntitys = items?.map({ ItemEntity(item: $0, isPromotional: promotions.contains($0.barcode)) }) ?? []
         try! self?.realm.write {
-          self?.realm.add(originItemEntitys ?? [])
+          self?.realm.add(originItemEntitys)
         }
         DispatchQueue.main.async {
-          completion(self?.itemViewModels, promotions)
+          completion()
         }
       }
     } else {
-      self.itemViewModels = itemEntitys.map({ ItemViewModel(itemEntity: $0) })
-      completion(self.itemViewModels, [])
+      completion()
     }
   }
   
-  var purchasedItems: [ItemViewModel] {
-    itemViewModels.filter({ $0.quantity > 0 })
+  var purchasedItems: [ItemEntity] {
+    itemEntitys.filter({ $0.quantity > 0 })
   }
   
   func addPurchasedItems(row: Int) {
-    let purchasedItem = itemViewModels[row]
-    purchasedItem.quantity = purchasedItem.quantity + 1
+    let purchasedItem = itemEntitys[row]
     try! self.realm.write {
-      realm.add(ItemEntity(itemViewModel: purchasedItem), update: .modified)
+      purchasedItem.quantity = purchasedItem.quantity + 1
     }
   }
   
   func createItem(name: String, unit: String, price: Double, isPromotional: Bool) {
-    let barcode = itemViewModels.map({ (itemViewModel: ItemViewModel) -> Int in
-      itemViewModel.item.barcode.removeFirst(4)
-      return Int(itemViewModel.item.barcode) ?? 0
+    let barcode = itemEntitys.map({ (itemEntity: ItemEntity) -> Int in
+      let barcode = itemEntity.barcode
+      return (Int(String(barcode.split(separator: "M")[1])) ?? 0)
     }).reduce(0, { $0 < $1 ? $1 : $0 }) + 1
     
     let item = Item(barcode: "ITEM\(String(format: "%06d", barcode))", name: name, unit: unit, price: price)
-    let itemViewModel = ItemViewModel(item: item, isPromotional: isPromotional)
+    let itemEntity = ItemEntity(item: item, isPromotional: isPromotional)
     
-    itemViewModels.append(itemViewModel)
     try! self.realm.write {
-      realm.add(ItemEntity(itemViewModel: itemViewModel))
+      realm.add(itemEntity)
     }
   }
   
-  func editPrice(row: Int, price: Double) {
-    let itemViewModel = itemViewModels[row]
-    itemViewModel.item.price = price
+  func editPrice(row: Int, price: Double, completion: () -> Void) {
+    let itemEntity = itemEntitys[row]
     try! self.realm.write {
-      realm.add(ItemEntity(itemViewModel: itemViewModel), update: .modified)
+      itemEntity.price = price
     }
+    completion()
   }
   
-  func deleteItem(row: Int) {
-    let itemEntitys = realm.objects(ItemEntity.self)
-    let itemEntity = itemEntitys.filter({ $0.barcode == self.itemViewModels[row].barcode })
+  func deleteItem(row: Int, completion: () -> Void) {
+    let itemEntity = itemEntitys[row]
     try! self.realm.write {
       realm.delete(itemEntity)
     }
-    itemViewModels.remove(at: row)
+    completion()
   }
   
   var receipt: String {
@@ -92,7 +86,6 @@ class ItemsViewModel {
   }
   
   func clear() {
-    itemViewModels.forEach({ $0.quantity = 0 })
     try! realm.write {
       for item in realm.objects(ItemEntity.self) {
         item.quantity = 0

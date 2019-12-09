@@ -21,7 +21,7 @@ class ItemViewController: UIViewController {
     tableView.dataSource = self
     tableView.delegate = self
     
-    itemsViewModel.getItems() { [weak self] _, _ in
+    itemsViewModel.getItems() { [weak self] in
       self?.tableView.reloadData()
     }
   }
@@ -37,14 +37,14 @@ class ItemViewController: UIViewController {
 
 extension ItemViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return itemsViewModel.itemViewModels.count
+    return itemsViewModel.itemEntitys.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as? ItemCell else {
       return UITableViewCell()
     }
-    cell.configure(with: self.itemsViewModel.itemViewModels[indexPath.row]) { [weak self] in
+    cell.configure(with: self.itemsViewModel.itemEntitys[indexPath.row]) { [weak self] in
       guard let self = self else { return }
       self.itemsViewModel.addPurchasedItems(row: indexPath.row)
     }
@@ -95,13 +95,14 @@ extension ItemViewController: UITableViewDelegate {
   }
   
   private func editButtonAction(row: Int) {
-    let alert = UIAlertController(title: "编辑商品", message: "请输入\(self.itemsViewModel.itemViewModels[row].name)的新价格", preferredStyle: .alert)
+    let alert = UIAlertController(title: "编辑商品", message: "请输入\(self.itemsViewModel.itemEntitys[row].name)的新价格", preferredStyle: .alert)
     let saveAction = UIAlertAction(title: "保存", style: .default) { [weak self] action in
       guard let textField = alert.textFields?.first, let priceToSave = textField.text else {
         return
       }
-      self?.itemsViewModel.editPrice(row: row, price: Double(priceToSave) ?? 0.0)
-      self?.tableView.reloadData()
+      self?.itemsViewModel.editPrice(row: row, price: Double(priceToSave) ?? 0.0) {
+        self?.tableView.reloadData()
+      }
     }
     let cancelAction = UIAlertAction(title: "取消", style: .cancel)
     alert.addTextField()
@@ -111,10 +112,11 @@ extension ItemViewController: UITableViewDelegate {
   }
   
   private func deleteButtonAction(row: Int) {
-    let alert = UIAlertController(title: "删除商品", message: "确定要删除\(self.itemsViewModel.itemViewModels[row].name)吗？", preferredStyle: .alert)
+    let alert = UIAlertController(title: "删除商品", message: "确定要删除\(self.itemsViewModel.itemEntitys[row].name)吗？", preferredStyle: .alert)
     let deleteAction = UIAlertAction(title: "删除", style: .destructive) { [weak self] action in
-      self?.itemsViewModel.deleteItem(row: row)
-      self?.tableView.reloadData()
+      self?.itemsViewModel.deleteItem(row: row) {
+        self?.tableView.reloadData()        
+      }
     }
     let cancelAction = UIAlertAction(title: "取消", style: .cancel)
     alert.addAction(deleteAction)
