@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MomentHeader" customModule="dynamic_content_demo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="306"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rBt-Vr-Vpd">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="290"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="290" id="Kd6-fe-You"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zcv-2H-L1R">
+                    <rect key="frame" x="329" y="226" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="XiA-yH-AL0"/>
+                        <constraint firstAttribute="height" constant="80" id="irG-gX-Aaw"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0J1-ex-b28">
+                    <rect key="frame" x="282" y="255.5" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="rBt-Vr-Vpd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="7HN-I0-VYh"/>
+                <constraint firstItem="rBt-Vr-Vpd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="BcS-br-KBi"/>
+                <constraint firstItem="rBt-Vr-Vpd" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Ou4-Bi-2Kg"/>
+                <constraint firstItem="zcv-2H-L1R" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="226" id="QWG-F8-iXW"/>
+                <constraint firstItem="0J1-ex-b28" firstAttribute="centerY" secondItem="zcv-2H-L1R" secondAttribute="centerY" id="dgb-TI-RUC"/>
+                <constraint firstItem="zcv-2H-L1R" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-5" id="vZa-OL-5ye"/>
+                <constraint firstItem="zcv-2H-L1R" firstAttribute="leading" secondItem="0J1-ex-b28" secondAttribute="trailing" constant="5" id="xXT-gx-StA"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="avatarImage" destination="zcv-2H-L1R" id="km3-hN-MJJ"/>
+                <outlet property="nameLabel" destination="0J1-ex-b28" id="hhF-s5-P0b"/>
+                <outlet property="profileImage" destination="rBt-Vr-Vpd" id="UbN-Br-lnV"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="226.33928571428569"/>
+        </view>
+    </objects>
+</document>

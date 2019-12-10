@@ -57,7 +57,6 @@ class MomentCell: UITableViewCell {
     comments = moment.comments ?? []
     collectionView.reloadData()
     commentsTable.reloadData()
-//    commentsTable.backgroundColor = .opaqueSeparator
     
     guard let sender = moment.sender else { return }
     guard let url = URL(string: sender.avatar) else { return }

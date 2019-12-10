@@ -20,12 +20,16 @@ class ViewController: UIViewController {
     tableView.register(UINib(nibName: "MomentCell", bundle: nil), forCellReuseIdentifier: "MomentCell")
     
     momentViewModel.getMoments() { [weak self] moments in
-      self?.tableView.reloadData()
+      self?.momentViewModel.getUser() {_ in
+        self?.tableView.reloadData()
+        let momentHeader = Bundle.main.loadNibNamed("MomentHeader", owner: nil, options: nil)?.first as! MomentHeader
+        momentHeader.configure(with: (self?.momentViewModel.user)!)
+        self?.tableView.tableHeaderView = momentHeader
+      }
     }
-    
+
     tableView.dataSource = self
     tableView.delegate = self
-    
   }
 }
 

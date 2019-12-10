@@ -11,7 +11,7 @@ import Nimble
 
 @testable import POSApp
 
-class ItemViewModelSpec: QuickSpec {
+class ItemEntitySpec: QuickSpec {
   override func spec() {
     describe("subtotal") {
       context("should return purchased item's price") {

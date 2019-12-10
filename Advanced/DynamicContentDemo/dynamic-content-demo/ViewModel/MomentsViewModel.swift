@@ -11,9 +11,31 @@ import Foundation
 class MomentsViewModel {
   private let networkClient: NetworkClient = .init()
   var moments: [Moment] = []
+  var user: User = User(profileImage: "", avatar: "", nick: "", username: "")
+  
+  func getUser(completion: @escaping (User?) -> Void) {
+    guard let url = URL(string: "https://thoughtworks-mobile-2018.herokuapp.com/user/jsmith") else { return }
+    networkClient.request(url: url) { [weak self] data, error in
+      if let data = data {
+        do {
+          let decoder = JSONDecoder()
+          decoder.keyDecodingStrategy = .convertFromSnakeCase
+          self?.user = try decoder.decode(User.self, from: data)
+          DispatchQueue.main.async {
+            completion(self?.user)
+          }
+        } catch let error {
+          print(error.localizedDescription)
+        }
+      }
+      if let error = error {
+        print(error.localizedDescription)
+      }
+    }
+  }
   
   func getMoments(completion: @escaping ([Moment]?) -> Void) {
-    guard let url = URL(string: "https://emagrorrim.github.io/mock-api/moments.json") else { return }
+    guard let url = URL(string: "https://thoughtworks-mobile-2018.herokuapp.com/user/jsmith/tweets") else { return }
     networkClient.request(url: url) { [weak self] data, error in
       if let data = data {
         do {
