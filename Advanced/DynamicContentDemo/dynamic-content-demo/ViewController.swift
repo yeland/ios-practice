@@ -41,6 +41,7 @@ class ViewController: UIViewController {
       self?.step += 1
       self?.tableView.reloadData()
     }
+    tableView.tableFooterView = momentFooter
     
     tableView.dataSource = self
     tableView.delegate = self
@@ -70,9 +71,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     if momentViewModel.showMoments.count == momentViewModel.showMomentsByStep(step: step).count && step != 0{
-      tableView.tableFooterView = nil
+      momentFooter.loadingButton.setTitle("All loaded", for: .disabled)
+      momentFooter.loadingButton.isEnabled = false
     } else {
-      tableView.tableFooterView = momentFooter
+      momentFooter.loadingButton.setTitle("Load more", for: .normal)
+      momentFooter.loadingButton.isEnabled = true
     }
   }
 }
