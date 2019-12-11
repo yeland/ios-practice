@@ -15,6 +15,7 @@ class ViewController: UIViewController {
   private let momentViewModel = MomentsViewModel()
   var moments: [Moment] = []
   var step = 0
+  var momentFooter: MomentFooter = MomentFooter()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -23,7 +24,7 @@ class ViewController: UIViewController {
     let refreshControl = UIRefreshControl()
     refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
     
-//    refreshControl.addTarget(self, action: , for: UIControl.Event.valueChanged)
+    refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: UIControl.Event.valueChanged)
     tableView.addSubview(refreshControl)
     
     momentViewModel.getMoments() { [weak self] moments in
@@ -35,15 +36,20 @@ class ViewController: UIViewController {
       }
     }
     
-    let momentFooter = Bundle.main.loadNibNamed("MomentFooter", owner: nil, options: nil)?.first as! MomentFooter
+    momentFooter = Bundle.main.loadNibNamed("MomentFooter", owner: nil, options: nil)?.first as! MomentFooter
     momentFooter.configure() { [weak self] in
       self?.step += 1
       self?.tableView.reloadData()
     }
-    tableView.tableFooterView = momentFooter
     
     tableView.dataSource = self
     tableView.delegate = self
+  }
+  
+  @objc func refreshData(_ refreshControl: UIRefreshControl) {
+    self.step = 0
+    self.tableView.reloadData()
+    refreshControl.endRefreshing()
   }
 }
 
@@ -63,8 +69,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-    if momentViewModel.showMoments.count == momentViewModel.showMomentsByStep(step: step).count {
+    if momentViewModel.showMoments.count == momentViewModel.showMomentsByStep(step: step).count && step != 0{
       tableView.tableFooterView = nil
+    } else {
+      tableView.tableFooterView = momentFooter
     }
   }
 }
