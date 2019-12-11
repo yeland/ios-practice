@@ -19,26 +19,26 @@ class ItemsViewModelSpec: QuickSpec {
           let itemsViewModel = ItemsViewModel()
           itemsViewModel.netWorkService = MockNetWorkService()
           
-          itemsViewModel.getItems() { items, promotionBarcodes in
-            expect(itemsViewModel.itemViewModels.count) == 3
-            expect(itemsViewModel.itemViewModels[0].barcode) == "ITEM000000"
-            expect(itemsViewModel.itemViewModels[0].isPromotional) == true
-            expect(itemsViewModel.itemViewModels[0].quantity) == 0
-            expect(itemsViewModel.itemViewModels[2].barcode) == "ITEM000002"
-            expect(itemsViewModel.itemViewModels[2].isPromotional) == false
+          itemsViewModel.getItems() {
+            expect(itemsViewModel.itemEntitys.count) == 3
+            expect(itemsViewModel.itemEntitys[0].barcode) == "ITEM000000"
+            expect(itemsViewModel.itemEntitys[0].isPromotional) == true
+            expect(itemsViewModel.itemEntitys[0].quantity) == 0
+            expect(itemsViewModel.itemEntitys[2].barcode) == "ITEM000002"
+            expect(itemsViewModel.itemEntitys[2].isPromotional) == false
           }
         }
       }
     }
     
     func beforeEach() -> ItemsViewModel {
-      let itemViewModels = [
-      ItemViewModel(item: Item(barcode: "ITEM000001", name: "雪碧", unit: "瓶", price: 3.00), isPromotional: true),
-      ItemViewModel(item: Item(barcode: "ITEM000003", name: "荔枝", unit: "斤", price: 15.00), isPromotional: false),
-      ItemViewModel(item: Item(barcode: "ITEM000005", name: "方便面", unit: "袋", price: 4.50), isPromotional: true)]
+      let itemEntitys = [
+      ItemEntity(item: Item(barcode: "ITEM000001", name: "雪碧", unit: "瓶", price: 3.00), isPromotional: true),
+      ItemEntity(item: Item(barcode: "ITEM000003", name: "荔枝", unit: "斤", price: 15.00), isPromotional: false),
+      ItemEntity(item: Item(barcode: "ITEM000005", name: "方便面", unit: "袋", price: 4.50), isPromotional: true)]
       
       let itemsViewModel = ItemsViewModel()
-      itemsViewModel.itemViewModels = itemViewModels
+//      itemsViewModel.itemEntitys = Results<ItemEntity>(itemEntitys)
       
       return itemsViewModel
     }
@@ -69,9 +69,9 @@ class ItemsViewModelSpec: QuickSpec {
       context("should return reciept") {
         it("return a correct receipt") {
           let itemsViewModel = beforeEach()
-          itemsViewModel.itemViewModels[0].quantity = 5
-          itemsViewModel.itemViewModels[1].quantity = 2
-          itemsViewModel.itemViewModels[2].quantity = 3
+          itemsViewModel.itemEntitys[0].quantity = 5
+          itemsViewModel.itemEntitys[1].quantity = 2
+          itemsViewModel.itemEntitys[2].quantity = 3
           
           let expectedReceipt = """
           ***<没钱赚商店>收据***
@@ -106,9 +106,9 @@ class ItemsViewModelSpec: QuickSpec {
     describe("clear") {
       context("should clear purchased items") {
         let itemsViewModel = beforeEach()
-        itemsViewModel.itemViewModels[0].quantity = 5
-        itemsViewModel.itemViewModels[1].quantity = 2
-        itemsViewModel.itemViewModels[2].quantity = 3
+        itemsViewModel.itemEntitys[0].quantity = 5
+        itemsViewModel.itemEntitys[1].quantity = 2
+        itemsViewModel.itemEntitys[2].quantity = 3
         
         expect(itemsViewModel.purchasedItems.count) == 3
         

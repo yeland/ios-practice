@@ -30,8 +30,7 @@
 		F8E803D7238E5C9700526993 /* POSAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803D6238E5C9700526993 /* POSAppTests.swift */; };
 		F8E803DF238E612D00526993 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F8E803DE238E612D00526993 /* Podfile */; };
 		F8E803E3238F6DB300526993 /* ItemsViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803E2238F6DB300526993 /* ItemsViewModelSpec.swift */; };
-		F8E803E5238F72B700526993 /* ItemViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803E4238F72B700526993 /* ItemViewModelSpec.swift */; };
-		F8E803E82390B57D00526993 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803E72390B57D00526993 /* ItemViewModel.swift */; };
+		F8E803E5238F72B700526993 /* ItemEntitySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E803E4238F72B700526993 /* ItemEntitySpec.swift */; };
 		F8E804512398B25600526993 /* ItemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E804502398B25600526993 /* ItemEntity.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,8 +76,7 @@
 		F8E803D8238E5C9700526993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8E803DE238E612D00526993 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F8E803E2238F6DB300526993 /* ItemsViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewModelSpec.swift; sourceTree = "<group>"; };
-		F8E803E4238F72B700526993 /* ItemViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModelSpec.swift; sourceTree = "<group>"; };
-		F8E803E72390B57D00526993 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
+		F8E803E4238F72B700526993 /* ItemEntitySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEntitySpec.swift; sourceTree = "<group>"; };
 		F8E804502398B25600526993 /* ItemEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,7 +197,7 @@
 				F8E803D6238E5C9700526993 /* POSAppTests.swift */,
 				F8E803D8238E5C9700526993 /* Info.plist */,
 				F8E803E2238F6DB300526993 /* ItemsViewModelSpec.swift */,
-				F8E803E4238F72B700526993 /* ItemViewModelSpec.swift */,
+				F8E803E4238F72B700526993 /* ItemEntitySpec.swift */,
 			);
 			path = POSAppTests;
 			sourceTree = "<group>";
@@ -207,7 +205,6 @@
 		F8E803E62390B53300526993 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				F8E803E72390B57D00526993 /* ItemViewModel.swift */,
 				F8E803C6238E125300526993 /* ItemsViewModel.swift */,
 				F8A2EC91238BC80800D5E5CF /* NetWorkService.swift */,
 			);
@@ -406,7 +403,6 @@
 				F8E803C7238E125300526993 /* ItemsViewModel.swift in Sources */,
 				F8E804512398B25600526993 /* ItemEntity.swift in Sources */,
 				F8E803CD238E44E300526993 /* ReceiptViewcontroller.swift in Sources */,
-				F8E803E82390B57D00526993 /* ItemViewModel.swift in Sources */,
 				F8A2EC95238BCDE700D5E5CF /* Item.swift in Sources */,
 				F8A2EC92238BC80800D5E5CF /* NetWorkService.swift in Sources */,
 				F8E803C5238D168900526993 /* PurchasedItemCell.swift in Sources */,
@@ -427,7 +423,7 @@
 			files = (
 				F8E803D7238E5C9700526993 /* POSAppTests.swift in Sources */,
 				F8E803E3238F6DB300526993 /* ItemsViewModelSpec.swift in Sources */,
-				F8E803E5238F72B700526993 /* ItemViewModelSpec.swift in Sources */,
+				F8E803E5238F72B700526993 /* ItemEntitySpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

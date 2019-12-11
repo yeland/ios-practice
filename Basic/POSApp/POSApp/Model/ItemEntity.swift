@@ -29,15 +29,6 @@ class ItemEntity: Object {
     self.isPromotional = isPromotional
   }
   
-  init(itemViewModel: ItemViewModel) {
-    barcode = itemViewModel.barcode
-    name = itemViewModel.name
-    unit = itemViewModel.unit
-    price = itemViewModel.price
-    isPromotional = itemViewModel.isPromotional
-    quantity = itemViewModel.quantity
-  }
-  
   override static func primaryKey() -> String? {
       return "barcode"
   }
