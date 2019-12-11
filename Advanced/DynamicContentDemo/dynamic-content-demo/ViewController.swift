@@ -20,37 +20,46 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.register(UINib(nibName: "MomentCell", bundle: nil), forCellReuseIdentifier: "MomentCell")
+    setRefresh()
+    setData()
+    setFooter()
     
+    tableView.dataSource = self
+    tableView.delegate = self
+  }
+  
+  func setRefresh() {
     let refreshControl = UIRefreshControl()
     refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
     
     refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: UIControl.Event.valueChanged)
     tableView.addSubview(refreshControl)
-    
-    momentViewModel.getMoments() { [weak self] moments in
-      self?.momentViewModel.getUser() {_ in
-        self?.tableView.reloadData()
-        let momentHeader = Bundle.main.loadNibNamed("MomentHeader", owner: nil, options: nil)?.first as! MomentHeader
-        momentHeader.configure(with: (self?.momentViewModel.user)!)
-        self?.tableView.tableHeaderView = momentHeader
-      }
-    }
-    
-    momentFooter = Bundle.main.loadNibNamed("MomentFooter", owner: nil, options: nil)?.first as! MomentFooter
-    momentFooter.configure() { [weak self] in
-      self?.step += 1
-      self?.tableView.reloadData()
-    }
-    tableView.tableFooterView = momentFooter
-    
-    tableView.dataSource = self
-    tableView.delegate = self
   }
   
   @objc func refreshData(_ refreshControl: UIRefreshControl) {
     self.step = 0
     self.tableView.reloadData()
     refreshControl.endRefreshing()
+  }
+  
+  func setData() {
+    momentViewModel.getUser() { [weak self] _ in
+      self?.momentViewModel.getMoments() {_ in
+        let momentHeader = Bundle.main.loadNibNamed("MomentHeader", owner: nil, options: nil)?.first as! MomentHeader
+        momentHeader.configure(with: (self?.momentViewModel.user)!)
+        self?.tableView.tableHeaderView = momentHeader
+        self?.tableView.reloadData()
+      }
+    }
+  }
+  
+  func setFooter() {
+    momentFooter = Bundle.main.loadNibNamed("MomentFooter", owner: nil, options: nil)?.first as! MomentFooter
+    momentFooter.configure() { [weak self] in
+      self?.step += 1
+      self?.tableView.reloadData()
+    }
+    tableView.tableFooterView = momentFooter
   }
 }
 
