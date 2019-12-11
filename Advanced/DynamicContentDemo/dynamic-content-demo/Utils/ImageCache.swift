@@ -30,7 +30,8 @@ class ImageCache {
       }
       
       let downloadTask: URLSessionDataTask = URLSession.shared.dataTask(with: URL(string: urlString)!, completionHandler: { (data, response, error) in
-        if (error != nil) {
+        if let error = error {
+          print(error.localizedDescription)
           completionHandler(nil, urlString)
           return
         }

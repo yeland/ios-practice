@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MomentViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
 
   private let networkClient: NetworkClient = .init()
@@ -63,7 +63,7 @@ class ViewController: UIViewController {
   }
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension MomentViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return momentViewModel.showMomentsByStep(step: step).count
   }
