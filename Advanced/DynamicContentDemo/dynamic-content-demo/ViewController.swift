@@ -14,10 +14,17 @@ class ViewController: UIViewController {
   private let networkClient: NetworkClient = .init()
   private let momentViewModel = MomentsViewModel()
   var moments: [Moment] = []
+  var step = 0
 
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.register(UINib(nibName: "MomentCell", bundle: nil), forCellReuseIdentifier: "MomentCell")
+    
+    let refreshControl = UIRefreshControl()
+    refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+    
+//    refreshControl.addTarget(self, action: , for: UIControl.Event.valueChanged)
+    tableView.addSubview(refreshControl)
     
     momentViewModel.getMoments() { [weak self] moments in
       self?.momentViewModel.getUser() {_ in
@@ -27,7 +34,14 @@ class ViewController: UIViewController {
         self?.tableView.tableHeaderView = momentHeader
       }
     }
-
+    
+    let momentFooter = Bundle.main.loadNibNamed("MomentFooter", owner: nil, options: nil)?.first as! MomentFooter
+    momentFooter.configure() { [weak self] in
+      self?.step += 1
+      self?.tableView.reloadData()
+    }
+    tableView.tableFooterView = momentFooter
+    
     tableView.dataSource = self
     tableView.delegate = self
   }
@@ -35,7 +49,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return momentViewModel.showMoments.count
+    return momentViewModel.showMomentsByStep(step: step).count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

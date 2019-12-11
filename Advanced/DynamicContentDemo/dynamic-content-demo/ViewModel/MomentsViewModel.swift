@@ -64,4 +64,16 @@ class MomentsViewModel {
       return true
     })
   }
+  
+  func showMomentsByStep(step: Int) -> [Moment] {
+    var moments: [Moment] = []
+    let calculatedCount = (step + 1) * 5
+    let count = calculatedCount < showMoments.count ? calculatedCount : showMoments.count
+    if showMoments.count > 0 {
+      for index in 1...count {
+        moments.append(showMoments[index - 1])
+      }
+    }
+    return moments
+  }
 }

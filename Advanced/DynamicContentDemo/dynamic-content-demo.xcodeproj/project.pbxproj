@@ -21,6 +21,8 @@
 		F834B88B239F426500DA85D2 /* MomentHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834B88A239F426500DA85D2 /* MomentHeader.swift */; };
 		F834B88D239F42B800DA85D2 /* MomentHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F834B88C239F42B800DA85D2 /* MomentHeader.xib */; };
 		F834B88F239F633800DA85D2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834B88E239F633800DA85D2 /* User.swift */; };
+		F834B895239F93FF00DA85D2 /* MomentFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = F834B894239F93FF00DA85D2 /* MomentFooter.xib */; };
+		F834B897239F940E00DA85D2 /* MomentFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834B896239F940E00DA85D2 /* MomentFooter.swift */; };
 		F8E804312396256500526993 /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E804302396256500526993 /* Moment.swift */; };
 		F8E804392396297900526993 /* MomentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E804382396297900526993 /* MomentsViewModel.swift */; };
 		F8E8043D23962BBA00526993 /* MomentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E8043C23962BBA00526993 /* MomentCell.swift */; };
@@ -52,6 +54,8 @@
 		F834B88A239F426500DA85D2 /* MomentHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentHeader.swift; sourceTree = "<group>"; };
 		F834B88C239F42B800DA85D2 /* MomentHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MomentHeader.xib; sourceTree = "<group>"; };
 		F834B88E239F633800DA85D2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F834B894239F93FF00DA85D2 /* MomentFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MomentFooter.xib; path = ../../../../../../../.Trash/MomentFooter.xib; sourceTree = "<group>"; };
+		F834B896239F940E00DA85D2 /* MomentFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MomentFooter.swift; path = ../../../../../../../.Trash/MomentFooter.swift; sourceTree = "<group>"; };
 		F8E804302396256500526993 /* Moment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
 		F8E804382396297900526993 /* MomentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentsViewModel.swift; sourceTree = "<group>"; };
 		F8E8043C23962BBA00526993 /* MomentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentCell.swift; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 				F8E8044A23979C5D00526993 /* CommentCell.swift */,
 				F834B88A239F426500DA85D2 /* MomentHeader.swift */,
 				F834B88C239F42B800DA85D2 /* MomentHeader.xib */,
+				F834B896239F940E00DA85D2 /* MomentFooter.swift */,
+				F834B894239F93FF00DA85D2 /* MomentFooter.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -246,6 +252,7 @@
 				7C9A9741239572260044EEE0 /* Assets.xcassets in Resources */,
 				F834B88D239F42B800DA85D2 /* MomentHeader.xib in Resources */,
 				7C4406482395857500EDFD7F /* SingleLabelCell.xib in Resources */,
+				F834B895239F93FF00DA85D2 /* MomentFooter.xib in Resources */,
 				F8E8043F23962BD900526993 /* MomentCell.xib in Resources */,
 				7C9A973F239572230044EEE0 /* Main.storyboard in Resources */,
 				F8E804452397470000526993 /* PhotoCell.xib in Resources */,
@@ -314,6 +321,7 @@
 				7C9A9750239573820044EEE0 /* UIImageView+Networking.swift in Sources */,
 				F834B88F239F633800DA85D2 /* User.swift in Sources */,
 				7C9A9738239572230044EEE0 /* AppDelegate.swift in Sources */,
+				F834B897239F940E00DA85D2 /* MomentFooter.swift in Sources */,
 				7C9A973A239572230044EEE0 /* SceneDelegate.swift in Sources */,
 				7C9A974E239573640044EEE0 /* NetworkClient.swift in Sources */,
 				F8E8044B23979C5D00526993 /* CommentCell.swift in Sources */,
