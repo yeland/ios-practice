@@ -11,10 +11,9 @@ import AlamofireImage
 
 extension UIImageView {
   func setImage(withURL url: URL) {
-    self.af_setImage(withURL: url)
-  }
-  
-  func cancellOperation() {
-    self.af_cancelImageRequest()
+    let imageCache = ImageCache.sharedLoader
+    imageCache.imageForUrl(urlString: url.absoluteString) { image, _ in
+      self.image = image
+    }
   }
 }

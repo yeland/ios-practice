@@ -113,7 +113,6 @@ class MomentCell: UITableViewCell {
     avatar.image = nil
     name.text = nil
     content.text = nil
-    avatar.cancellOperation()
     rowPhotosNumber = 3
   }
 }

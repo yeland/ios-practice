@@ -18,6 +18,5 @@ class PhotoCell: UICollectionViewCell {
   
   override func prepareForReuse() {
     self.photo.image = nil
-    photo.cancellOperation()
   }
 }
