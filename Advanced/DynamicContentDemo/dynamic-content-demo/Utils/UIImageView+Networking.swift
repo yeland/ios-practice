@@ -12,8 +12,8 @@ import AlamofireImage
 extension UIImageView {
   func setImage(withURL url: URL) {
     let imageCache = ImageCache.sharedLoader
-    imageCache.imageForUrl(urlString: url.absoluteString) { image, _ in
-      self.image = image
+    imageCache.imageForUrl(urlString: url.absoluteString) { [weak self] image, _ in
+      self?.image = image
     }
   }
 }

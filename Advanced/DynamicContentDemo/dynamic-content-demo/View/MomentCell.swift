@@ -117,3 +117,40 @@ class MomentCell: UITableViewCell {
     rowPhotosNumber = 3
   }
 }
+
+extension MomentCell: UICollectionViewDataSource {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return photos.count
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotoCell else {
+      fatalError("Can not create cell")
+    }
+    cell.configure(with: photos[indexPath.row])
+    
+    return cell
+  }
+}
+
+extension MomentCell: UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    
+    return getItemSize()
+  }
+}
+
+extension MomentCell: UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return comments.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as? CommentCell else {
+      fatalError("Can not create cell")
+    }
+    cell.configure(with: comments[indexPath.row])
+    
+    return cell
+  }
+}
