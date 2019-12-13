@@ -43,13 +43,13 @@ class MomentViewController: UIViewController {
   }
   
   func fetchData() {
-    momentViewModel.getUser() { [weak self] _ in
+    momentViewModel.getUser() { [weak self] in
       let momentHeader = Bundle.main.loadNibNamed("MomentHeader", owner: nil, options: nil)?.first as! MomentHeader
       momentHeader.configure(with: (self?.momentViewModel.user)!)
       self?.tableView.tableHeaderView = momentHeader
     }
     
-    momentViewModel.getMoments() { [weak self] _ in
+    momentViewModel.getMoments() { [weak self] in
       self?.tableView.reloadData()
     }
   }
@@ -71,7 +71,7 @@ extension MomentViewController: UITableViewDataSource, UITableViewDelegate {
       fatalError("Can not create cell")
     }
     
-    cell.configure(with: momentViewModel.showMoments[indexPath.row])
+    cell.configure(with: momentViewModel.validMoments[indexPath.row])
 
     return cell
   }
