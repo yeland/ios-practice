@@ -24,6 +24,8 @@
 		F834B895239F93FF00DA85D2 /* MomentFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = F834B894239F93FF00DA85D2 /* MomentFooter.xib */; };
 		F834B897239F940E00DA85D2 /* MomentFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834B896239F940E00DA85D2 /* MomentFooter.swift */; };
 		F834B89923A0CDB900DA85D2 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834B89823A0CDB900DA85D2 /* ImageCache.swift */; };
+		F834B89C23A21E5600DA85D2 /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834B89B23A21E5600DA85D2 /* MemoryStorage.swift */; };
+		F834B89E23A21E7900DA85D2 /* DiskStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834B89D23A21E7900DA85D2 /* DiskStorage.swift */; };
 		F8E804312396256500526993 /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E804302396256500526993 /* Moment.swift */; };
 		F8E804392396297900526993 /* MomentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E804382396297900526993 /* MomentsViewModel.swift */; };
 		F8E8043D23962BBA00526993 /* MomentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E8043C23962BBA00526993 /* MomentCell.swift */; };
@@ -56,6 +58,8 @@
 		F834B894239F93FF00DA85D2 /* MomentFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MomentFooter.xib; path = ../../../../../../../.Trash/MomentFooter.xib; sourceTree = "<group>"; };
 		F834B896239F940E00DA85D2 /* MomentFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MomentFooter.swift; path = ../../../../../../../.Trash/MomentFooter.swift; sourceTree = "<group>"; };
 		F834B89823A0CDB900DA85D2 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		F834B89B23A21E5600DA85D2 /* MemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
+		F834B89D23A21E7900DA85D2 /* DiskStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskStorage.swift; sourceTree = "<group>"; };
 		F8E804302396256500526993 /* Moment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
 		F8E804382396297900526993 /* MomentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentsViewModel.swift; sourceTree = "<group>"; };
 		F8E8043C23962BBA00526993 /* MomentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentCell.swift; sourceTree = "<group>"; };
@@ -103,7 +107,7 @@
 				F8E8042F2396254600526993 /* Model */,
 				F8E8043A2396298100526993 /* ViewModel */,
 				F8E8043B23962A7C00526993 /* View */,
-				7C9A973B239572230044EEE0 /* MomentViewController.swift */,
+				F834B89A23A21CE400DA85D2 /* Controller */,
 				7C9A974B239573310044EEE0 /* SupportFiles */,
 			);
 			path = "dynamic-content-demo";
@@ -130,6 +134,8 @@
 				7C9A974D239573640044EEE0 /* NetworkClient.swift */,
 				7C9A974F239573820044EEE0 /* UIImageView+Networking.swift */,
 				F834B89823A0CDB900DA85D2 /* ImageCache.swift */,
+				F834B89B23A21E5600DA85D2 /* MemoryStorage.swift */,
+				F834B89D23A21E7900DA85D2 /* DiskStorage.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -149,6 +155,14 @@
 				4B037988B8C9090AC9797897 /* Pods-dynamic-content-demo.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F834B89A23A21CE400DA85D2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7C9A973B239572230044EEE0 /* MomentViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		F8E8042F2396254600526993 /* Model */ = {
@@ -310,6 +324,7 @@
 				7C9A973C239572230044EEE0 /* MomentViewController.swift in Sources */,
 				F834B89923A0CDB900DA85D2 /* ImageCache.swift in Sources */,
 				F834B88B239F426500DA85D2 /* MomentHeader.swift in Sources */,
+				F834B89E23A21E7900DA85D2 /* DiskStorage.swift in Sources */,
 				7C4406462395853B00EDFD7F /* SingleLabelCell.swift in Sources */,
 				F8E804392396297900526993 /* MomentsViewModel.swift in Sources */,
 				F8E804312396256500526993 /* Moment.swift in Sources */,
@@ -318,6 +333,7 @@
 				F834B88F239F633800DA85D2 /* User.swift in Sources */,
 				7C9A9738239572230044EEE0 /* AppDelegate.swift in Sources */,
 				F834B897239F940E00DA85D2 /* MomentFooter.swift in Sources */,
+				F834B89C23A21E5600DA85D2 /* MemoryStorage.swift in Sources */,
 				7C9A973A239572230044EEE0 /* SceneDelegate.swift in Sources */,
 				7C9A974E239573640044EEE0 /* NetworkClient.swift in Sources */,
 				F8E8044B23979C5D00526993 /* CommentCell.swift in Sources */,
