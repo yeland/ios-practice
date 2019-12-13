@@ -14,8 +14,10 @@ class MomentViewController: UIViewController {
   private let networkClient: NetworkClient = .init()
   private let momentViewModel = MomentsViewModel()
   var moments: [Moment] = []
+  var timer: Timer!
   var step = 0
   var momentFooter: MomentFooter = MomentFooter()
+  var loadingData = false
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -55,10 +57,6 @@ class MomentViewController: UIViewController {
   
   func setFooter() {
     momentFooter = Bundle.main.loadNibNamed("MomentFooter", owner: nil, options: nil)?.first as! MomentFooter
-    momentFooter.configure() { [weak self] in
-      self?.step += 1
-      self?.tableView.reloadData()
-    }
     tableView.tableFooterView = momentFooter
   }
 }
@@ -67,6 +65,7 @@ extension MomentViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return momentViewModel.showMomentsByStep(step: step).count
   }
+  
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "MomentCell", for: indexPath) as? MomentCell else {
@@ -78,16 +77,39 @@ extension MomentViewController: UITableViewDataSource, UITableViewDelegate {
     return cell
   }
   
-  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-    if momentViewModel.showMoments.count == momentViewModel.showMomentsByStep(step: step).count && step != 0{
-      momentFooter.loadingButton.setTitle("All loaded", for: .disabled)
-      momentFooter.loadingButton.isEnabled = false
-    } else {
-      momentFooter.loadingButton.setTitle("Load more", for: .normal)
-      momentFooter.loadingButton.isEnabled = true
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let offsetY = scrollView.contentOffset.y
+    let distance = scrollView.contentSize.height - scrollView.frame.size.height
+    
+    if offsetY > distance && !loadingData && offsetY > 0 && step < 3 {
+      loadingData = true
+      DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+        self.loadMore()
+      }
+    }
+    
+    if offsetY < distance {
+      loadingData = false
     }
   }
   
+  func loadMore() {
+    loadingData = true
+    step += 1
+    tableView.reloadData()
+  }
   
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    if momentViewModel.showMoments.count == momentViewModel.showMomentsByStep(step: step).count && step != 0{
+      momentFooter.indicator.isHidden = true
+      momentFooter.label.isHidden = false
+      momentFooter.label.text = "All loaded"
+    } else {
+      momentFooter.indicator.isHidden = false
+      momentFooter.label.isHidden = true
+    }
+  }
+  
+    
 }
 
