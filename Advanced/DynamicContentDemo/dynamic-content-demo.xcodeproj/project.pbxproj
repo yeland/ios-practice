@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3604BA0AD083F79BDF7E6651 /* Pods_dynamic_content_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8516F6165F9EC326B39B07D9 /* Pods_dynamic_content_demo.framework */; };
-		7C4406462395853B00EDFD7F /* SingleLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4406452395853B00EDFD7F /* SingleLabelCell.swift */; };
-		7C4406482395857500EDFD7F /* SingleLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C4406472395857500EDFD7F /* SingleLabelCell.xib */; };
 		7C9A9738239572230044EEE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9A9737239572230044EEE0 /* AppDelegate.swift */; };
 		7C9A973A239572230044EEE0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9A9739239572230044EEE0 /* SceneDelegate.swift */; };
 		7C9A973C239572230044EEE0 /* MomentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9A973B239572230044EEE0 /* MomentViewController.swift */; };
@@ -39,8 +37,6 @@
 /* Begin PBXFileReference section */
 		4237C98B4C62E1FE32E119DF /* Pods-dynamic-content-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dynamic-content-demo.debug.xcconfig"; path = "Target Support Files/Pods-dynamic-content-demo/Pods-dynamic-content-demo.debug.xcconfig"; sourceTree = "<group>"; };
 		4B037988B8C9090AC9797897 /* Pods-dynamic-content-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dynamic-content-demo.release.xcconfig"; path = "Target Support Files/Pods-dynamic-content-demo/Pods-dynamic-content-demo.release.xcconfig"; sourceTree = "<group>"; };
-		7C4406452395853B00EDFD7F /* SingleLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLabelCell.swift; sourceTree = "<group>"; };
-		7C4406472395857500EDFD7F /* SingleLabelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleLabelCell.xib; sourceTree = "<group>"; };
 		7C9A9734239572230044EEE0 /* dynamic-content-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dynamic-content-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C9A9737239572230044EEE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C9A9739239572230044EEE0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,8 +112,6 @@
 		7C9A974B239573310044EEE0 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
-				7C4406452395853B00EDFD7F /* SingleLabelCell.swift */,
-				7C4406472395857500EDFD7F /* SingleLabelCell.xib */,
 				7C9A9737239572230044EEE0 /* AppDelegate.swift */,
 				7C9A9739239572230044EEE0 /* SceneDelegate.swift */,
 				7C9A973D239572230044EEE0 /* Main.storyboard */,
@@ -262,7 +256,6 @@
 				7C9A9744239572260044EEE0 /* LaunchScreen.storyboard in Resources */,
 				7C9A9741239572260044EEE0 /* Assets.xcassets in Resources */,
 				F834B88D239F42B800DA85D2 /* MomentHeader.xib in Resources */,
-				7C4406482395857500EDFD7F /* SingleLabelCell.xib in Resources */,
 				F834B895239F93FF00DA85D2 /* MomentFooter.xib in Resources */,
 				F8E8043F23962BD900526993 /* MomentCell.xib in Resources */,
 				7C9A973F239572230044EEE0 /* Main.storyboard in Resources */,
@@ -325,7 +318,6 @@
 				F834B89923A0CDB900DA85D2 /* ImageCache.swift in Sources */,
 				F834B88B239F426500DA85D2 /* MomentHeader.swift in Sources */,
 				F834B89E23A21E7900DA85D2 /* DiskStorage.swift in Sources */,
-				7C4406462395853B00EDFD7F /* SingleLabelCell.swift in Sources */,
 				F8E804392396297900526993 /* MomentsViewModel.swift in Sources */,
 				F8E804312396256500526993 /* Moment.swift in Sources */,
 				F8E8043D23962BBA00526993 /* MomentCell.swift in Sources */,

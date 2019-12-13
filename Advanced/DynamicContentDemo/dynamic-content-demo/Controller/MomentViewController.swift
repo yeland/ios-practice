@@ -14,23 +14,21 @@ class MomentViewController: UIViewController {
   private let networkClient: NetworkClient = .init()
   private let momentViewModel = MomentsViewModel()
   var moments: [Moment] = []
-  var timer: Timer!
-  var step = 0
   var momentFooter: MomentFooter = MomentFooter()
   var loadingData = false
 
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.register(UINib(nibName: "MomentCell", bundle: nil), forCellReuseIdentifier: "MomentCell")
-    setRefresh()
-    setData()
-    setFooter()
+    setupRefresh()
+    fetchData()
+    setupFooter()
     
     tableView.dataSource = self
     tableView.delegate = self
   }
   
-  func setRefresh() {
+  func setupRefresh() {
     let refreshControl = UIRefreshControl()
     refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
     
@@ -39,23 +37,24 @@ class MomentViewController: UIViewController {
   }
   
   @objc func refreshData(_ refreshControl: UIRefreshControl) {
-    self.step = 0
-    self.tableView.reloadData()
+    momentViewModel.resetStep()
+    tableView.reloadData()
     refreshControl.endRefreshing()
   }
   
-  func setData() {
+  func fetchData() {
     momentViewModel.getUser() { [weak self] _ in
-      self?.momentViewModel.getMoments() {_ in
-        let momentHeader = Bundle.main.loadNibNamed("MomentHeader", owner: nil, options: nil)?.first as! MomentHeader
-        momentHeader.configure(with: (self?.momentViewModel.user)!)
-        self?.tableView.tableHeaderView = momentHeader
-        self?.tableView.reloadData()
-      }
+      let momentHeader = Bundle.main.loadNibNamed("MomentHeader", owner: nil, options: nil)?.first as! MomentHeader
+      momentHeader.configure(with: (self?.momentViewModel.user)!)
+      self?.tableView.tableHeaderView = momentHeader
+    }
+    
+    momentViewModel.getMoments() { [weak self] _ in
+      self?.tableView.reloadData()
     }
   }
   
-  func setFooter() {
+  func setupFooter() {
     momentFooter = Bundle.main.loadNibNamed("MomentFooter", owner: nil, options: nil)?.first as! MomentFooter
     tableView.tableFooterView = momentFooter
   }
@@ -63,7 +62,7 @@ class MomentViewController: UIViewController {
 
 extension MomentViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return momentViewModel.showMomentsByStep(step: step).count
+    return momentViewModel.showMomentsByStep().count
   }
   
   
@@ -81,7 +80,7 @@ extension MomentViewController: UITableViewDataSource, UITableViewDelegate {
     let offsetY = scrollView.contentOffset.y
     let distance = scrollView.contentSize.height - scrollView.frame.size.height
     
-    if offsetY > distance && !loadingData && offsetY > 0 && step < 3 {
+    if offsetY > distance && !loadingData && offsetY > 0 && !momentViewModel.isAllLoaded() {
       loadingData = true
       DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
         self.loadMore()
@@ -95,12 +94,12 @@ extension MomentViewController: UITableViewDataSource, UITableViewDelegate {
   
   func loadMore() {
     loadingData = true
-    step += 1
+    momentViewModel.addStep()
     tableView.reloadData()
   }
   
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-    if momentViewModel.showMoments.count == momentViewModel.showMomentsByStep(step: step).count && step != 0{
+    if momentViewModel.isAllLoaded() {
       momentFooter.indicator.isHidden = true
       momentFooter.label.isHidden = false
       momentFooter.label.text = "All loaded"

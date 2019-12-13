@@ -31,8 +31,7 @@ class DiskStorage {
   
   func value(urlString: String) -> Data? {
     let image = UIImage(contentsOfFile: cacheFilePath(forKey: urlString))
-    return image?.jpegData(compressionQuality: 1.0)
-    
+    return image?.pngData()
   }
   
   func cacheFilePath(forKey key: String) -> String {

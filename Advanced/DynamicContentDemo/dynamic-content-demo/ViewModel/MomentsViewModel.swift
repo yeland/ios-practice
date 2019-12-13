@@ -11,6 +11,7 @@ import Foundation
 class MomentsViewModel {
   private let networkClient: NetworkClient = .init()
   var moments: [Moment] = []
+  private var step = 0
   var user: User = User(profileImage: "", avatar: "", nick: "", username: "")
   
   func getUser(completion: @escaping (User?) -> Void) {
@@ -65,7 +66,7 @@ class MomentsViewModel {
     })
   }
   
-  func showMomentsByStep(step: Int) -> [Moment] {
+  func showMomentsByStep() -> [Moment] {
     var moments: [Moment] = []
     let calculatedCount = (step + 1) * 5
     let count = calculatedCount < showMoments.count ? calculatedCount : showMoments.count
@@ -75,5 +76,17 @@ class MomentsViewModel {
       }
     }
     return moments
+  }
+  
+  func resetStep() {
+    step = 0
+  }
+  
+  func addStep() {
+    step += 1
+  }
+  
+  func isAllLoaded() -> Bool {
+    return showMoments.count == showMomentsByStep().count && step != 0
   }
 }

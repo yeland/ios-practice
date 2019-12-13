@@ -13,13 +13,13 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="306"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rBt-Vr-Vpd">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rBt-Vr-Vpd">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="290"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="290" id="Kd6-fe-You"/>
                     </constraints>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zcv-2H-L1R">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zcv-2H-L1R">
                     <rect key="frame" x="329" y="226" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="XiA-yH-AL0"/>
