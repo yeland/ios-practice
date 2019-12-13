@@ -37,7 +37,7 @@ class MomentViewController: UIViewController {
   }
   
   @objc func refreshData(_ refreshControl: UIRefreshControl) {
-    momentViewModel.resetStep()
+    momentViewModel.getInitialMoments()
     tableView.reloadData()
     refreshControl.endRefreshing()
   }
@@ -62,16 +62,15 @@ class MomentViewController: UIViewController {
 
 extension MomentViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return momentViewModel.showMomentsByStep().count
+    return momentViewModel.moments.count
   }
-  
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "MomentCell", for: indexPath) as? MomentCell else {
       fatalError("Can not create cell")
     }
     
-    cell.configure(with: momentViewModel.validMoments[indexPath.row])
+    cell.configure(with: momentViewModel.moments[indexPath.row])
 
     return cell
   }
@@ -94,7 +93,7 @@ extension MomentViewController: UITableViewDataSource, UITableViewDelegate {
   
   func loadMore() {
     loadingData = true
-    momentViewModel.addStep()
+    momentViewModel.loadMore()
     tableView.reloadData()
   }
   
@@ -108,7 +107,4 @@ extension MomentViewController: UITableViewDataSource, UITableViewDelegate {
       momentFooter.label.isHidden = true
     }
   }
-  
-    
 }
-
