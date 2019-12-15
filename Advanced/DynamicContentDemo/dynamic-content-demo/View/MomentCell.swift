@@ -15,9 +15,9 @@ class MomentCell: UITableViewCell {
   @IBOutlet var collectionView: UICollectionView!
   @IBOutlet var commentsTable: UITableView!
   
-  private var collectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
   private lazy var collectionHightConstraint = collectionView.heightAnchor.constraint(equalToConstant: 0)
-  private lazy var tableHightContraint = commentsTable.heightAnchor.constraint(equalToConstant: 100)
+  private lazy var collectionWidthConstraint = collectionView.widthAnchor.constraint(equalToConstant: 0)
+  private lazy var tableHightContraint = commentsTable.heightAnchor.constraint(equalToConstant: 0)
   
   var photos: [Image] = []
   var comments: [Comment] = []
@@ -31,7 +31,6 @@ class MomentCell: UITableViewCell {
     collectionView.dataSource = self
     collectionView.delegate = self
     commentsTable.dataSource = self
-    collectionView.contentInset = collectionInset
     
     setupLayout()
   }
@@ -41,13 +40,13 @@ class MomentCell: UITableViewCell {
     commentsTable.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
       collectionHightConstraint,
+      collectionWidthConstraint,
       collectionView.topAnchor.constraint(equalTo: content.bottomAnchor, constant: 20),
       collectionView.leadingAnchor.constraint(equalTo: content.leadingAnchor),
-      collectionView.trailingAnchor.constraint(equalTo: content.trailingAnchor),
       tableHightContraint,
       commentsTable.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 20),
-      commentsTable.leadingAnchor.constraint(equalTo:  collectionView.leadingAnchor),
-      commentsTable.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
+      commentsTable.leadingAnchor.constraint(equalTo:  content.leadingAnchor),
+      commentsTable.trailingAnchor.constraint(equalTo: content.trailingAnchor),
       commentsTable.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
     ])
   }
@@ -68,45 +67,44 @@ class MomentCell: UITableViewCell {
     } else {
       content.text = ""
     }
-    
-    setContentRight()
-    collectionHightConstraint.constant = getCollectionHeight()
-    tableHightContraint.constant = CGFloat(self.comments.count * 40)
-  }
   
-  private func setContentRight() {
-    if photos.count == 1 {
-      collectionView.contentInset.right = 180
-    } else if photos.count == 4 {
-      collectionView.contentInset.right = 80
-    } else {
-      collectionView.contentInset.right = 0
-    }
+    collectionHightConstraint.constant = getCollectionHeight()
+    collectionWidthConstraint.constant = getCollectionWidth()
+    tableHightContraint.constant = CGFloat(self.comments.count * 40)
   }
   
   private func getCollectionHeight() -> CGFloat {
     let itemSize = getItemSize()
     let rowsNumber = CGFloat(ceil(Double(photos.count) / 3.0))
     let itemsHight = rowsNumber * itemSize.height
-    let spaceHight = rowsNumber * space
+    let spaceHight = (rowsNumber - 1) * space
     return itemsHight + spaceHight
+  }
+  
+  private func getCollectionWidth() -> CGFloat {
+    let itemSize = getItemSize()
+    var columeNumber: CGFloat
+    if photos.count == 1 {
+      columeNumber = 1
+    } else if photos.count == 4 {
+      columeNumber = 2
+    } else {
+      columeNumber = 3
+    }
+
+    let itemsWidth = columeNumber * itemSize.width
+    let spaceWidth = (columeNumber - 1) * space
+    return itemsWidth + spaceWidth
   }
   
   func getItemSize() -> CGSize {
     if photos.count == 4 {
-      rowPhotosNumber = 2
+      return CGSize(width: 110, height: 110)
     }
-    
     if photos.count == 1 {
-      rowPhotosNumber = 1
+      return CGSize(width: 130, height: 130)
     }
-    
-    let inset = collectionView.contentInset
-    let paddingSpace = inset.left + inset.right + space * (rowPhotosNumber - 1)
-    let availableWidth = self.collectionView.frame.width - paddingSpace
-    let widthPerItem = availableWidth / rowPhotosNumber
-    
-    return CGSize(width: widthPerItem, height: widthPerItem)
+    return CGSize(width: 90, height: 90)
   }
   
   override func prepareForReuse() {
