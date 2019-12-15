@@ -7,5 +7,11 @@ target 'dynamic-content-demo' do
 
   pod 'Alamofire'
   pod 'AlamofireImage'
+  
+  target 'dynamic-content-demoTests' do
+    inherit! :search_paths
+    pod 'Quick'
+    pod 'Nimble'
+  end
 
 end

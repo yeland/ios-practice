@@ -13,7 +13,6 @@ class MomentViewController: UIViewController {
 
   private let networkClient: NetworkClient = .init()
   private let momentViewModel = MomentsViewModel()
-  var moments: [Moment] = []
   var momentFooter: MomentFooter = MomentFooter()
   var loadingData = false
 

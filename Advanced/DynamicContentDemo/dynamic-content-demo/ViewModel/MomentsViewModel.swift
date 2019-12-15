@@ -11,7 +11,7 @@ import Foundation
 class MomentsViewModel {
   var moments : [Moment] = []
   
-  private var allValidMoments: [Moment] = []
+  var allValidMoments: [Moment] = []
   private let networkClient: NetworkClient = .init()
   var user: User = User(profileImage: "", avatar: "", nick: "", username: "")
   
