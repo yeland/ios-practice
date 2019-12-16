@@ -19,7 +19,6 @@ class MomentViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.register(UINib(nibName: "MomentCell", bundle: nil), forCellReuseIdentifier: "MomentCell")
-    tableView.register(UINib(nibName: "MomentFooter", bundle: nil), forCellReuseIdentifier: "MomentFooter")
     setupRefresh()
     fetchData()
     
@@ -62,23 +61,26 @@ extension MomentViewController: UITableViewDataSource, UITableViewDelegate {
     if section == 0 {
       return momentViewModel.moments.count
     }
-    return 1
+    return 0
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    if indexPath.section == 0 {
-      guard let cell = tableView.dequeueReusableCell(withIdentifier: "MomentCell", for: indexPath) as? MomentCell else {
-        fatalError("Can not create cell")
-      }
-      if (indexPath.row == self.momentViewModel.moments.count - 1) {
-        cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.size.width, bottom: 0, right: 0);
-      }
-      cell.configure(with: momentViewModel.moments[indexPath.row])
-      return cell
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "MomentCell", for: indexPath) as? MomentCell else {
+      fatalError("Can not create cell")
     }
-    momentFooter = tableView.dequeueReusableCell(withIdentifier: "MomentFooter", for: indexPath) as! MomentFooter
-    momentFooter.separatorInset = UIEdgeInsets(top: 0, left: momentFooter.bounds.size.width, bottom: 0, right: 0);
-    return momentFooter
+    if (indexPath.row == self.momentViewModel.moments.count - 1) {
+      cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.size.width, bottom: 0, right: 0);
+    }
+    cell.configure(with: momentViewModel.moments[indexPath.row])
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    if section == 1 {
+      momentFooter = Bundle.main.loadNibNamed("MomentFooter", owner: nil, options: nil)?.first as! MomentFooter
+      return momentFooter
+    }
+    return UIView()
   }
   
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -102,17 +104,19 @@ extension MomentViewController: UITableViewDataSource, UITableViewDelegate {
     tableView.reloadData()
   }
   
-  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-    if momentViewModel.moments.count == 0 {
-      momentFooter.indicator.isHidden = true
-      momentFooter.label.isHidden = true
-    } else if momentViewModel.isAllLoaded() {
-      momentFooter.indicator.isHidden = true
-      momentFooter.label.isHidden = false
-      momentFooter.label.text = "All loaded"
-    } else {
-      momentFooter.indicator.isHidden = false
-      momentFooter.label.isHidden = true
+  func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+    if section == 1 {
+      if momentViewModel.moments.count == 0 {
+        momentFooter.indicator.isHidden = true
+        momentFooter.label.isHidden = true
+      } else if momentViewModel.isAllLoaded() {
+        momentFooter.indicator.isHidden = true
+        momentFooter.label.isHidden = false
+        momentFooter.label.text = "All loaded"
+      } else {
+        momentFooter.indicator.isHidden = false
+        momentFooter.label.isHidden = true
+      }
     }
   }
 }
