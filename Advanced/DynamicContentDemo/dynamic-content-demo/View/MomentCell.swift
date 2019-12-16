@@ -113,6 +113,7 @@ class MomentCell: UITableViewCell {
     name.text = nil
     content.text = nil
     rowPhotosNumber = 3
+    self.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
   }
 }
 

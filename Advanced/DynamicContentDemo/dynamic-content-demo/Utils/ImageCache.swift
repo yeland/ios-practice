@@ -30,10 +30,10 @@ class ImageCache {
       }
       
       if let data = self.diskStorage.value(urlString: urlString) {
-        self.memoryStorage.store(urlString: urlString, data: data)
         DispatchQueue.main.async {
           completionHandler(data)
         }
+        self.memoryStorage.store(urlString: urlString, data: data)
         return
       }
       
@@ -43,11 +43,11 @@ class ImageCache {
           return
         }
         if let data = data {
-          self.diskStorage.store(urlString: urlString, data: data)
-          self.memoryStorage.store(urlString: urlString, data: data)
           DispatchQueue.main.async {
             completionHandler(data)
           }
+          self.diskStorage.store(urlString: urlString, data: data)
+          self.memoryStorage.store(urlString: urlString, data: data)
           return
         }
       }

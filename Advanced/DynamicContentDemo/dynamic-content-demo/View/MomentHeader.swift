@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MomentHeader: UIView {
+class MomentHeader: UITableViewHeaderFooterView {
   @IBOutlet weak var profileImage: UIImageView!
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var avatarImage: UIImageView!
