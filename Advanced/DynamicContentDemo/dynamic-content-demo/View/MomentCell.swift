@@ -109,7 +109,7 @@ class MomentCell: UITableViewCell {
   
   override func prepareForReuse() {
     super.prepareForReuse()
-    avatar.image = nil
+//    avatar.image = nil
     name.text = nil
     content.text = nil
     rowPhotosNumber = 3

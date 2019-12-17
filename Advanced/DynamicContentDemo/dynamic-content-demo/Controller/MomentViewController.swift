@@ -37,9 +37,11 @@ class MomentViewController: UIViewController {
   }
   
   @objc func refreshData(_ refreshControl: UIRefreshControl) {
-    momentViewModel.getInitialMoments()
-    tableView.reloadData()
-    refreshControl.endRefreshing()
+    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+      self.momentViewModel.getInitialMoments()
+      self.tableView.reloadData()
+      refreshControl.endRefreshing()
+    }
   }
   
   func fetchData() {

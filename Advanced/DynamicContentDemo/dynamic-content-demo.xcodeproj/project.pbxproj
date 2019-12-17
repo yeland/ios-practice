@@ -20,13 +20,13 @@
 		F834B88B239F426500DA85D2 /* MomentHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834B88A239F426500DA85D2 /* MomentHeader.swift */; };
 		F834B88D239F42B800DA85D2 /* MomentHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F834B88C239F42B800DA85D2 /* MomentHeader.xib */; };
 		F834B88F239F633800DA85D2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834B88E239F633800DA85D2 /* User.swift */; };
-		F834B895239F93FF00DA85D2 /* MomentFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = F834B894239F93FF00DA85D2 /* MomentFooter.xib */; };
-		F834B897239F940E00DA85D2 /* MomentFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834B896239F940E00DA85D2 /* MomentFooter.swift */; };
 		F834B89923A0CDB900DA85D2 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834B89823A0CDB900DA85D2 /* ImageCache.swift */; };
 		F834B89C23A21E5600DA85D2 /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834B89B23A21E5600DA85D2 /* MemoryStorage.swift */; };
 		F834B89E23A21E7900DA85D2 /* DiskStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834B89D23A21E7900DA85D2 /* DiskStorage.swift */; };
 		F834B8A623A66EC600DA85D2 /* dynamic_content_demoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834B8A523A66EC600DA85D2 /* dynamic_content_demoTests.swift */; };
 		F834B8AE23A66F6100DA85D2 /* MomentsViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834B8AD23A66F6100DA85D2 /* MomentsViewModelSpec.swift */; };
+		F834B8DA23A8C14100DA85D2 /* MomentFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = F834B8D923A8C14100DA85D2 /* MomentFooter.xib */; };
+		F834B8DC23A8C14900DA85D2 /* MomentFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834B8DB23A8C14900DA85D2 /* MomentFooter.swift */; };
 		F8E804312396256500526993 /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E804302396256500526993 /* Moment.swift */; };
 		F8E804392396297900526993 /* MomentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E804382396297900526993 /* MomentsViewModel.swift */; };
 		F8E8043D23962BBA00526993 /* MomentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E8043C23962BBA00526993 /* MomentCell.swift */; };
@@ -67,8 +67,6 @@
 		F834B88A239F426500DA85D2 /* MomentHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentHeader.swift; sourceTree = "<group>"; };
 		F834B88C239F42B800DA85D2 /* MomentHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MomentHeader.xib; sourceTree = "<group>"; };
 		F834B88E239F633800DA85D2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		F834B894239F93FF00DA85D2 /* MomentFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MomentFooter.xib; path = ../../../../../../../.Trash/MomentFooter.xib; sourceTree = "<group>"; };
-		F834B896239F940E00DA85D2 /* MomentFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MomentFooter.swift; path = ../../../../../../../.Trash/MomentFooter.swift; sourceTree = "<group>"; };
 		F834B89823A0CDB900DA85D2 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		F834B89B23A21E5600DA85D2 /* MemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
 		F834B89D23A21E7900DA85D2 /* DiskStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskStorage.swift; sourceTree = "<group>"; };
@@ -76,6 +74,8 @@
 		F834B8A523A66EC600DA85D2 /* dynamic_content_demoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dynamic_content_demoTests.swift; sourceTree = "<group>"; };
 		F834B8A723A66EC600DA85D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F834B8AD23A66F6100DA85D2 /* MomentsViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentsViewModelSpec.swift; sourceTree = "<group>"; };
+		F834B8D923A8C14100DA85D2 /* MomentFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MomentFooter.xib; sourceTree = "<group>"; };
+		F834B8DB23A8C14900DA85D2 /* MomentFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentFooter.swift; sourceTree = "<group>"; };
 		F8E804302396256500526993 /* Moment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
 		F8E804382396297900526993 /* MomentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentsViewModel.swift; sourceTree = "<group>"; };
 		F8E8043C23962BBA00526993 /* MomentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentCell.swift; sourceTree = "<group>"; };
@@ -230,8 +230,8 @@
 				F8E8044A23979C5D00526993 /* CommentCell.swift */,
 				F834B88A239F426500DA85D2 /* MomentHeader.swift */,
 				F834B88C239F42B800DA85D2 /* MomentHeader.xib */,
-				F834B896239F940E00DA85D2 /* MomentFooter.swift */,
-				F834B894239F93FF00DA85D2 /* MomentFooter.xib */,
+				F834B8D923A8C14100DA85D2 /* MomentFooter.xib */,
+				F834B8DB23A8C14900DA85D2 /* MomentFooter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,10 +321,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F834B8DA23A8C14100DA85D2 /* MomentFooter.xib in Resources */,
 				7C9A9744239572260044EEE0 /* LaunchScreen.storyboard in Resources */,
 				7C9A9741239572260044EEE0 /* Assets.xcassets in Resources */,
 				F834B88D239F42B800DA85D2 /* MomentHeader.xib in Resources */,
-				F834B895239F93FF00DA85D2 /* MomentFooter.xib in Resources */,
 				F8E8043F23962BD900526993 /* MomentCell.xib in Resources */,
 				7C9A973F239572230044EEE0 /* Main.storyboard in Resources */,
 				F8E804452397470000526993 /* PhotoCell.xib in Resources */,
@@ -438,8 +438,8 @@
 				7C9A9750239573820044EEE0 /* UIImageView+Networking.swift in Sources */,
 				F834B88F239F633800DA85D2 /* User.swift in Sources */,
 				7C9A9738239572230044EEE0 /* AppDelegate.swift in Sources */,
-				F834B897239F940E00DA85D2 /* MomentFooter.swift in Sources */,
 				F834B89C23A21E5600DA85D2 /* MemoryStorage.swift in Sources */,
+				F834B8DC23A8C14900DA85D2 /* MomentFooter.swift in Sources */,
 				7C9A973A239572230044EEE0 /* SceneDelegate.swift in Sources */,
 				7C9A974E239573640044EEE0 /* NetworkClient.swift in Sources */,
 				F8E8044B23979C5D00526993 /* CommentCell.swift in Sources */,
