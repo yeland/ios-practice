@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OQl-rE-cHW">
-                                <rect key="frame" x="0.0" y="-7" width="414" height="903"/>
+                                <rect key="frame" x="0.0" y="-44" width="414" height="940"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -24,7 +24,7 @@
                             <constraint firstAttribute="bottom" secondItem="OQl-rE-cHW" secondAttribute="bottom" id="M5o-tg-kkT"/>
                             <constraint firstItem="OQl-rE-cHW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ona-nn-c80"/>
                             <constraint firstItem="OQl-rE-cHW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vhS-tV-d7z"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="OQl-rE-cHW" secondAttribute="top" constant="95" id="yVr-Zo-TP1"/>
+                            <constraint firstAttribute="top" secondItem="OQl-rE-cHW" secondAttribute="top" constant="44" id="yVr-Zo-TP1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -40,11 +40,14 @@
         <!--Navigation Controller-->
         <scene sceneID="Eis-ef-s6l">
             <objects>
-                <navigationController id="IGc-sD-H8h" sceneMemberID="viewController">
+                <navigationController wantsFullScreenLayout="YES" id="IGc-sD-H8h" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fdP-uI-3x9">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="txb-Mi-ToS">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="qBf-jW-iIm"/>
                     </connections>

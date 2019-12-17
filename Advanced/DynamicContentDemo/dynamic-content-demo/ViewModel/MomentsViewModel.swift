@@ -16,7 +16,7 @@ class MomentsViewModel {
   var user: User = User(profileImage: "", avatar: "", nick: "", username: "")
   
   func getUser(completion: @escaping () -> Void) {
-    guard let url = URL(string: "https://thoughtworks-mobile-2018.herokuapp.com/user/jsmith") else { return }
+    guard let url = URL(string: "https://emagrorrim.github.io/mock-api/user/jsmith.json") else { return }
     networkClient.request(url: url) { [weak self] data, error in
       if let data = data {
         do {
@@ -37,7 +37,7 @@ class MomentsViewModel {
   }
   
   func getMoments(completion: @escaping () -> Void) {
-    guard let url = URL(string: "https://thoughtworks-mobile-2018.herokuapp.com/user/jsmith/tweets") else { return }
+    guard let url = URL(string: "https://emagrorrim.github.io/mock-api/moments.json") else { return }
     networkClient.request(url: url) { [weak self] data, error in
       if let data = data {
         do {
