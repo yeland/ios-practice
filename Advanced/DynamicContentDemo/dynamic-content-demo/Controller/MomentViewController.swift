@@ -59,13 +59,18 @@ class MomentViewController: UIViewController {
   
   func setupFooter() {
     momentFooter = Bundle.main.loadNibNamed("MomentFooter", owner: nil, options: nil)?.first as? MomentFooter
-    momentFooter.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 80)
-    tableView.tableFooterView = momentFooter
-//    momentFooter.translatesAutoresizingMaskIntoConstraints = false
-//    NSLayoutConstraint.activate([
-//      momentFooter.heightAnchor.constraint(equalToConstant: 80),
-//      momentFooter.widthAnchor.constraint(equalTo: tableView.widthAnchor),
-//    ])
+    let footer = UITableViewHeaderFooterView()
+    footer.backgroundColor = .white
+    footer.addSubview(momentFooter)
+    footer.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 80)
+    tableView.tableFooterView = footer
+    momentFooter.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      momentFooter.heightAnchor.constraint(equalTo: footer.heightAnchor),
+      momentFooter.widthAnchor.constraint(equalTo: footer.widthAnchor),
+      momentFooter.topAnchor.constraint(equalTo: footer.topAnchor),
+      momentFooter.leadingAnchor.constraint(equalTo: footer.leadingAnchor)
+    ])
   }
 }
 

@@ -22,7 +22,6 @@ class MomentCell: UITableViewCell {
   var photos: [Image] = []
   var comments: [Comment] = []
   let space: CGFloat = 10.0
-  var rowPhotosNumber: CGFloat = 3
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -112,7 +111,6 @@ class MomentCell: UITableViewCell {
 //    avatar.image = nil
     name.text = nil
     content.text = nil
-    rowPhotosNumber = 3
     self.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
   }
 }
