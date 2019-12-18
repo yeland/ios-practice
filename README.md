@@ -30,10 +30,10 @@ This is a repo for storing ios exercises.
 | M03: [UICollectionView](./Advanced/UICollectionViewDemo)  | ImagePicker | 2019-12-02 |
 | M04: [Dynamic Content List](./Advanced/DynamicContentDemo) | Long List with self sizing list item | 2019-12-03 |
 | M05: [Database](./Basic/POSApp) | Sqlite, CoreData, Realm | 2019-12-05 |
-| M06: Continuous Integration | BuddyBuild, Jenkins |
-| M07: Data Tracking | What, Why, When, How |
-| M08: UI Testing | Native Testing |
-| M09: Workshop | Wechat Moment |
+| M06: Continuous Integration | BuddyBuild, Jenkins | 2019-12-09 |
+| M07: Data Tracking | What, Why, When, How | - |
+| M08: UI Testing | Native Testing | - |
+| M09: [Workshop](./Advanced/DynamicContentDemo)  | Wechat Moment | 2019-12-10 |
 
 <!--Parameters-->
 <!--Blue-->
