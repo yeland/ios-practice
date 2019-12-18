@@ -59,12 +59,14 @@ class MomentViewController: UIViewController {
     let header = UITableViewHeaderFooterView()
     header.backgroundColor = .white
     header.addSubview(momentHeader)
-    header.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 300)
+    header.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 306)
     tableView.tableHeaderView = header
     momentHeader.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      momentHeader.heightAnchor.constraint(equalTo: header.heightAnchor),
-      momentHeader.widthAnchor.constraint(equalTo: header.widthAnchor),
+      momentHeader.topAnchor.constraint(equalTo: header.topAnchor),
+      momentHeader.bottomAnchor.constraint(equalTo: header.bottomAnchor),
+      momentHeader.leadingAnchor.constraint(equalTo: header.leadingAnchor),
+      momentHeader.trailingAnchor.constraint(equalTo: header.trailingAnchor),
     ])
   }
   
@@ -73,12 +75,14 @@ class MomentViewController: UIViewController {
     let footer = UITableViewHeaderFooterView()
     footer.backgroundColor = .white
     footer.addSubview(momentFooter)
-    footer.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 80)
+    footer.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 74)
     tableView.tableFooterView = footer
     momentFooter.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      momentFooter.heightAnchor.constraint(equalTo: footer.heightAnchor),
-      momentFooter.widthAnchor.constraint(equalTo: footer.widthAnchor),
+      momentFooter.topAnchor.constraint(equalTo: footer.topAnchor),
+      momentFooter.bottomAnchor.constraint(equalTo: footer.bottomAnchor),
+      momentFooter.leadingAnchor.constraint(equalTo: footer.leadingAnchor),
+      momentFooter.trailingAnchor.constraint(equalTo: footer.trailingAnchor)
     ])
   }
 }
