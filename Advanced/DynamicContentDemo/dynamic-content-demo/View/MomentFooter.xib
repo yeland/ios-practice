@@ -9,7 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" restorationIdentifier="MomentFooter" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="MomentFooter" customModule="dynamic_content_demo" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="O9L-l3-Q0o">
@@ -20,7 +20,7 @@
                     </constraints>
                 </activityIndicatorView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSv-Fm-ZK8">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -31,7 +31,6 @@
                 <constraint firstItem="O9L-l3-Q0o" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="EDM-wt-cnP"/>
                 <constraint firstAttribute="trailing" secondItem="HSv-Fm-ZK8" secondAttribute="trailing" id="FhN-bT-iMM"/>
                 <constraint firstItem="HSv-Fm-ZK8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GLF-xe-tjw"/>
-                <constraint firstAttribute="bottom" secondItem="HSv-Fm-ZK8" secondAttribute="bottom" id="U9g-ft-8fQ"/>
                 <constraint firstItem="O9L-l3-Q0o" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Wtg-SH-Q11"/>
                 <constraint firstItem="HSv-Fm-ZK8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="eh3-RM-Ojd"/>
             </constraints>

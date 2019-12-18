@@ -20,15 +20,13 @@ class ImageCache {
   }
   
   func imageForUrl(urlString: String, completionHandler:@escaping (_ data: Data) -> ()) {
+    if let data = self.memoryStorage.value(urlString: urlString) {
+      completionHandler(data)
+      return
+    }
+    
     let imageQueue = DispatchQueue(label: "com.moment.image")
     imageQueue.async {
-      if let data = self.memoryStorage.value(urlString: urlString) {
-        DispatchQueue.main.async {
-          completionHandler(data)
-        }
-        return
-      }
-      
       if let data = self.diskStorage.value(urlString: urlString) {
         DispatchQueue.main.async {
           completionHandler(data)

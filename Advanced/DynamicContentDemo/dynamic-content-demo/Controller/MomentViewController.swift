@@ -26,6 +26,8 @@ class MomentViewController: UIViewController {
     
     tableView.dataSource = self
     tableView.delegate = self
+    navigationController?.navigationBar.isHidden = true
+    tableView.contentInsetAdjustmentBehavior = .never
   }
   
   func setupRefresh() {
@@ -75,7 +77,7 @@ class MomentViewController: UIViewController {
     let footer = UITableViewHeaderFooterView()
     footer.backgroundColor = .white
     footer.addSubview(momentFooter)
-    footer.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 74)
+    footer.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 80)
     tableView.tableFooterView = footer
     momentFooter.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
