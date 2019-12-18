@@ -12,8 +12,7 @@ class PhotoCell: UICollectionViewCell {
   @IBOutlet weak var photo: UIImageView!
   
   func configure(with image: Image) {
-    guard let url = URL(string: image.url) else { return }
-    photo.setImage(withURL: url)
+    photo.setImage(withURL: image.url)
   }
   
   override func prepareForReuse() {

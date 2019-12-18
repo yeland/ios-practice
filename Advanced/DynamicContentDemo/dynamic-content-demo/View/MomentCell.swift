@@ -57,8 +57,7 @@ class MomentCell: UITableViewCell {
     commentsTable.reloadData()
     
     guard let sender = moment.sender else { return }
-    guard let url = URL(string: sender.avatar) else { return }
-    avatar.setImage(withURL: url)
+    avatar.setImage(withURL: sender.avatar)
     avatar.layer.cornerRadius = 5
     name.text = sender.nick
     if let momentContent = moment.content {

@@ -14,10 +14,8 @@ class MomentHeader: UITableViewHeaderFooterView {
   @IBOutlet weak var avatarImage: UIImageView!
   
   func configure(with user: User) {
-    guard let profileUrl = URL(string: user.profileImage) else { return }
-    guard let avatarUrl = URL(string: user.avatar) else { return }
-    profileImage.setImage(withURL: profileUrl)
+    profileImage.setImage(withURL: user.profileImage)
     nameLabel.text = user.nick
-    avatarImage.setImage(withURL: avatarUrl)
+    avatarImage.setImage(withURL: user.avatar)
   }
 }
