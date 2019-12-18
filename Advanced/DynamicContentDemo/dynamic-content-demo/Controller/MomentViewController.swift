@@ -46,15 +46,26 @@ class MomentViewController: UIViewController {
   
   func fetchData() {
     momentViewModel.getUser() { [weak self] in
-      self?.momentHeader = Bundle.main.loadNibNamed("MomentHeader", owner: nil, options: nil)?.first as! MomentHeader
-      self?.momentHeader.configure(with: (self?.momentViewModel.user)!)
-      self?.tableView.tableHeaderView = self?.momentHeader
-      self?.momentHeader.topAnchor.constraint(equalTo: (self?.tableView.topAnchor)!).isActive = true
+      self?.setupHeader()
     }
-    
     momentViewModel.getMoments() { [weak self] in
       self?.tableView.reloadData()
     }
+  }
+  
+  func setupHeader() {
+    momentHeader = Bundle.main.loadNibNamed("MomentHeader", owner: nil, options: nil)?.first as! MomentHeader
+    momentHeader.configure(with: momentViewModel.user)
+    let header = UITableViewHeaderFooterView()
+    header.backgroundColor = .white
+    header.addSubview(momentHeader)
+    header.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 300)
+    tableView.tableHeaderView = header
+    momentHeader.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      momentHeader.heightAnchor.constraint(equalTo: header.heightAnchor),
+      momentHeader.widthAnchor.constraint(equalTo: header.widthAnchor),
+    ])
   }
   
   func setupFooter() {
@@ -68,8 +79,6 @@ class MomentViewController: UIViewController {
     NSLayoutConstraint.activate([
       momentFooter.heightAnchor.constraint(equalTo: footer.heightAnchor),
       momentFooter.widthAnchor.constraint(equalTo: footer.widthAnchor),
-      momentFooter.topAnchor.constraint(equalTo: footer.topAnchor),
-      momentFooter.leadingAnchor.constraint(equalTo: footer.leadingAnchor)
     ])
   }
 }
@@ -87,6 +96,22 @@ extension MomentViewController: UITableViewDataSource, UITableViewDelegate {
     return cell
   }
   
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    if momentViewModel.moments.count == 0 {
+      momentFooter.indicator.isHidden = true
+      momentFooter.label.isHidden = true
+    } else if momentViewModel.isAllLoaded() {
+      momentFooter.indicator.isHidden = true
+      momentFooter.label.isHidden = false
+      momentFooter.label.text = "All loaded"
+    } else {
+      momentFooter.indicator.isHidden = false
+      momentFooter.label.isHidden = true
+    }
+  }
+}
+
+extension MomentViewController: UIScrollViewDelegate {
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     let offsetY = scrollView.contentOffset.y
     let distance = scrollView.contentSize.height - scrollView.frame.size.height
@@ -116,19 +141,5 @@ extension MomentViewController: UITableViewDataSource, UITableViewDelegate {
     loadingData = true
     momentViewModel.loadMore()
     tableView.reloadData()
-  }
-  
-  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-    if momentViewModel.moments.count == 0 {
-      momentFooter.indicator.isHidden = true
-      momentFooter.label.isHidden = true
-    } else if momentViewModel.isAllLoaded() {
-      momentFooter.indicator.isHidden = true
-      momentFooter.label.isHidden = false
-      momentFooter.label.text = "All loaded"
-    } else {
-      momentFooter.indicator.isHidden = false
-      momentFooter.label.isHidden = true
-    }
   }
 }
