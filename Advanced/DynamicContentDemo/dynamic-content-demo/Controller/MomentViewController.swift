@@ -105,7 +105,7 @@ extension MomentViewController: UITableViewDataSource, UITableViewDelegate {
   }
   
   private func addCommentAction(row: Int) {
-    let alert = UIAlertController(title: "Add Comment", message: "please", preferredStyle: .alert)
+    let alert = UIAlertController(title: "Add Comment", message: "", preferredStyle: .alert)
     let sendAction = UIAlertAction(title: "send", style: .default) { [weak self] action in
       guard let textField = alert.textFields?.first, let comment = textField.text else {
         return

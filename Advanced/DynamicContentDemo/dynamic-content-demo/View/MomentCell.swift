@@ -20,10 +20,12 @@ class MomentCell: UITableViewCell {
   private lazy var collectionWidthConstraint = collectionView.widthAnchor.constraint(equalToConstant: 0)
   private lazy var tableHightContraint = commentsTable.heightAnchor.constraint(equalToConstant: 0)
   
+  let singleMomentViewModel = SingleMomentViewModel()
   var photos: [Image] = []
   var comments: [Comment] = []
   let space: CGFloat = 10.0
   var addCommentAction: (() -> Void)?
+  
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -53,7 +55,7 @@ class MomentCell: UITableViewCell {
       commentsTable.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 22),
       commentsTable.leadingAnchor.constraint(equalTo:  content.leadingAnchor),
       commentsTable.trailingAnchor.constraint(equalTo: content.trailingAnchor),
-      commentsTable.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
+      commentsTable.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
       addCommentButton.topAnchor.constraint(equalTo: collectionView.bottomAnchor),
       addCommentButton.trailingAnchor.constraint(equalTo: content.trailingAnchor),
       addCommentButton.widthAnchor.constraint(equalToConstant: 20),
@@ -82,7 +84,7 @@ class MomentCell: UITableViewCell {
   
     collectionHightConstraint.constant = getCollectionHeight()
     collectionWidthConstraint.constant = getCollectionWidth()
-    tableHightContraint.constant = CGFloat(self.comments.count * 40)
+    tableHightContraint.constant = singleMomentViewModel.getCommentsHeight(comments)
   }
   
   private func getCollectionHeight() -> CGFloat {

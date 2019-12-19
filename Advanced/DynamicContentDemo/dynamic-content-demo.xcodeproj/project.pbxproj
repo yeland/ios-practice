@@ -17,6 +17,8 @@
 		7C9A9744239572260044EEE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C9A9742239572260044EEE0 /* LaunchScreen.storyboard */; };
 		7C9A974E239573640044EEE0 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9A974D239573640044EEE0 /* NetworkClient.swift */; };
 		7C9A9750239573820044EEE0 /* UIImageView+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9A974F239573820044EEE0 /* UIImageView+Networking.swift */; };
+		F82BA3A823AB50D10016F0F6 /* String+Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BA3A723AB50D10016F0F6 /* String+Height.swift */; };
+		F82BA3AA23AB55A40016F0F6 /* SingleMomentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BA3A923AB55A40016F0F6 /* SingleMomentViewModel.swift */; };
 		F834B88B239F426500DA85D2 /* MomentHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834B88A239F426500DA85D2 /* MomentHeader.swift */; };
 		F834B88D239F42B800DA85D2 /* MomentHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F834B88C239F42B800DA85D2 /* MomentHeader.xib */; };
 		F834B88F239F633800DA85D2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834B88E239F633800DA85D2 /* User.swift */; };
@@ -64,6 +66,8 @@
 		8516F6165F9EC326B39B07D9 /* Pods_dynamic_content_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dynamic_content_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C865F8E73D671253A3ED5BFE /* Pods-dynamic-content-demoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dynamic-content-demoTests.release.xcconfig"; path = "Target Support Files/Pods-dynamic-content-demoTests/Pods-dynamic-content-demoTests.release.xcconfig"; sourceTree = "<group>"; };
 		E080594C7336FFEFC0605E6F /* Pods_dynamic_content_demoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dynamic_content_demoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F82BA3A723AB50D10016F0F6 /* String+Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Height.swift"; sourceTree = "<group>"; };
+		F82BA3A923AB55A40016F0F6 /* SingleMomentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMomentViewModel.swift; sourceTree = "<group>"; };
 		F834B88A239F426500DA85D2 /* MomentHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentHeader.swift; sourceTree = "<group>"; };
 		F834B88C239F42B800DA85D2 /* MomentHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MomentHeader.xib; sourceTree = "<group>"; };
 		F834B88E239F633800DA85D2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 				F834B89823A0CDB900DA85D2 /* ImageCache.swift */,
 				F834B89B23A21E5600DA85D2 /* MemoryStorage.swift */,
 				F834B89D23A21E7900DA85D2 /* DiskStorage.swift */,
+				F82BA3A723AB50D10016F0F6 /* String+Height.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				F8E804382396297900526993 /* MomentsViewModel.swift */,
+				F82BA3A923AB55A40016F0F6 /* SingleMomentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -431,6 +437,7 @@
 				7C9A973C239572230044EEE0 /* MomentViewController.swift in Sources */,
 				F834B89923A0CDB900DA85D2 /* ImageCache.swift in Sources */,
 				F834B88B239F426500DA85D2 /* MomentHeader.swift in Sources */,
+				F82BA3AA23AB55A40016F0F6 /* SingleMomentViewModel.swift in Sources */,
 				F834B89E23A21E7900DA85D2 /* DiskStorage.swift in Sources */,
 				F8E804392396297900526993 /* MomentsViewModel.swift in Sources */,
 				F8E804312396256500526993 /* Moment.swift in Sources */,
@@ -440,6 +447,7 @@
 				7C9A9738239572230044EEE0 /* AppDelegate.swift in Sources */,
 				F834B89C23A21E5600DA85D2 /* MemoryStorage.swift in Sources */,
 				F834B8DC23A8C14900DA85D2 /* MomentFooter.swift in Sources */,
+				F82BA3A823AB50D10016F0F6 /* String+Height.swift in Sources */,
 				7C9A973A239572230044EEE0 /* SceneDelegate.swift in Sources */,
 				7C9A974E239573640044EEE0 /* NetworkClient.swift in Sources */,
 				F8E8044B23979C5D00526993 /* CommentCell.swift in Sources */,
