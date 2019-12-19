@@ -20,7 +20,7 @@
                     </constraints>
                 </activityIndicatorView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSv-Fm-ZK8">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -31,6 +31,7 @@
                 <constraint firstItem="O9L-l3-Q0o" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="EDM-wt-cnP"/>
                 <constraint firstAttribute="trailing" secondItem="HSv-Fm-ZK8" secondAttribute="trailing" id="FhN-bT-iMM"/>
                 <constraint firstItem="HSv-Fm-ZK8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GLF-xe-tjw"/>
+                <constraint firstAttribute="bottom" secondItem="HSv-Fm-ZK8" secondAttribute="bottom" id="U9g-ft-8fQ"/>
                 <constraint firstItem="O9L-l3-Q0o" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Wtg-SH-Q11"/>
                 <constraint firstItem="HSv-Fm-ZK8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="eh3-RM-Ojd"/>
             </constraints>

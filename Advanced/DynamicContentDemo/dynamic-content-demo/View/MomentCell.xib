@@ -30,7 +30,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhm-7m-diC">
-                    <rect key="frame" x="71" y="54" width="327" height="20.5"/>
+                    <rect key="frame" x="71" y="52" width="327" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -46,7 +46,7 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Uew-eW-HnE">
+                <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Uew-eW-HnE">
                     <rect key="frame" x="74" y="223" width="320" height="89"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -65,7 +65,7 @@
             <constraints>
                 <constraint firstItem="bq7-8U-JSN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="G2N-YB-I7d"/>
                 <constraint firstItem="bq7-8U-JSN" firstAttribute="leading" secondItem="M03-Ug-eae" secondAttribute="trailing" constant="10" id="KLH-0M-sDP"/>
-                <constraint firstItem="yhm-7m-diC" firstAttribute="top" secondItem="bq7-8U-JSN" secondAttribute="bottom" constant="10" id="M1h-jP-6us"/>
+                <constraint firstItem="yhm-7m-diC" firstAttribute="top" secondItem="bq7-8U-JSN" secondAttribute="bottom" constant="8" id="M1h-jP-6us"/>
                 <constraint firstItem="M03-Ug-eae" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="18" id="MIH-2W-uOX"/>
                 <constraint firstAttribute="trailing" secondItem="bq7-8U-JSN" secondAttribute="trailing" constant="16" id="MaT-RV-T6J"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="yhm-7m-diC" secondAttribute="bottom" constant="16" id="ZIE-L7-NM1"/>

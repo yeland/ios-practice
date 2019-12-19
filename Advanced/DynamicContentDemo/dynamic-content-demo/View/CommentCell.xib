@@ -24,7 +24,7 @@
             <color key="backgroundColor" red="0.8549770163" green="0.84966660000000005" blue="0.86028743249999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="1Ft-HJ-VIR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="WBk-gz-gie"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="1Ft-HJ-VIR" secondAttribute="bottom" constant="5" id="rKC-vd-BYH"/>
+                <constraint firstAttribute="bottom" secondItem="1Ft-HJ-VIR" secondAttribute="bottom" constant="5" id="rKC-vd-BYH"/>
                 <constraint firstAttribute="trailing" secondItem="1Ft-HJ-VIR" secondAttribute="trailing" constant="5" id="uQM-Sj-iqR"/>
                 <constraint firstItem="1Ft-HJ-VIR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="zkq-w5-eYu"/>
             </constraints>
