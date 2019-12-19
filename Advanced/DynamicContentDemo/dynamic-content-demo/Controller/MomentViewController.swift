@@ -98,8 +98,26 @@ extension MomentViewController: UITableViewDataSource, UITableViewDelegate {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "MomentCell", for: indexPath) as? MomentCell else {
       fatalError("Can not create cell")
     }
-    cell.configure(with: momentViewModel.moments[indexPath.row])
+    cell.configure(with: momentViewModel.moments[indexPath.row]) {
+      self.addCommentAction(row: indexPath.row)
+    }
     return cell
+  }
+  
+  private func addCommentAction(row: Int) {
+    let alert = UIAlertController(title: "Add Comment", message: "please", preferredStyle: .alert)
+    let sendAction = UIAlertAction(title: "send", style: .default) { [weak self] action in
+      guard let textField = alert.textFields?.first, let comment = textField.text else {
+        return
+      }
+      self?.momentViewModel.addComment(row: row, comment: comment)
+      self?.tableView.reloadData()
+    }
+    let cancelAction = UIAlertAction(title: "cancel", style: .cancel)
+    alert.addTextField()
+    alert.addAction(sendAction)
+    alert.addAction(cancelAction)
+    self.present(alert, animated: true)
   }
   
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

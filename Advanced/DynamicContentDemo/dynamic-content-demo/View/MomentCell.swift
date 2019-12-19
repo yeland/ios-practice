@@ -14,6 +14,7 @@ class MomentCell: UITableViewCell {
   @IBOutlet var content: UILabel!
   @IBOutlet var collectionView: UICollectionView!
   @IBOutlet var commentsTable: UITableView!
+  @IBOutlet var addCommentButton: UIButton!
   
   private lazy var collectionHightConstraint = collectionView.heightAnchor.constraint(equalToConstant: 0)
   private lazy var collectionWidthConstraint = collectionView.widthAnchor.constraint(equalToConstant: 0)
@@ -22,6 +23,7 @@ class MomentCell: UITableViewCell {
   var photos: [Image] = []
   var comments: [Comment] = []
   let space: CGFloat = 10.0
+  var addCommentAction: (() -> Void)?
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -34,23 +36,34 @@ class MomentCell: UITableViewCell {
     setupLayout()
   }
   
+  @IBAction func clickToAddComment(_ sender: UIButton) {
+    addCommentAction?()
+  }
+  
   private func setupLayout() {
     collectionView.translatesAutoresizingMaskIntoConstraints = false
     commentsTable.translatesAutoresizingMaskIntoConstraints = false
+    addCommentButton.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
       collectionHightConstraint,
       collectionWidthConstraint,
       collectionView.topAnchor.constraint(equalTo: content.bottomAnchor, constant: 20),
       collectionView.leadingAnchor.constraint(equalTo: content.leadingAnchor),
       tableHightContraint,
-      commentsTable.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 20),
+      commentsTable.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 25),
       commentsTable.leadingAnchor.constraint(equalTo:  content.leadingAnchor),
       commentsTable.trailingAnchor.constraint(equalTo: content.trailingAnchor),
       commentsTable.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
+      addCommentButton.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 2),
+      addCommentButton.trailingAnchor.constraint(equalTo: content.trailingAnchor),
+      addCommentButton.widthAnchor.constraint(equalToConstant: 20),
+      addCommentButton.heightAnchor.constraint(equalToConstant: 20),
     ])
   }
   
-  func configure(with moment: Moment) {
+  func configure(with moment: Moment, addCommentAction: (() -> Void)?) {
+    self.selectionStyle = .none
+    
     photos = moment.images ?? []
     comments = moment.comments ?? []
     collectionView.reloadData()
@@ -65,6 +78,7 @@ class MomentCell: UITableViewCell {
     } else {
       content.text = ""
     }
+    self.addCommentAction = addCommentAction
   
     collectionHightConstraint.constant = getCollectionHeight()
     collectionWidthConstraint.constant = getCollectionWidth()

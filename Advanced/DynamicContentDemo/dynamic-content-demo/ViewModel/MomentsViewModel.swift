@@ -87,4 +87,16 @@ class MomentsViewModel {
   func isAllLoaded() -> Bool {
     return allValidMoments.count == moments.count
   }
+  
+  func addComment(row: Int, comment: String) {
+    let sender = Sender(username: user.username, nick: user.nick, avatar: user.avatar)
+    let comment = Comment(content: comment, sender: sender)
+    if moments[row].comments != nil {
+      moments[row].comments?.append(comment)
+      allValidMoments[row].comments?.append(comment)
+    } else {
+      moments[row].comments = [comment]
+      allValidMoments[row].comments = [comment]
+    }
+  }
 }
